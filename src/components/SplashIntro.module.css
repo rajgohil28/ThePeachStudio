@@ -1,0 +1,148 @@
+.splashScreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #faf6f2; /* Warm brand white */
+  transition: transform var(--transition-slow), opacity var(--transition-slow);
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  animation: subtleZoom 25s ease-out infinite alternate;
+}
+
+.paintCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: none; /* Hide default cursor to render custom paintbrush cursor */
+  opacity: 1;
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.canvasHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom Paintbrush Cursor Icon */
+.customCursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(212, 112, 89, 0.15);
+  border: 1px solid rgba(212, 112, 89, 0.4);
+  box-shadow: 0 0 15px rgba(212, 112, 89, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  transition: width 0.1s, height 0.1s;
+}
+
+.customCursorActive {
+  width: 70px;
+  height: 70px;
+  background: rgba(212, 112, 89, 0.25);
+  border-color: rgba(212, 112, 89, 0.6);
+}
+
+.logoLockup {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  z-index: 10;
+  cursor: default;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.logoIcon {
+  width: 59px;
+  height: 59px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logoWordmark {
+  height: 58.689px;
+  width: 100.872px;
+  object-fit: contain;
+}
+
+.centerContainer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25vh;
+  pointer-events: auto;
+}
+
+.getStartedBtn {
+  background-color: #161616;
+  color: #faf9f5;
+  padding: 16px 48px;
+  border-radius: 13.392px;
+  font-family: var(--font-body);
+  font-size: 24.106px;
+  font-weight: 700;
+  letter-spacing: -0.8437px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.getStartedBtn:hover {
+  background-color: var(--color-accent-terracotta);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(212, 112, 89, 0.35);
+}
+
+.getStartedBtn:active {
+  transform: translateY(-1px) scale(1);
+}
+
+@keyframes subtleZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+/* Animations for hiding screen */
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
+}
