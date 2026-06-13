@@ -20,14 +20,22 @@ const INSTAGRAM_VEC_URL = "https://www.figma.com/api/mcp/asset/dca1cf5f-c35a-4be
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
   return (
     <div className={styles.landingContainer}>
-      {/* Pink Flower Left Decorative Frame */}
-      <div className={styles.flowerLeft}>
-        <img src={PINK_FLOWER_URL} alt="Watercolor Pink Flower Decor Left" className={styles.flowerImg} />
+      {/* Pink Flower Left Decorative Frame with precise Figma Crop */}
+      <div className={styles.flowerLeftContainer}>
+        <div className={styles.cropBox}>
+          <img src={PINK_FLOWER_URL} alt="Watercolor Pink Flower Left" className={styles.flowerLeftImg} />
+        </div>
       </div>
 
-      {/* Pink Flower Right Decorative Frame */}
-      <div className={styles.flowerRight}>
-        <img src={PINK_FLOWER_URL} alt="Watercolor Pink Flower Decor Right" className={styles.flowerImg} />
+      {/* Pink Flower Right Decorative Frame with precise Figma Crop */}
+      <div className={styles.flowerRightContainer}>
+        <div className={styles.rotateContainer}>
+          <div className={styles.flowerRightBox}>
+            <div className={styles.cropBox}>
+              <img src={PINK_FLOWER_URL} alt="Watercolor Pink Flower Right" className={styles.flowerRightImg} />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Central Hero Column */}
