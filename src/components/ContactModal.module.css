@@ -21,54 +21,48 @@
   pointer-events: auto;
 }
 
+/* Modal Card - 30% smaller but extended slightly to 660px to prevent clipping */
 .modalCard {
   background-color: #ffffff;
   border: 1px solid #f3d9d2;
   border-radius: 12px;
-  width: 100%;
-  max-width: 1027px;
-  height: 100%;
-  max-height: 899px;
-  display: grid;
-  grid-template-columns: 502px 1fr;
-  overflow: hidden;
+  width: 720px;
+  height: 660px;
+  max-width: 720px;
+  max-height: 660px;
   box-shadow: 0px 4px 30.6px 0px rgba(0, 0, 0, 0.07);
   position: relative;
+  overflow: hidden;
   transform: scale(0.95) translateY(10px);
   transition: transform var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .overlayActive .modalCard {
   transform: scale(1) translateY(0);
 }
 
-/* Left illustration column */
-.leftCol {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #f7e7e3;
-}
-
+/* Floating Majestic Tree Illustration on Left - Scaled by 30% */
 .treeImg {
   position: absolute;
   left: 0;
-  top: 137px;
-  width: 502px;
-  height: 798px;
+  top: 96px;
+  width: 351px;
+  height: 559px;
   object-fit: contain;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Close button */
+/* Close button - Top Right */
 .closeButton {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
+  top: 17px;
+  right: 17px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   background: none;
   border: none;
   padding: 0;
@@ -84,27 +78,23 @@
   height: 100%;
 }
 
-/* Right form column */
-.rightCol {
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-y: auto;
-  position: relative;
-}
-
+/* Title Block - Top Left - Scaled by 30% */
 .header {
-  margin-bottom: 24px;
+  position: absolute;
+  left: 33px;
+  top: 33px;
+  width: 316px;
+  z-index: 10;
+  text-align: left;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: 40px;
+  font-family: var(--font-body);
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.1;
   color: #1b1b1b;
-  letter-spacing: -1.4px;
+  letter-spacing: -0.98px;
 }
 
 .titleEmphasis {
@@ -112,51 +102,80 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 11.5px;
   font-weight: 400;
   color: #de9381;
-  letter-spacing: -0.56px;
-  margin-top: 11px;
+  letter-spacing: -0.4px;
+  margin-top: 8px;
 }
 
-/* Form inputs & structure */
+/* Form Container - Absolute on Right - Scaled by 30% */
+.formContainer {
+  position: absolute;
+  left: 304px;
+  top: 33px;
+  width: 380px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  width: 100%;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   width: 100%;
 }
 
+/* Double column row for Email/Phone and blank Name-row left spacing */
 .rowInputs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 175px 175px;
+  gap: 10px 14px; /* 10px vertical gap, 14px horizontal gap */
+  width: 100%;
+}
+
+/* Name Row & Input - 393px -> 275px width */
+.nameRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nameFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 275px;
 }
 
 .label {
-  font-size: 16px;
+  font-size: 11.5px;
   font-weight: 500;
   color: #4d2e26;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.4px;
 }
 
 .input, .textarea {
   background-color: #fef9f6;
   border: 0.5px solid #de9381;
-  border-radius: 8px;
-  padding: 14px 16px;
+  border-radius: 6px;
+  padding: 10px 12px;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 11.5px;
   color: #1b1b1b;
   outline: none;
-  box-shadow: 0px 1px 20.9px 0px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.02);
   transition: all var(--transition-fast);
+  box-sizing: border-box;
 }
 
 .input:focus, .textarea:focus {
@@ -166,29 +185,32 @@
 }
 
 .textarea {
-  min-height: 100px;
-  resize: vertical;
+  height: 70px;
+  min-height: 70px;
+  resize: none;
 }
 
-/* Radio Choice Cards */
+/* Radio Cards (You are a...) - Scaled by 30% */
 .radioContainer {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   width: 100%;
 }
 
 .radioCard {
-  flex: 1;
+  width: 175px;
+  height: 52px;
   background-color: #fef9f6;
   border: 0.5px solid #de9381;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 6px;
+  padding: 11px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   cursor: pointer;
   text-align: left;
-  box-shadow: 0px 1px 10.45px 0px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.02);
   transition: all var(--transition-fast);
 }
 
@@ -199,8 +221,8 @@
 }
 
 .radioCircle {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   border: 1px solid #de9381;
   display: flex;
@@ -215,8 +237,8 @@
 }
 
 .radioDot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #d47059;
   transform: scale(0);
@@ -230,35 +252,38 @@
 .radioContent {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .radioTitle {
-  font-size: 16px;
+  font-size: 11.5px;
   font-weight: 500;
   color: #1b1b1b;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.4px;
+  line-height: 1.1;
 }
 
 .radioDesc {
-  font-size: 14px;
+  font-size: 9.8px;
   color: #de9381;
-  letter-spacing: -0.49px;
-  line-height: 1.25;
+  letter-spacing: -0.35px;
+  line-height: 1.15;
 }
 
-/* File reference drag drop */
+/* File reference drag drop - Scaled by 30% */
 .uploadArea {
   background-color: #fef9f6;
   border: 0.5px dashed #de9381;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 6px;
+  height: 70px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 11px;
   cursor: pointer;
-  box-shadow: 0px 1px 10.45px 0px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.02);
   position: relative;
   transition: all var(--transition-fast);
 }
@@ -269,9 +294,9 @@
 }
 
 .uploadIcon {
-  width: 58px;
-  height: 58px;
-  border-radius: 29px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   background-color: #f8e7e3;
   display: flex;
   align-items: center;
@@ -280,28 +305,28 @@
 }
 
 .uploadIconImg {
-  width: 41px;
-  height: 41px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
 .uploadTextCol {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .uploadTitle {
-  font-size: 13px;
+  font-size: 9.5px;
   color: #b4b2b2;
   font-weight: 500;
-  letter-spacing: -0.455px;
+  letter-spacing: -0.32px;
 }
 
 .uploadDesc {
-  font-size: 13px;
+  font-size: 9.5px;
   color: #b4b2b2;
-  letter-spacing: -0.455px;
+  letter-spacing: -0.32px;
 }
 
 .hiddenFileInput {
@@ -316,46 +341,47 @@
 .fileSelectedBadge {
   background-color: #f8e7e3;
   color: #d47059;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 9.5px;
   font-weight: 600;
-  margin-top: 6px;
+  margin-top: 4px;
   align-self: flex-start;
 }
 
-/* Submit Actions */
-.actionsRow {
+/* Submit Block Aligned Right - Scaled by 30% */
+.submitBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 8px;
+  align-self: flex-end; /* Align exactly under right column fields */
+  width: 230px;
+  gap: 6px;
 }
 
 .submitButton {
   background-color: #d47059;
   color: #ffffff;
-  padding: 11px 94px;
-  border-radius: 8px;
-  font-size: 28px;
+  height: 39px;
+  border-radius: 6px;
+  font-size: 19.6px;
   font-weight: 700;
-  letter-spacing: -0.98px;
+  letter-spacing: -0.68px;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  width: 330px;
-  box-shadow: 0px 1px 10.45px 0px rgba(0, 0, 0, 0.03);
+  gap: 17px;
+  width: 230px;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.02);
   transition: all var(--transition-fast);
 }
 
 .submitButton:hover {
   background-color: #cc4d31;
   transform: translateY(-2px);
-  box-shadow: 0px 6px 15px rgba(212, 112, 89, 0.25);
+  box-shadow: 0px 4px 10px rgba(212, 112, 89, 0.2);
 }
 
 .submitButton:disabled {
@@ -366,57 +392,61 @@
 }
 
 .submitArrow {
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  transform: rotate(90deg); /* Rotate 90deg to point right, matching Figma */
+  transform: rotate(90deg); /* points right exactly like Figma */
 }
 
 .submitCaption {
-  font-size: 13px;
+  font-size: 9.5px;
   color: #b4b2b2;
-  letter-spacing: -0.455px;
+  letter-spacing: -0.32px;
   text-align: center;
 }
 
 .divider {
   height: 1px;
   background-color: rgba(212, 112, 89, 0.15);
-  margin: 16px 0;
+  margin: 8px 0 10px;
+  width: 100%;
 }
 
-/* Direct Contacts Footer */
+/* Direct Contacts Footer - Scaled by 30% */
 .directContacts {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 11px;
+  width: 100%;
 }
 
 .directTitle {
-  font-size: 19px;
+  font-size: 13.5px;
   font-weight: 500;
   color: #d47059;
-  letter-spacing: -0.665px;
+  letter-spacing: -0.46px;
   text-align: right;
+  width: 100%;
 }
 
 .directRow {
   display: flex;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 17px;
+  width: 100%;
 }
 
 .directLinkCard {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-decoration: none;
 }
 
 .directIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
   background-color: #f8e7e3;
   display: flex;
   align-items: center;
@@ -425,8 +455,8 @@
 }
 
 .directIconImg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
   object-fit: contain;
 }
 
@@ -436,26 +466,26 @@
 }
 
 .directValue {
-  font-size: 19px;
+  font-size: 13.5px;
   font-weight: 600;
   color: #1b1b1b;
-  letter-spacing: -0.665px;
+  letter-spacing: -0.46px;
   line-height: 1.1;
 }
 
 .directCaption {
-  font-size: 16px;
+  font-size: 11px;
   color: #b4b2b2;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.4px;
   text-align: left;
 }
 
 /* Validation errors */
 .errorText {
   color: #cc4d31;
-  font-size: 13px;
+  font-size: 9.5px;
   font-weight: 600;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 /* Success/Error States */
@@ -465,51 +495,45 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex: 1;
-  padding: 40px 0;
+  width: 100%;
+  height: 294px;
   animation: fadeInState 0.4s ease-out forwards;
 }
 
 .stateIcon {
-  width: 86px;
-  height: 80px;
-  margin-bottom: 32px;
+  width: 60px;
+  height: 56px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: scaleInState 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.stateIconImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .stateTitle {
-  font-family: var(--font-heading);
-  font-size: 40px;
+  font-family: var(--font-body);
+  font-size: 28px;
   font-weight: 700;
   color: #1b1b1b;
-  margin-bottom: 12px;
-  letter-spacing: -1.2px;
+  margin-bottom: 8px;
+  letter-spacing: -0.84px;
 }
 
 .stateDescription {
-  font-size: 19px;
+  font-size: 13.5px;
   color: #de9381;
-  letter-spacing: -0.5px;
-  max-width: 460px;
+  letter-spacing: -0.35px;
+  max-width: 322px;
   line-height: 1.5;
-  margin-bottom: 36px;
+  margin-bottom: 25px;
 }
 
 .stateButton {
   background-color: #d47059;
   color: #ffffff;
-  padding: 12px 96px;
-  border-radius: 8px;
-  font-size: 23px;
+  padding: 8px 67px;
+  border-radius: 6px;
+  font-size: 16px;
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -543,23 +567,70 @@
   }
 }
 
-@media (max-width: 992px) {
+/* Perfect Fluid Transitions for Viewports below 1024px */
+@media (max-width: 1024px) {
   .modalCard {
-    grid-template-columns: 1fr;
+    width: 95vw;
+    height: 95vh;
     max-height: 95vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 32px;
   }
 
-  .leftCol {
-    display: none;
+  .treeImg {
+    display: none; /* Hide sketch on mobile to fit inputs */
   }
 
-  .rightCol {
-    padding: 32px var(--space-lg);
+  .header {
+    position: static;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .formContainer {
+    position: static;
+    width: 100%;
+  }
+
+  .nameFormGroup {
+    width: 100%;
+  }
+
+  .rowInputs {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .radioContainer {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .radioCard {
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+  }
+
+  .submitBlock {
+    align-self: center;
+    width: 100%;
+  }
+
+  .submitButton {
+    width: 100%;
   }
 
   .directRow {
     flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .directTitle {
+    text-align: center;
   }
 }

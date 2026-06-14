@@ -86,17 +86,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Start from top to align Y coordinates precisely */
   text-align: center;
-  padding: 20px var(--space-xl); /* Compact padding to prevent scroll bars */
+  padding: 0 var(--space-xl);
   box-sizing: border-box;
-  gap: 0; /* Strict spacing controlled via margins */
 }
 
 .centerIcon {
   width: 58px;
   height: 58px;
-  margin-bottom: clamp(10px, 2.2vh, 24px);
+  margin-top: 128px; /* Figma top: 128px */
+  margin-bottom: 24px; /* Figma gap: 24px */
 }
 
 .centerIconImg {
@@ -110,23 +110,25 @@
   font-size: 23px;
   font-weight: 600;
   letter-spacing: -0.805px;
-  margin-bottom: clamp(10px, 2.2vh, 24px);
+  margin-bottom: 24px; /* Figma gap: 24px */
   font-family: var(--font-body);
   background: none;
   border: none;
   padding: 0;
   text-transform: none;
+  line-height: 1;
 }
 
 .tagline {
-  font-size: clamp(2rem, 11vh, 142px); /* Scale using vh to prevent height overflow on short laptop screens */
+  font-size: 142px; /* Figma size: 142px */
+  line-height: 0.88; /* Figma line-height: 0.88 */
+  letter-spacing: -4.97px; /* Figma tracking: -4.97px */
   font-family: var(--font-body);
   font-weight: 700;
-  line-height: 0.88;
   color: #242424;
-  letter-spacing: -4.97px;
-  max-width: 900px;
-  margin-bottom: clamp(15px, 3vh, 32px);
+  width: 838px; /* Figma width: 838px */
+  max-width: 838px;
+  margin-bottom: 56px; /* Figma spacing gap */
 }
 
 .taglineEmphasis {
@@ -134,29 +136,31 @@
 }
 
 .description {
-  font-size: clamp(16px, 2.4vh, 28px);
+  font-size: 28px; /* Figma size: 28px */
   font-weight: 400;
   color: #d47059;
-  letter-spacing: -0.98px;
-  margin-bottom: clamp(20px, 4.4vh, 48px);
+  letter-spacing: -0.98px; /* Figma tracking: -0.98px */
+  margin-bottom: 56px; /* Figma spacing gap */
+  line-height: 1.2;
 }
 
 .subDescription {
-  font-size: clamp(14px, 2vh, 23px);
+  font-size: 23px; /* Figma size: 23px */
   font-weight: 500;
   color: #e7b8ac;
-  letter-spacing: -0.805px;
-  margin-bottom: clamp(10px, 2vh, 20px);
+  letter-spacing: 1px; /* Figma tracking: -0.805px */
+  margin-bottom: 12px; /* Figma gap: 12px */
+  line-height: 1.2;
 }
 
 .ctaButton {
   background-color: #d47059;
   color: #ffffff;
-  padding: 16px 48px;
-  border-radius: 8px;
-  font-size: clamp(16px, 2.4vh, 28px);
+  padding: 16px 48px; /* Figma padding: py-16 px-48 */
+  border-radius: 8px; /* Figma border-radius: 8px */
+  font-size: 28px; /* Figma size: 28px */
   font-weight: 700;
-  letter-spacing: -0.98px;
+  letter-spacing: -0.98px; /* Figma tracking: -0.98px */
   border: none;
   cursor: pointer;
   box-shadow: 0px 1px 10.45px rgba(0, 0, 0, 0.03);
@@ -290,7 +294,41 @@
   }
 }
 
-@media (max-width: 992px) {
+/* Strict scaling overrides for viewports with shorter heights */
+@media (max-height: 900px) {
+  .centerIcon {
+    margin-top: 60px;
+    margin-bottom: 16px;
+  }
+
+  .comingSoonBadge {
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    font-size: clamp(2.5rem, 11vh, 120px);
+    width: 100%;
+    max-width: 750px;
+    margin-bottom: 32px;
+  }
+
+  .description {
+    font-size: 22px;
+    margin-bottom: 32px;
+  }
+
+  .subDescription {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .ctaButton {
+    font-size: 22px;
+    padding: 12px 36px;
+  }
+}
+
+@media (max-width: 1024px) {
   .footer {
     height: auto;
     padding: 16px var(--space-lg);
@@ -320,12 +358,34 @@
 }
 
 @media (max-width: 768px) {
+  .centerIcon {
+    margin-top: 40px;
+  }
+
   .tagline {
-    letter-spacing: -2px;
+    font-size: clamp(2rem, 8vw, 72px);
+    letter-spacing: -2.5px;
     margin-bottom: 16px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .comingSoonBadge {
     font-size: 18px;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .subDescription {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .ctaButton {
+    font-size: 18px;
+    padding: 10px 32px;
   }
 }

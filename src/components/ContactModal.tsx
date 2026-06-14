@@ -86,9 +86,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (validate()) {
       setFormState("submitting");
       
-      // Simulate form submission
+      // Simulate form submission delay
       setTimeout(() => {
-        // Simple success rate simulation, always succeed for standard input
         if (formData.email.toLowerCase() === "error@thepeachstudio.com") {
           setFormState("error");
         } else {
@@ -113,7 +112,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const triggerClose = () => {
     onClose();
-    // Reset state after transition completes
     setTimeout(() => {
       handleReset();
     }, 400);
@@ -125,33 +123,34 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <div className={`${styles.modalOverlay} ${isOpen ? styles.overlayActive : ""}`} onClick={triggerClose}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         
-        {/* Left column tree sketch */}
-        <div className={styles.leftCol}>
-          <img src={TREE_ILLUSTRATION_URL} alt="Majestic tree sketch" className={styles.treeImg} />
-        </div>
+        {/* Tree sketch floating absolute on left */}
+        <img src={TREE_ILLUSTRATION_URL} alt="Majestic tree sketch" className={styles.treeImg} />
 
-        {/* Close Button */}
+        {/* Close Button top right */}
         <button className={styles.closeButton} onClick={triggerClose} aria-label="Close form modal">
           <img src={CLOSE_ICON_URL} alt="Close button mark" className={styles.closeIconImg} />
         </button>
 
-        {/* Right content column */}
-        <div className={styles.rightCol}>
-          {formState === "idle" || formState === "submitting" ? (
-            <>
-              {/* Header */}
-              <div className={styles.header}>
-                <h2 className={styles.title}>
-                  Let's make a <span className={styles.titleEmphasis}>story together</span>
-                </h2>
-                <p className={styles.subtitle}>
-                  Tell us what you're dreaming up. We'll help shape the rest.
-                </p>
-              </div>
+        {/* Header Block at top left */}
+        {(formState === "idle" || formState === "submitting") && (
+          <div className={styles.header}>
+            <h2 className={styles.title}>
+              Let's make a <span className={styles.titleEmphasis}>story together</span>
+            </h2>
+            <p className={styles.subtitle}>
+              Tell us what you're dreaming up. We'll help shape the rest.
+            </p>
+          </div>
+        )}
 
-              {/* Form elements */}
-              <form className={styles.form} onSubmit={handleSubmit} noValidate>
-                <div className={styles.formGroup}>
+        {/* Form Block absolute on right */}
+        <div className={styles.formContainer}>
+          {formState === "idle" || formState === "submitting" ? (
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              
+              {/* Row 1: Your Name (exact Figma 393px width aligned right) */}
+              <div className={styles.nameRow}>
+                <div className={styles.nameFormGroup}>
                   <label htmlFor="name" className={styles.label}>Your Name</label>
                   <input
                     type="text"
@@ -164,127 +163,129 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   />
                   {errors.name && <span className={styles.errorText}>{errors.name}</span>}
                 </div>
+              </div>
 
-                <div className={styles.rowInputs}>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="email" className={styles.label}>Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={styles.input}
-                      disabled={formState === "submitting"}
-                    />
-                    {errors.email && <span className={styles.errorText}>{errors.email}</span>}
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="phone" className={styles.label}>Phone Number (optional)</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={styles.input}
-                      disabled={formState === "submitting"}
-                    />
-                  </div>
-                </div>
-
-                {/* You are a... */}
+              {/* Row 2: Email & Phone */}
+              <div className={styles.rowInputs}>
                 <div className={styles.formGroup}>
-                  <span className={styles.label}>You are a...</span>
-                  <div className={styles.radioContainer}>
-                    <div 
-                      className={`${styles.radioCard} ${formData.role === "professional" ? styles.radioCardActive : ""}`}
-                      onClick={() => formState !== "submitting" && handleRoleSelect("professional")}
-                    >
-                      <div className={styles.radioCircle}>
-                        <div className={styles.radioDot} />
-                      </div>
-                      <div className={styles.radioContent}>
-                        <span className={styles.radioTitle}>Professional</span>
-                        <span className={styles.radioDesc}>Architect, interior designer, or business owner</span>
-                      </div>
-                    </div>
-
-                    <div 
-                      className={`${styles.radioCard} ${formData.role === "homeowner" ? styles.radioCardActive : ""}`}
-                      onClick={() => formState !== "submitting" && handleRoleSelect("homeowner")}
-                    >
-                      <div className={styles.radioCircle}>
-                        <div className={styles.radioDot} />
-                      </div>
-                      <div className={styles.radioContent}>
-                        <span className={styles.radioTitle}>Homeowner</span>
-                        <span className={styles.radioDesc}>Looking to bring a story into your home.</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Imagining Textbox */}
-                <div className={styles.formGroup}>
-                  <label htmlFor="message" className={styles.label}>Share what you’re imagining</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                  <label htmlFor="email" className={styles.label}>Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    placeholder="Tell us about the space, the story, or anything else that feels important."
-                    className={styles.textarea}
+                    className={styles.input}
+                    disabled={formState === "submitting"}
+                  />
+                  {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="phone" className={styles.label}>Phone Number (optional)</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={styles.input}
                     disabled={formState === "submitting"}
                   />
                 </div>
+              </div>
 
-                {/* File Upload Dotted Box */}
-                <div className={styles.formGroup}>
-                  <span className={styles.label}>Share a few visual references (optional)</span>
-                  <div className={styles.uploadArea}>
-                    <div className={styles.uploadIcon}>
-                      <img src={UPLOAD_ICON_URL} alt="Upload logo mark" className={styles.uploadIconImg} />
-                    </div>
-                    <div className={styles.uploadTextCol}>
-                      <span className={styles.uploadTitle}>Photos, sketches, moodboards, floor plans, etc</span>
-                      <span className={styles.uploadDesc}>Up to 4 images · JPG, PNG, PDF · Max 10 MB each</span>
-                    </div>
-                    <input
-                      type="file"
-                      ref={fileInputRef}
-                      onChange={handleFileChange}
-                      className={styles.hiddenFileInput}
-                      accept=".jpg,.jpeg,.png,.pdf"
-                      disabled={formState === "submitting"}
-                      aria-label="Upload visual references file"
-                    />
-                  </div>
-                  {selectedFile && (
-                    <span className={styles.fileSelectedBadge}>
-                      ✓ {selectedFile.name} ({(selectedFile.size / (1024 * 1024)).toFixed(2)} MB)
-                    </span>
-                  )}
-                  {errors.file && <span className={styles.errorText}>{errors.file}</span>}
-                </div>
-
-                {/* Actions row */}
-                <div className={styles.actionsRow}>
-                  <button 
-                    type="submit" 
-                    className={styles.submitButton}
-                    disabled={formState === "submitting"}
+              {/* Row 3: You are a... */}
+              <div className={styles.formGroup}>
+                <span className={styles.label}>You are a...</span>
+                <div className={styles.radioContainer}>
+                  <div 
+                    className={`${styles.radioCard} ${formData.role === "professional" ? styles.radioCardActive : ""}`}
+                    onClick={() => formState !== "submitting" && handleRoleSelect("professional")}
                   >
-                    <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
-                    {formState !== "submitting" && (
-                      <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
-                    )}
-                  </button>
-                  <span className={styles.submitCaption}>We'll review your brief and get back to you.</span>
+                    <div className={styles.radioCircle}>
+                      <div className={styles.radioDot} />
+                    </div>
+                    <div className={styles.radioContent}>
+                      <span className={styles.radioTitle}>Professional</span>
+                      <span className={styles.radioDesc}>Architect, interior designer, or business owner</span>
+                    </div>
+                  </div>
+
+                  <div 
+                    className={`${styles.radioCard} ${formData.role === "homeowner" ? styles.radioCardActive : ""}`}
+                    onClick={() => formState !== "submitting" && handleRoleSelect("homeowner")}
+                  >
+                    <div className={styles.radioCircle}>
+                      <div className={styles.radioDot} />
+                    </div>
+                    <div className={styles.radioContent}>
+                      <span className={styles.radioTitle}>Homeowner</span>
+                      <span className={styles.radioDesc}>Looking to bring a story into your home.</span>
+                    </div>
+                  </div>
                 </div>
-              </form>
-            </>
+              </div>
+
+              {/* Row 4: Imagining Textarea */}
+              <div className={styles.formGroup}>
+                <label htmlFor="message" className={styles.label}>Share what you’re imagining</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about the space, the story, or anything else that feels important."
+                  className={styles.textarea}
+                  disabled={formState === "submitting"}
+                />
+              </div>
+
+              {/* Row 5: File references */}
+              <div className={styles.formGroup}>
+                <span className={styles.label}>Share a few visual references (optional)</span>
+                <div className={styles.uploadArea}>
+                  <div className={styles.uploadIcon}>
+                    <img src={UPLOAD_ICON_URL} alt="Upload logo mark" className={styles.uploadIconImg} />
+                  </div>
+                  <div className={styles.uploadTextCol}>
+                    <span className={styles.uploadTitle}>Photos, sketches, moodboards, floor plans, etc</span>
+                    <span className={styles.uploadDesc}>Up to 4 images · JPG, PNG, PDF · Max 10 MB each</span>
+                  </div>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    className={styles.hiddenFileInput}
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    disabled={formState === "submitting"}
+                    aria-label="Upload visual references file"
+                  />
+                </div>
+                {selectedFile && (
+                  <span className={styles.fileSelectedBadge}>
+                    ✓ {selectedFile.name} ({(selectedFile.size / (1024 * 1024)).toFixed(2)} MB)
+                  </span>
+                )}
+                {errors.file && <span className={styles.errorText}>{errors.file}</span>}
+              </div>
+
+              {/* Row 6: Submit actions (aligned to right side) */}
+              <div className={styles.submitBlock}>
+                <button 
+                  type="submit" 
+                  className={styles.submitButton}
+                  disabled={formState === "submitting"}
+                >
+                  <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
+                  {formState !== "submitting" && (
+                    <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
+                  )}
+                </button>
+                <span className={styles.submitCaption}>We'll review your brief and get back to you.</span>
+              </div>
+
+            </form>
           ) : formState === "success" ? (
             /* Success confirmation card screen */
             <div className={styles.stateContainer}>
