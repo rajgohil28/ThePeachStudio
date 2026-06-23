@@ -9,17 +9,19 @@ interface SplashIntroProps {
 }
 
 const SPLASH_IMAGES = [
-  "https://www.figma.com/api/mcp/asset/9692ba7c-cda5-4077-9185-225fe86b5246", // Sea Link Bridge (Image 1)
-  "https://www.figma.com/api/mcp/asset/808c6024-e375-4927-a20a-40627fa90684", // Vibrant flowers (Image 2)
-  "https://www.figma.com/api/mcp/asset/82bde8e4-894a-4b6b-b2b8-7e42d9cfe922", // Forest with birds (Image 3)
-  "https://www.figma.com/api/mcp/asset/42eab491-f1c9-4c5b-86af-6e690044f0db", // Branches and flowers (Image 4)
+  "/images/splash/image1.png", // Sea Link Bridge (Image 1)
+  "/images/splash/image2.png", // Vibrant flowers (Image 2)
+  "/images/splash/image3.png", // Forest with birds (Image 3)
+  "/images/splash/image4.png", // Branches and flowers (Image 4)
 ];
 
-const LOGO_ICON_URL = "https://www.figma.com/api/mcp/asset/06e29e03-8b67-488b-b3bc-a7610d41b3ab";
-const LOGO_WORDMARK_URL = "https://www.figma.com/api/mcp/asset/cf40d218-1acb-4b6b-aac6-a0cec43433dc";
+const LOGO_ICON_URL = "/images/splash/logo-icon.svg"; // Component 25 (peach icon)
+const LOGO_WORDMARK_URL = "/images/splash/logo-wordmark.svg"; // Wordmark (the peach studio.)
+const PAINTBRUSH_ICON_URL = "/images/splash/paintbrush-icon.png"; // Paintbrush icon
 
 export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProps) {
-  const [bgImage, setBgImage] = useState("");
+  // Initialize with the first image to allow synchronous rendering (crucial for SSR match and unit tests)
+  const [bgImage, setBgImage] = useState(SPLASH_IMAGES[0]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
@@ -28,7 +30,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
   const strokeCountRef = useRef(0);
 
   useEffect(() => {
-    // Choose a random splash background image with reload-guarantee
+    // Choose a random splash background image with reload-guarantee on mount
     const prevIndexStr = localStorage.getItem("peach_studio_last_splash_index");
     let nextIndex = Math.floor(Math.random() * SPLASH_IMAGES.length);
 
@@ -42,7 +44,13 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     }
 
     localStorage.setItem("peach_studio_last_splash_index", nextIndex.toString());
-    setBgImage(SPLASH_IMAGES[nextIndex]);
+    
+    // Defer the state update to satisfy eslint rule against synchronous setStates inside effects
+    const timer = setTimeout(() => {
+      setBgImage(SPLASH_IMAGES[nextIndex]);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Initialize and resize canvas
@@ -58,8 +66,8 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Fill with brand warm white `#faf6f2`
-      ctx.fillStyle = "#faf6f2";
+      // Fill with brand canvas color `#e7e4dd` from Figma
+      ctx.fillStyle = "#e7e4dd";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
@@ -67,7 +75,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     window.addEventListener("resize", resizeCanvas);
 
     return () => window.removeEventListener("resize", resizeCanvas);
-  }, [bgImage]); // Reinitialize when background image loads
+  }, []); // Initialize canvas overlay once on mount
 
   const checkRevealPercentage = () => {
     const canvas = canvasRef.current;
@@ -101,7 +109,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
       if (ratio >= 0.5) {
         setIsFullyRevealed(true);
       }
-    } catch (e) {
+    } catch {
       // Gracefully catch security or JSDOM environment errors
     }
   };
@@ -165,6 +173,18 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
   };
 
   // Touch device drawing support (mobile layout swipe reveal)
+  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.touches && e.touches[0]) {
+      const touch = e.touches[0];
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+
+      // Paint on initial touch
+      revealAt(x, y);
+    }
+  };
+
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
     if (e.touches && e.touches[0]) {
       const touch = e.touches[0];
@@ -176,8 +196,6 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
       revealAt(x, y);
     }
   };
-
-  if (!bgImage) return null;
 
   return (
     <div className={`${styles.splashScreen} ${isExiting ? styles.fadeOut : ""}`}>
@@ -193,6 +211,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       />
 
@@ -204,16 +223,39 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
         />
       )}
 
-      {/* Top Left Logo Lockup */}
-      <div className={styles.logoLockup}>
-        <div className={styles.logoIcon}>
-          <img src={LOGO_ICON_URL} alt="Peach Icon" className={styles.logoIconImg} />
+      {/* Top Center "hover to unveil" Badge */}
+      <div className={`${styles.hoverToUnveil} ${isFullyRevealed ? styles.badgeHidden : ""}`}>
+        <div className={styles.paintbrushIcon}>
+          <img src={PAINTBRUSH_ICON_URL} alt="Paintbrush Icon" className={styles.paintbrushImg} />
         </div>
-        <img src={LOGO_WORDMARK_URL} alt="the peach studio" className={styles.logoWordmark} />
+        <p className={styles.hoverText}>
+          <span className={styles.desktopOnly}>hover to unveil</span>
+          <span className={styles.mobileOnly}>scratch to unveil</span>
+        </p>
       </div>
 
-      {/* Center Get Started Container */}
-      <div className={styles.centerContainer}>
+      {/* Large Center Logo Lockup (Fades out when revealed) */}
+      <div className={`${styles.centerLogo} ${isFullyRevealed ? styles.fadeOutLogo : ""}`}>
+        <div className={styles.centerIcon}>
+          <img src={LOGO_ICON_URL} alt="Peach Icon" className={styles.logoIconImg} />
+        </div>
+        <div className={styles.centerWordmark}>
+          <img src={LOGO_WORDMARK_URL} alt="the peach studio" className={styles.logoWordmarkImg} />
+        </div>
+      </div>
+
+      {/* Small Top-Left Logo Lockup (Fades in when revealed) */}
+      <div className={`${styles.topLeftLogo} ${isFullyRevealed ? styles.fadeInLogo : ""}`}>
+        <div className={styles.topLeftIcon}>
+          <img src={LOGO_ICON_URL} alt="Peach Icon" className={styles.logoIconImg} />
+        </div>
+        <div className={styles.topLeftWordmark}>
+          <img src={LOGO_WORDMARK_URL} alt="the peach studio" className={styles.logoWordmarkImg} />
+        </div>
+      </div>
+
+      {/* Bottom Get Started Container */}
+      <div className={styles.getStartedContainer}>
         <button className={styles.getStartedBtn} onClick={onGetStarted}>
           Get Started
         </button>

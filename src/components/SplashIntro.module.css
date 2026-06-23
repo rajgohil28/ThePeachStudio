@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #faf6f2; /* Warm brand white */
+  background-color: #e7e4dd; /* Neutral warm background matching Figma design */
   transition: transform var(--transition-slow), opacity var(--transition-slow);
 }
 
@@ -62,23 +62,132 @@
   border-color: rgba(212, 112, 89, 0.6);
 }
 
-.logoLockup {
+/* Top "hover to unveil" Badge exactly positioned to match Figma top: 110px */
+.hoverToUnveil {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  cursor: default;
+  user-select: none;
+  pointer-events: none; /* Pass-through so scratch reveal registers underneath */
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+.badgeHidden, .badgeHidden * {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Custom exit animation for top badge */
+.hoverToUnveil.badgeHidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.paintbrushIcon {
+  width: 20.774px;
+  height: 20.774px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(161deg); /* Matched to Figma rotate-161 */
+}
+
+.paintbrushImg {
+  width: 16.344px;
+  height: 16.344px;
+  object-fit: contain;
+}
+
+.hoverText {
+  color: #b4b2b2;
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.665px;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Center Logo: large, centered, visible initially, fades out when revealed */
+.centerLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  cursor: default;
+  user-select: none;
+  pointer-events: none; /* Pass-through so scratch reveal registers underneath */
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+}
+
+.fadeOutLogo {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.centerIcon {
+  width: 81px;
+  height: 81px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerWordmark {
+  width: 138.485px;
+  height: 80.573px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Top Left Logo: small, top-left, hidden initially, fades in when revealed */
+.topLeftLogo {
   position: absolute;
   top: 48px;
   left: 48px;
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
   z-index: 10;
   cursor: default;
   user-select: none;
-  pointer-events: auto;
+  pointer-events: none; /* Pass-through so scratch reveal registers underneath */
+  opacity: 0;
+  transition: opacity var(--transition-slow);
 }
 
-.logoIcon {
+.fadeInLogo {
+  opacity: 1 !important;
+}
+
+.topLeftIcon {
   width: 59px;
   height: 59px;
-  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topLeftWordmark {
+  width: 100.872px;
+  height: 58.689px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,45 +199,118 @@
   object-fit: contain;
 }
 
-.logoWordmark {
-  height: 58.689px;
-  width: 100.872px;
+.logoWordmarkImg {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
-.centerContainer {
-  position: relative;
+/* Get Started Button exactly positioned to match Figma top: 639px */
+.getStartedContainer {
+  position: absolute;
+  top: 639px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 25vh;
-  pointer-events: auto;
+  pointer-events: none; /* Container is passthrough */
 }
 
 .getStartedBtn {
-  background-color: #161616;
-  color: #faf9f5;
-  padding: 16px 48px;
-  border-radius: 13.392px;
+  background-color: #1b1b1b; /* Matched to Figma #1b1b1b */
+  color: #faf9f5; /* Matched to Figma #faf9f5 */
+  width: 202.78px;
+  height: 69.5px;
+  border-radius: 13.392px; /* Matched to Figma 13.392px */
   font-family: var(--font-body);
-  font-size: 24.106px;
+  font-size: 24.106px; /* Matched to Figma 24.106px */
   font-weight: 700;
-  letter-spacing: -0.8437px;
+  letter-spacing: -0.8437px; /* Matched to Figma -0.8437px */
   border: none;
   cursor: pointer;
+  pointer-events: auto; /* Active and clickable */
   transition: all var(--transition-fast);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .getStartedBtn:hover {
   background-color: var(--color-accent-terracotta);
-  transform: translateY(-4px) scale(1.03);
+  transform: scale(1.03);
   box-shadow: 0 8px 30px rgba(212, 112, 89, 0.35);
 }
 
 .getStartedBtn:active {
-  transform: translateY(-1px) scale(1);
+  transform: scale(1);
+}
+
+/* Responsive considerations for smaller heights */
+@media (max-height: 800px) {
+  .hoverToUnveil {
+    top: 5vh;
+  }
+  .getStartedContainer {
+    top: auto;
+    bottom: 10vh;
+  }
+}
+
+.desktopOnly {
+  display: inline;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+/* Tablet viewports (iPad Pro 11' alignment) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .getStartedContainer {
+    top: 710px !important;
+  }
+}
+
+/* Mobile viewports (iPhone 13 & 14 alignment) */
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .mobileOnly {
+    display: inline !important;
+  }
+
+  /* Top Left Logo mobile sizing & spacing to match Figma top-[48px] left-[24px] */
+  .topLeftLogo {
+    top: 48px !important;
+    left: 24px !important;
+  }
+
+  .topLeftIcon {
+    width: 43.5px !important;
+    height: 43.5px !important;
+  }
+
+  .topLeftWordmark {
+    width: 74.5px !important;
+    height: 43px !important;
+  }
+
+  /* Get Started button mobile adjustment to match Figma top-[500.89px] */
+  .getStartedContainer {
+    top: 500.89px !important;
+    bottom: auto !important;
+  }
+
+  .getStartedBtn {
+    padding: 16px 48px !important;
+    width: auto !important;
+    height: 50px !important;
+    font-size: 16px !important;
+    letter-spacing: -0.56px !important;
+    border-radius: 13.392px !important;
+  }
 }
 
 @keyframes subtleZoom {

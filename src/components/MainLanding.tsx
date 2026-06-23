@@ -7,15 +7,9 @@ interface MainLandingProps {
   onStartConversation: () => void;
 }
 
-const PINK_FLOWER_URL = "https://www.figma.com/api/mcp/asset/4f9b4686-af74-4281-9372-38b4b2d48867";
-const FOOTER_LOGO_URL = "https://www.figma.com/api/mcp/asset/7467a2ea-7e21-4de4-9542-c0194fb956ac";
-const CENTER_ICON_URL = "https://www.figma.com/api/mcp/asset/018d5e84-760a-41f1-9271-2b8ae09a6a29";
-
-// Social icons background & vectors
-const LINKEDIN_BG_URL = "https://www.figma.com/api/mcp/asset/75781258-a543-4ad4-a978-50a6ae6e0acf";
-const LINKEDIN_VEC_URL = "https://www.figma.com/api/mcp/asset/6df98136-25af-4f35-bea9-ea0c0f77290a";
-const INSTAGRAM_BG_URL = "https://www.figma.com/api/mcp/asset/3ae4db19-4ab0-4176-b596-0d55f72b4efb";
-const INSTAGRAM_VEC_URL = "https://www.figma.com/api/mcp/asset/dca1cf5f-c35a-4be6-a033-6865b3f4adb1";
+const PINK_FLOWER_URL = "/images/landing/pink-flower.png";
+const FOOTER_LOGO_URL = "/images/landing/footer-logo.svg";
+const CENTER_ICON_URL = "/images/landing/center-icon.svg";
 
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
   return (
@@ -59,7 +53,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
         </p>
 
         <p className={styles.subDescription}>
-          In the meantime, we'd love to hear about your project...
+          In the meantime, we&apos;d love to hear about your project...
         </p>
 
         {/* Primary Action Button */}
@@ -80,19 +74,19 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
               className={styles.socialLink}
               aria-label="LinkedIn Profile"
             >
-              <img src={LINKEDIN_BG_URL} alt="LinkedIn Background Circle" className={styles.socialBg} />
-              <img src={LINKEDIN_VEC_URL} alt="LinkedIn Logo Vector" className={styles.socialIcon} />
+              <img src="/images/landing/linkedin-bg.svg" alt="" className={styles.socialBg} />
+              <img src="/images/landing/linkedin-vec.svg" alt="LinkedIn Logo" className={styles.socialIcon} />
             </a>
 
             <a 
-              href="https://www.instagram.com/thepeachstudioofficial/?utm_source=ig_web_button_share_sheet" 
+              href="https://www.instagram.com/thepeachstudio.in/" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.socialLink}
               aria-label="Instagram Profile"
             >
-              <img src={INSTAGRAM_BG_URL} alt="Instagram Background Circle" className={styles.socialBg} />
-              <img src={INSTAGRAM_VEC_URL} alt="Instagram Logo Vector" className={styles.socialIcon} />
+              <img src="/images/landing/instagram-bg.svg" alt="" className={styles.socialBg} />
+              <img src="/images/landing/instagram-vec.svg" alt="Instagram Logo" className={styles.socialIcon} />
             </a>
           </div>
 

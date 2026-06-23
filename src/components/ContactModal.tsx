@@ -8,12 +8,12 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
-const TREE_ILLUSTRATION_URL = "https://www.figma.com/api/mcp/asset/519f660a-ba63-4b69-8612-f2c60c4e9e99";
-const CLOSE_ICON_URL = "https://www.figma.com/api/mcp/asset/df6b62d1-6771-436d-945a-fca10da3dfc2";
-const UPLOAD_ICON_URL = "https://www.figma.com/api/mcp/asset/a85bc481-5207-4acd-9140-e974a2006773";
-const SUBMIT_ARROW_URL = "https://www.figma.com/api/mcp/asset/07625521-a950-4ad0-868c-6408c65dce34";
-const PHONE_ICON_URL = "https://www.figma.com/api/mcp/asset/29d842b3-447b-40a3-9c04-2292c407fa6c";
-const EMAIL_ICON_URL = "https://www.figma.com/api/mcp/asset/15eb65c6-382f-49bf-ba83-b6ce2c0c072c";
+const TREE_ILLUSTRATION_URL = "/images/contact/tree-illustration.png";
+const CLOSE_ICON_URL = "/images/contact/close-icon.svg";
+const UPLOAD_ICON_URL = "/images/contact/upload-icon.svg";
+const SUBMIT_ARROW_URL = "/images/contact/submit-arrow.svg";
+const PHONE_ICON_URL = "/images/contact/phone-icon.svg";
+const EMAIL_ICON_URL = "/images/contact/email-icon.svg";
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
@@ -135,10 +135,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         {(formState === "idle" || formState === "submitting") && (
           <div className={styles.header}>
             <h2 className={styles.title}>
-              Let's make a <span className={styles.titleEmphasis}>story together</span>
+              Let&apos;s make a <span className={styles.titleEmphasis}>story together</span>
             </h2>
             <p className={styles.subtitle}>
-              Tell us what you're dreaming up. We'll help shape the rest.
+              Tell us what you&apos;re dreaming up. We&apos;ll help shape the rest.
             </p>
           </div>
         )}
@@ -203,8 +203,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     className={`${styles.radioCard} ${formData.role === "professional" ? styles.radioCardActive : ""}`}
                     onClick={() => formState !== "submitting" && handleRoleSelect("professional")}
                   >
-                    <div className={styles.radioCircle}>
-                      <div className={styles.radioDot} />
+                    <div className={styles.radioIconContainer}>
+                      <img 
+                        src={formData.role === "professional" ? "/images/contact/radio-checked.png" : "/images/contact/radio-unchecked.png"} 
+                        alt="" 
+                        className={styles.radioIcon} 
+                      />
                     </div>
                     <div className={styles.radioContent}>
                       <span className={styles.radioTitle}>Professional</span>
@@ -216,8 +220,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     className={`${styles.radioCard} ${formData.role === "homeowner" ? styles.radioCardActive : ""}`}
                     onClick={() => formState !== "submitting" && handleRoleSelect("homeowner")}
                   >
-                    <div className={styles.radioCircle}>
-                      <div className={styles.radioDot} />
+                    <div className={styles.radioIconContainer}>
+                      <img 
+                        src={formData.role === "homeowner" ? "/images/contact/radio-checked.png" : "/images/contact/radio-unchecked.png"} 
+                        alt="" 
+                        className={styles.radioIcon} 
+                      />
                     </div>
                     <div className={styles.radioContent}>
                       <span className={styles.radioTitle}>Homeowner</span>
@@ -282,7 +290,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
                   )}
                 </button>
-                <span className={styles.submitCaption}>We'll review your brief and get back to you.</span>
+                <span className={styles.submitCaption}>We&apos;ll review your brief and get back to you.</span>
               </div>
 
             </form>
@@ -290,11 +298,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             /* Success confirmation card screen */
             <div className={styles.stateContainer}>
               <div className={styles.stateIcon}>
-                <svg viewBox="0 0 24 24" width="86" height="80" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" style={{color: '#d47059'}} aria-hidden="true">
-                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                </svg>
+                <img src="/images/contact/success-icon.png" alt="" className={styles.stateIconImg} />
               </div>
-              <h2 className={styles.stateTitle}>Thank you for sharing your story!</h2>
+              <h2 className={styles.stateTitle}>
+                Thank you for sharing <span className={styles.stateTitleEmphasis}>your story!</span>
+              </h2>
               <p className={styles.stateDescription}>
                 We will review your project brief carefully and get back to you soon.
               </p>
@@ -306,13 +314,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             /* Error confirmation card screen */
             <div className={styles.stateContainer}>
               <div className={styles.stateIcon}>
-                <svg viewBox="0 0 24 24" width="86" height="80" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" style={{color: '#d47059'}} aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <img src="/images/contact/error-icon.png" alt="" className={styles.stateIconImg} />
               </div>
-              <h2 className={styles.stateTitle}>Hmm, your story didn't reach us :(</h2>
+              <h2 className={styles.stateTitle}>Hmm, your story didn&apos;t reach us :(</h2>
               <p className={styles.stateDescription}>
                 Something interrupted the submission. Please try again.
               </p>

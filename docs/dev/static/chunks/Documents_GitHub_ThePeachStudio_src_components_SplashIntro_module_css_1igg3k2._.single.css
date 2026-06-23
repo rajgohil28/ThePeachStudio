@@ -1,0 +1,320 @@
+/* [project]/Documents/GitHub/ThePeachStudio/src/components/SplashIntro.module.css [app-client] (css) */
+.SplashIntro-module__ixBXpq__splashScreen {
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  transition: transform var(--transition-slow), opacity var(--transition-slow);
+  background-color: #e7e4dd;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.SplashIntro-module__ixBXpq__bgImage {
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  animation: 25s ease-out infinite alternate SplashIntro-module__ixBXpq__subtleZoom;
+  position: absolute;
+  inset: 0;
+}
+
+.SplashIntro-module__ixBXpq__paintCanvas {
+  z-index: 2;
+  cursor: none;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1.2s cubic-bezier(.25, 1, .5, 1);
+  position: absolute;
+  inset: 0;
+}
+
+.SplashIntro-module__ixBXpq__canvasHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.SplashIntro-module__ixBXpq__customCursor {
+  pointer-events: none;
+  z-index: 100;
+  background: #d4705926;
+  border: 1px solid #d4705966;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: width .1s, height .1s;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px #d4705933, inset 0 0 10px #fff6;
+}
+
+.SplashIntro-module__ixBXpq__customCursorActive {
+  background: #d4705940;
+  border-color: #d4705999;
+  width: 70px;
+  height: 70px;
+}
+
+.SplashIntro-module__ixBXpq__hoverToUnveil {
+  z-index: 10;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+  align-items: center;
+  gap: 4px;
+  display: flex;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.SplashIntro-module__ixBXpq__badgeHidden, .SplashIntro-module__ixBXpq__badgeHidden * {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.SplashIntro-module__ixBXpq__hoverToUnveil.SplashIntro-module__ixBXpq__badgeHidden {
+  opacity: 0;
+  transform: translateX(-50%)translateY(-20px);
+}
+
+.SplashIntro-module__ixBXpq__paintbrushIcon {
+  justify-content: center;
+  align-items: center;
+  width: 20.774px;
+  height: 20.774px;
+  display: flex;
+  transform: rotate(161deg);
+}
+
+.SplashIntro-module__ixBXpq__paintbrushImg {
+  object-fit: contain;
+  width: 16.344px;
+  height: 16.344px;
+}
+
+.SplashIntro-module__ixBXpq__hoverText {
+  color: #b4b2b2;
+  font-family: var(--font-body);
+  letter-spacing: -.665px;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.SplashIntro-module__ixBXpq__centerLogo {
+  z-index: 10;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.SplashIntro-module__ixBXpq__fadeOutLogo {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.SplashIntro-module__ixBXpq__centerIcon {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 81px;
+  height: 81px;
+  display: flex;
+}
+
+.SplashIntro-module__ixBXpq__centerWordmark {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 138.485px;
+  height: 80.573px;
+  display: flex;
+}
+
+.SplashIntro-module__ixBXpq__topLeftLogo {
+  z-index: 10;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 48px;
+  left: 48px;
+}
+
+.SplashIntro-module__ixBXpq__fadeInLogo {
+  opacity: 1 !important;
+}
+
+.SplashIntro-module__ixBXpq__topLeftIcon {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 59px;
+  height: 59px;
+  display: flex;
+}
+
+.SplashIntro-module__ixBXpq__topLeftWordmark {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100.872px;
+  height: 58.689px;
+  display: flex;
+}
+
+.SplashIntro-module__ixBXpq__logoIconImg, .SplashIntro-module__ixBXpq__logoWordmarkImg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.SplashIntro-module__ixBXpq__getStartedContainer {
+  z-index: 10;
+  pointer-events: none;
+  position: absolute;
+  top: 639px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.SplashIntro-module__ixBXpq__getStartedBtn {
+  color: #faf9f5;
+  width: 202.78px;
+  height: 69.5px;
+  font-family: var(--font-body);
+  letter-spacing: -.8437px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all var(--transition-fast);
+  background-color: #1b1b1b;
+  border: none;
+  border-radius: 13.392px;
+  justify-content: center;
+  align-items: center;
+  font-size: 24.106px;
+  font-weight: 700;
+  display: flex;
+  box-shadow: 0 4px 20px #00000026;
+}
+
+.SplashIntro-module__ixBXpq__getStartedBtn:hover {
+  background-color: var(--color-accent-terracotta);
+  transform: scale(1.03);
+  box-shadow: 0 8px 30px #d4705959;
+}
+
+.SplashIntro-module__ixBXpq__getStartedBtn:active {
+  transform: scale(1);
+}
+
+@media (max-height: 800px) {
+  .SplashIntro-module__ixBXpq__hoverToUnveil {
+    top: 5vh;
+  }
+
+  .SplashIntro-module__ixBXpq__getStartedContainer {
+    top: auto;
+    bottom: 10vh;
+  }
+}
+
+.SplashIntro-module__ixBXpq__desktopOnly {
+  display: inline;
+}
+
+.SplashIntro-module__ixBXpq__mobileOnly {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .SplashIntro-module__ixBXpq__getStartedContainer {
+    top: 710px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .SplashIntro-module__ixBXpq__desktopOnly {
+    display: none !important;
+  }
+
+  .SplashIntro-module__ixBXpq__mobileOnly {
+    display: inline !important;
+  }
+
+  .SplashIntro-module__ixBXpq__topLeftLogo {
+    top: 48px !important;
+    left: 24px !important;
+  }
+
+  .SplashIntro-module__ixBXpq__topLeftIcon {
+    width: 43.5px !important;
+    height: 43.5px !important;
+  }
+
+  .SplashIntro-module__ixBXpq__topLeftWordmark {
+    width: 74.5px !important;
+    height: 43px !important;
+  }
+
+  .SplashIntro-module__ixBXpq__getStartedContainer {
+    top: 500.89px !important;
+    bottom: auto !important;
+  }
+
+  .SplashIntro-module__ixBXpq__getStartedBtn {
+    letter-spacing: -.56px !important;
+    border-radius: 13.392px !important;
+    width: auto !important;
+    height: 50px !important;
+    padding: 16px 48px !important;
+    font-size: 16px !important;
+  }
+}
+
+@keyframes SplashIntro-module__ixBXpq__subtleZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+.SplashIntro-module__ixBXpq__fadeOut {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
+}
+
+/*# sourceMappingURL=Documents_GitHub_ThePeachStudio_src_components_SplashIntro_module_css_1igg3k2._.single.css.map*/

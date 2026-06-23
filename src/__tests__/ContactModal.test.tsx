@@ -31,7 +31,8 @@ describe("ContactModal Component", () => {
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
-      expect(screen.getByText(/Thank you for sharing your story/i)).toBeInTheDocument();
+      expect(screen.getByText(/Thank you for sharing/i)).toBeInTheDocument();
+      expect(screen.getByText(/your story!/i)).toBeInTheDocument();
     }, { timeout: 1500 });
   });
 });

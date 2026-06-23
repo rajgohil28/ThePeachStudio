@@ -125,7 +125,7 @@
   letter-spacing: -4.97px; /* Figma tracking: -4.97px */
   font-family: var(--font-body);
   font-weight: 700;
-  color: #242424;
+  color: #1b1b1b;
   width: 838px; /* Figma width: 838px */
   max-width: 838px;
   margin-bottom: 56px; /* Figma spacing gap */
@@ -328,36 +328,116 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .footer {
-    height: auto;
-    padding: 16px var(--space-lg);
-  }
-
-  .footerRow {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .contacts {
-    align-items: center;
-  }
-
+/* Tablet Media Query Range (768px to 1024px) based on Figma node 1095:878 (iPad Pro 11' - 8) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .flowerLeftContainer {
-    opacity: 0.15;
-    left: -250px;
+    left: -98px;
+    top: 663px;
+    width: 284px;
+    height: 548px;
     animation: none;
+    transform: none;
+  }
+
+  .flowerLeftImg {
+    left: -253.75%;
+    top: -0.01%;
+    width: 353.75%;
+    height: 100.03%;
   }
 
   .flowerRightContainer {
-    opacity: 0.15;
-    right: -350px;
+    left: 455px;
+    top: -223px;
+    width: 554px;
+    height: 599px;
     animation: none;
+    transform: none;
+  }
+
+  .rotateContainer {
+    transform: rotate(-144deg);
+  }
+
+  .flowerRightBox {
+    width: 311.242px;
+    height: 514.766px;
+  }
+
+  .flowerRightImg {
+    left: 0;
+    top: -0.01%;
+    width: 303.3%;
+    height: 100.03%;
+  }
+
+  .centerIcon {
+    margin-top: 128px;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 24px;
+  }
+
+  .comingSoonBadge {
+    font-size: 23px;
+    margin-bottom: 24px;
+    color: #d47059;
+  }
+
+  .tagline {
+    font-size: 118px;
+    line-height: 0.88;
+    letter-spacing: -4.13px;
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 834px;
+  }
+
+  .description {
+    font-size: 23px;
+    color: #d47059;
+    margin-bottom: 16px;
+  }
+
+  .subDescription {
+    font-size: 19px;
+    color: #e7b8ac;
+    margin-bottom: 24px;
+  }
+
+  .ctaButton {
+    font-size: 23px;
+    padding: 16px 48px;
+    background-color: #d47059;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+
+  .footer {
+    height: 115px; /* Strict height matching figma */
+    padding: 12px 48px 8px;
+    background-color: #f7e7e3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footerRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contacts {
+    align-items: flex-end; /* Right side aligned as in figma */
+    text-align: right;
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile Media Query Range (max-width: 767px) */
+@media (max-width: 767px) {
   .centerIcon {
     margin-top: 40px;
   }
@@ -387,5 +467,33 @@
   .ctaButton {
     font-size: 18px;
     padding: 10px 32px;
+  }
+
+  .footer {
+    height: auto;
+    padding: 16px var(--space-lg);
+  }
+
+  .footerRow {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .contacts {
+    align-items: center;
+    text-align: center;
+  }
+
+  .flowerLeftContainer {
+    opacity: 0.15;
+    left: -250px;
+    animation: none;
+  }
+
+  .flowerRightContainer {
+    opacity: 0.15;
+    right: -350px;
+    animation: none;
   }
 }

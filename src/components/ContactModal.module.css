@@ -220,11 +220,9 @@
   box-shadow: 0px 0px 0px 3px rgba(212, 112, 89, 0.15);
 }
 
-.radioCircle {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid #de9381;
+.radioIconContainer {
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,21 +230,10 @@
   transition: all var(--transition-fast);
 }
 
-.radioCardActive .radioCircle {
-  border-color: #d47059;
-}
-
-.radioDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #d47059;
-  transform: scale(0);
-  transition: transform var(--transition-fast);
-}
-
-.radioCardActive .radioDot {
-  transform: scale(1);
+.radioIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 .radioContent {
@@ -508,6 +495,16 @@
   align-items: center;
   justify-content: center;
   animation: scaleInState 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stateIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stateTitleEmphasis {
+  color: #d47059;
 }
 
 .stateTitle {
