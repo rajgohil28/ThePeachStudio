@@ -11,11 +11,7 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const handleGetStarted = () => {
-    setIsExitingSplash(true);
-    // Wait for the exit animation transition (800ms) to complete before switching view
-    setTimeout(() => {
-      setCurrentStep("landing");
-    }, 800);
+    setCurrentStep("landing");
   };
 
   const handleStartConversation = () => {

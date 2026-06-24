@@ -15,14 +15,15 @@
 /* Floral visual placements with exact Figma crop and scale */
 .flowerLeftContainer {
   position: absolute;
-  left: -165px;
-  top: 111px;
-  width: 493px;
-  height: 951px;
+  left: -171px; /* 20% smaller than -214px */
+  bottom: 0; /* Exactly touching the absolute bottom */
+  top: auto;
+  width: 513px; /* 20% smaller than 641px */
+  height: 989px; /* 20% smaller than 1236px */
   pointer-events: none;
   z-index: 1;
   opacity: 0.95;
-  transform-origin: left center;
+  transform-origin: left bottom;
   animation: breatheLeft 16s ease-in-out infinite alternate;
 }
 
@@ -44,7 +45,7 @@
 
 .flowerRightContainer {
   position: absolute;
-  left: calc(58.33% + 42px);
+  right: -306px; /* Anchor relative to the right edge of a 1512px design frame */
   top: -308px;
   width: 893.988px;
   height: 966.552px;
@@ -331,10 +332,11 @@
 /* Tablet Media Query Range (768px to 1024px) based on Figma node 1095:878 (iPad Pro 11' - 8) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .flowerLeftContainer {
-    left: -98px;
-    top: 663px;
-    width: 284px;
-    height: 548px;
+    left: -102px; /* 20% smaller than -127px */
+    bottom: 0; /* Exactly touching the absolute bottom */
+    top: auto;
+    width: 295px; /* 20% smaller than 369px */
+    height: 570px; /* 20% smaller than 712px */
     animation: none;
     transform: none;
   }
@@ -347,7 +349,8 @@
   }
 
   .flowerRightContainer {
-    left: 455px;
+    left: auto;
+    right: -175px;
     top: -223px;
     width: 554px;
     height: 599px;
@@ -372,7 +375,7 @@
   }
 
   .centerIcon {
-    margin-top: 128px;
+    margin-top: 207px; /* Exact top distance to center icon */
     width: 58px;
     height: 58px;
     margin-bottom: 24px;
@@ -380,29 +383,35 @@
 
   .comingSoonBadge {
     font-size: 23px;
+    font-weight: 600;
+    letter-spacing: -0.805px;
     margin-bottom: 24px;
     color: #d47059;
   }
 
   .tagline {
-    font-size: 118px;
+    font-size: clamp(80px, 14vw, 118px); /* Scale gracefully to prevent ugly wraps on 768px widths */
     line-height: 0.88;
     letter-spacing: -4.13px;
-    margin-bottom: 32px;
+    margin-bottom: 96px; /* Exact Figma gap between tagline bottom (y=544) and description top (y=640) */
     width: 100%;
     max-width: 834px;
+    padding: 0 16px;
   }
 
   .description {
     font-size: 23px;
+    letter-spacing: -0.805px;
     color: #d47059;
-    margin-bottom: 16px;
+    margin-bottom: 64px; /* Exact Figma gap between description bottom (y=663) and subdescription top (y=727) */
   }
 
   .subDescription {
     font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.665px;
     color: #e7b8ac;
-    margin-bottom: 24px;
+    margin-bottom: 16px; /* Exact Figma gap between subdescription bottom (y=746) and ctaButton top (y=762) */
   }
 
   .ctaButton {
@@ -434,66 +443,216 @@
     align-items: flex-end; /* Right side aligned as in figma */
     text-align: right;
   }
+
+  .contactLabel {
+    font-size: 13px; /* Match text-[13px] on tablet */
+    letter-spacing: -0.455px;
+  }
+
+  .contactEmail, .contactPhone {
+    font-size: 16px; /* Match text-[16px] on tablet */
+    letter-spacing: -0.56px;
+    color: #1b1b1b;
+  }
 }
 
 /* Mobile Media Query Range (max-width: 767px) */
 @media (max-width: 767px) {
-  .centerIcon {
-    margin-top: 40px;
+  .mainContent {
+    padding-top: 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
   }
 
-  .tagline {
-    font-size: clamp(2rem, 8vw, 72px);
-    letter-spacing: -2.5px;
-    margin-bottom: 16px;
-    width: 100%;
-    max-width: 100%;
+  .centerIcon {
+    width: 44px;
+    height: 44px;
+    margin-top: 0;
+    margin-bottom: 32px;
   }
 
   .comingSoonBadge {
-    font-size: 18px;
+    font-size: 19px;
+    letter-spacing: -0.665px;
+    margin-bottom: 32px;
+  }
+
+  .tagline {
+    font-size: 40px;
+    line-height: 0.88;
+    letter-spacing: -1.4px;
+    width: 270px;
+    max-width: 270px;
+    margin-bottom: 36px;
   }
 
   .description {
-    font-size: 18px;
-    margin-bottom: 24px;
+    font-size: 16px;
+    letter-spacing: -0.56px;
+    color: #d47059;
+    width: 220px;
+    max-width: 220px;
+    margin-bottom: 26px;
+    line-height: 1.2;
   }
 
   .subDescription {
-    font-size: 15px;
-    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e7b8ac;
+    letter-spacing: -0.455px;
+    margin-bottom: 8px;
+    line-height: 1.2;
   }
 
   .ctaButton {
-    font-size: 18px;
-    padding: 10px 32px;
+    width: 250px;
+    height: 48px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.665px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #d47059;
+    box-shadow: 0px 1px 10.45px rgba(0, 0, 0, 0.03);
   }
 
   .footer {
-    height: auto;
-    padding: 16px var(--space-lg);
+    height: 316px;
+    padding: 32px 0;
+    background-color: #f7e7e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 28px;
+    box-sizing: border-box;
   }
 
   .footerRow {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
+    display: contents;
+  }
+
+  .footerLogo {
+    order: 1;
+    height: 57px;
+    width: 99px;
+    object-fit: contain;
+  }
+
+  .socials {
+    order: 2;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socialLink:first-child {
+    width: 46.38px;
+    height: 45.74px;
+  }
+
+  .socialLink:last-child {
+    width: 50.01px;
+    height: 45.84px;
+  }
+
+  .socialIcon {
+    padding: 11px;
   }
 
   .contacts {
+    order: 3;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 4px;
   }
 
+  .contactLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: #d47059;
+    letter-spacing: -0.455px;
+    margin-bottom: 4px;
+  }
+
+  .contactEmail, .contactPhone {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1b1b1b;
+    letter-spacing: -0.56px;
+    line-height: 1.1;
+  }
+
+  .copyrightRow {
+    order: 4;
+    border-top: none;
+    padding-top: 0;
+    font-size: 13px;
+    color: #646464;
+    letter-spacing: -0.455px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Decorative Flowers */
   .flowerLeftContainer {
-    opacity: 0.15;
-    left: -250px;
+    opacity: 0.95;
+    left: -25px;
+    top: 420px;
+    bottom: auto;
+    width: 107px;
+    height: 206px;
     animation: none;
+    transform: none;
+  }
+
+  .flowerLeftImg {
+    left: -253.75%;
+    top: -0.01%;
+    width: 353.75%;
+    height: 100.03%;
   }
 
   .flowerRightContainer {
-    opacity: 0.15;
-    right: -350px;
+    opacity: 0.95;
+    left: 262px;
+    right: auto;
+    top: -60px;
+    width: 181.922px;
+    height: 196.698px;
     animation: none;
+    transform: none;
+  }
+
+  .rotateContainer {
+    transform: rotate(-144deg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flowerRightBox {
+    width: 102.137px;
+    height: 168.925px;
+    position: relative;
+  }
+
+  .flowerRightImg {
+    left: 0;
+    top: -0.01%;
+    width: 303.3%;
+    height: 100.03%;
   }
 }

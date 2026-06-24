@@ -28,22 +28,27 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
   const [isClicking, setIsClicking] = useState(false);
   const [isFullyRevealed, setIsFullyRevealed] = useState(false);
   const strokeCountRef = useRef(0);
+  const hasInteracted = useRef(false);
 
   useEffect(() => {
-    // Choose a random splash background image with reload-guarantee on mount
-    const prevIndexStr = localStorage.getItem("peach_studio_last_splash_index");
     let nextIndex = Math.floor(Math.random() * SPLASH_IMAGES.length);
+    try {
+      // Choose a random splash background image with reload-guarantee on mount
+      const prevIndexStr = localStorage.getItem("peach_studio_last_splash_index");
 
-    if (prevIndexStr !== null) {
-      const prevIndex = parseInt(prevIndexStr, 10);
-      if (SPLASH_IMAGES.length > 1) {
-        while (nextIndex === prevIndex) {
-          nextIndex = Math.floor(Math.random() * SPLASH_IMAGES.length);
+      if (prevIndexStr !== null) {
+        const prevIndex = parseInt(prevIndexStr, 10);
+        if (SPLASH_IMAGES.length > 1) {
+          while (nextIndex === prevIndex) {
+            nextIndex = Math.floor(Math.random() * SPLASH_IMAGES.length);
+          }
         }
       }
-    }
 
-    localStorage.setItem("peach_studio_last_splash_index", nextIndex.toString());
+      localStorage.setItem("peach_studio_last_splash_index", nextIndex.toString());
+    } catch {
+      // Safely default and ignore blocked localStorage access (e.g. private mode, iframe, restricted cookie settings)
+    }
     
     // Defer the state update to satisfy eslint rule against synchronous setStates inside effects
     const timer = setTimeout(() => {
@@ -52,6 +57,16 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Automatically trigger transition to landing page when background is fully revealed
+  useEffect(() => {
+    if (isFullyRevealed) {
+      const timer = setTimeout(() => {
+        onGetStarted();
+      }, 1000); // 1-second delay for cinematic finish
+      return () => clearTimeout(timer);
+    }
+  }, [isFullyRevealed, onGetStarted]);
 
   // Initialize and resize canvas
   useEffect(() => {
@@ -66,8 +81,8 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Fill with brand canvas color `#e7e4dd` from Figma
-      ctx.fillStyle = "#e7e4dd";
+      // Fill with semi-transparent brand canvas color `rgba(231, 228, 221, 0.98)` for glassy fog effect
+      ctx.fillStyle = "rgba(231, 228, 221, 0.98)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
@@ -106,7 +121,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
       }
 
       const ratio = transparentCount / totalCount;
-      if (ratio >= 0.5) {
+      if (ratio >= 0.3) {
         setIsFullyRevealed(true);
       }
     } catch {
@@ -127,7 +142,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     ctx.globalCompositeOperation = "destination-out";
 
     // Draw a beautiful soft watercolor radial gradient brush
-    const brushRadius = 70;
+    const brushRadius = 49;
     const gradient = ctx.createRadialGradient(x, y, 10, x, y, brushRadius);
     gradient.addColorStop(0, "rgba(0, 0, 0, 1.0)");
     gradient.addColorStop(0.4, "rgba(0, 0, 0, 0.6)");
@@ -145,8 +160,73 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     }
   };
 
+  // Auto-arc reveal animation on mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    let animationFrameId: number;
+    let timeoutId = setTimeout(() => {
+      if (hasInteracted.current) return;
+
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const radius = Math.min(window.innerWidth * 0.25, window.innerHeight * 0.25);
+
+      const startAngle = Math.PI * 0.5; // Top Center
+      const endAngle = -Math.PI * 0.5; // Bottom Center
+      const duration = 1500; // Smooth 1.5s sweep
+      const startTime = performance.now();
+
+      setIsHovering(true);
+
+      const animateArc = (now: number) => {
+        if (hasInteracted.current) {
+          setIsHovering(false);
+          return;
+        }
+
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // easeInOutCubic for a very professional and natural paintbrush feel
+        const easeProgress = progress < 0.5 
+          ? 4 * progress * progress * progress 
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        const currentAngle = startAngle - (startAngle - endAngle) * easeProgress;
+        
+        const x = cx + radius * Math.cos(currentAngle);
+        const y = cy - radius * Math.sin(currentAngle);
+
+        setCursorPos({ x, y });
+        revealAt(x, y);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animateArc);
+        } else {
+          // Completed. Fade out the paintbrush tip after a beautiful 600ms trailing pause
+          setTimeout(() => {
+            if (!hasInteracted.current) {
+              setIsHovering(false);
+            }
+          }, 600);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(animateArc);
+    }, 800); // 800ms elegant breathing space on initial load
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
   // Mouse move drawing and cursor tracing
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    hasInteracted.current = true;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -161,10 +241,12 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
   };
 
   const handleMouseLeave = () => {
+    if (!hasInteracted.current) return;
     setIsHovering(false);
   };
 
   const handleMouseDown = () => {
+    hasInteracted.current = true;
     setIsClicking(true);
   };
 
@@ -174,6 +256,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
 
   // Touch device drawing support (mobile layout swipe reveal)
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    hasInteracted.current = true;
     if (e.touches && e.touches[0]) {
       const touch = e.touches[0];
       const rect = e.currentTarget.getBoundingClientRect();
@@ -186,6 +269,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    hasInteracted.current = true;
     if (e.touches && e.touches[0]) {
       const touch = e.touches[0];
       const rect = e.currentTarget.getBoundingClientRect();
@@ -252,13 +336,6 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
         <div className={styles.topLeftWordmark}>
           <img src={LOGO_WORDMARK_URL} alt="the peach studio" className={styles.logoWordmarkImg} />
         </div>
-      </div>
-
-      {/* Bottom Get Started Container */}
-      <div className={styles.getStartedContainer}>
-        <button className={styles.getStartedBtn} onClick={onGetStarted}>
-          Get Started
-        </button>
       </div>
     </div>
   );

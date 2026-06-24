@@ -382,7 +382,6 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
-  transform: rotate(90deg); /* points right exactly like Figma */
 }
 
 .submitCaption {

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import SplashIntro from "@/components/SplashIntro";
 import { vi, describe, it, expect } from "vitest";
 
@@ -10,16 +10,8 @@ describe("SplashIntro Component", () => {
     expect(images.length).toBeGreaterThanOrEqual(2);
   });
 
-  it("renders Get Started button", () => {
+  it("does not render Get Started button anymore", () => {
     render(<SplashIntro onGetStarted={vi.fn()} isExiting={false} />);
-    expect(screen.getByRole("button", { name: /Get Started/i })).toBeInTheDocument();
-  });
-
-  it("calls onGetStarted when clicked", () => {
-    const mockOnGetStarted = vi.fn();
-    render(<SplashIntro onGetStarted={mockOnGetStarted} isExiting={false} />);
-    const button = screen.getByRole("button", { name: /Get Started/i });
-    fireEvent.click(button);
-    expect(mockOnGetStarted).toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: /Get Started/i })).not.toBeInTheDocument();
   });
 });

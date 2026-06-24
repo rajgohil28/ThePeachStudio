@@ -33,6 +33,8 @@
   cursor: none; /* Hide default cursor to render custom paintbrush cursor */
   opacity: 1;
   transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(20px); /* Beautiful glassy foggy window effect */
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .canvasHidden {
@@ -43,8 +45,8 @@
 /* Custom Paintbrush Cursor Icon */
 .customCursor {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: rgba(212, 112, 89, 0.15);
   border: 1px solid rgba(212, 112, 89, 0.4);
@@ -56,8 +58,8 @@
 }
 
 .customCursorActive {
-  width: 70px;
-  height: 70px;
+  width: 49px;
+  height: 49px;
   background: rgba(212, 112, 89, 0.25);
   border-color: rgba(212, 112, 89, 0.6);
 }
@@ -212,10 +214,12 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  pointer-events: none; /* Container is passthrough */
+  pointer-events: auto; /* Active and clickable container */
 }
 
 .getStartedBtn {
+  position: relative; /* Guarantee relative position for explicit stacking */
+  z-index: 11; /* Ensure z-index is higher than the canvas z-index: 2 */
   background-color: #1b1b1b; /* Matched to Figma #1b1b1b */
   color: #faf9f5; /* Matched to Figma #faf9f5 */
   width: 202.78px;

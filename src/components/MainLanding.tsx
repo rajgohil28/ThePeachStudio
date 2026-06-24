@@ -14,7 +14,7 @@ const CENTER_ICON_URL = "/images/landing/center-icon.svg";
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
   return (
     <div className={styles.landingContainer}>
-      {/* Pink Flower Left Decorative Frame with precise Figma Crop */}
+      {/* Pink Flower Left Decorative Frame with precise Figma Crop (Anchored at absolute bottom) */}
       <div className={styles.flowerLeftContainer}>
         <div className={styles.cropBox}>
           <img src={PINK_FLOWER_URL} alt="Watercolor Pink Flower Left" className={styles.flowerLeftImg} />
