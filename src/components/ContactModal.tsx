@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import { getAssetPath } from "@/utils/paths";
 import styles from "./ContactModal.module.css";
 
 interface ContactModalProps {
@@ -8,12 +9,16 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
-const TREE_ILLUSTRATION_URL = "/images/contact/tree-illustration.png";
-const CLOSE_ICON_URL = "/images/contact/close-icon.svg";
-const UPLOAD_ICON_URL = "/images/contact/upload-icon.svg";
-const SUBMIT_ARROW_URL = "/images/contact/submit-arrow.svg";
-const PHONE_ICON_URL = "/images/contact/phone-icon.svg";
-const EMAIL_ICON_URL = "/images/contact/email-icon.svg";
+const TREE_ILLUSTRATION_URL = getAssetPath("/images/contact/tree-illustration.png");
+const CLOSE_ICON_URL = getAssetPath("/images/contact/close-icon.svg");
+const UPLOAD_ICON_URL = getAssetPath("/images/contact/upload-icon.svg");
+const SUBMIT_ARROW_URL = getAssetPath("/images/contact/submit-arrow.svg");
+const PHONE_ICON_URL = getAssetPath("/images/contact/phone-icon.svg");
+const EMAIL_ICON_URL = getAssetPath("/images/contact/email-icon.svg");
+const RADIO_CHECKED_URL = getAssetPath("/images/contact/radio-checked.png");
+const RADIO_UNCHECKED_URL = getAssetPath("/images/contact/radio-unchecked.png");
+const SUCCESS_ICON_URL = getAssetPath("/images/contact/success-icon.png");
+const ERROR_ICON_URL = getAssetPath("/images/contact/error-icon.png");
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
@@ -205,7 +210,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   >
                     <div className={styles.radioIconContainer}>
                       <img 
-                        src={formData.role === "professional" ? "/images/contact/radio-checked.png" : "/images/contact/radio-unchecked.png"} 
+                        src={formData.role === "professional" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
                         alt="" 
                         className={styles.radioIcon} 
                       />
@@ -222,7 +227,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   >
                     <div className={styles.radioIconContainer}>
                       <img 
-                        src={formData.role === "homeowner" ? "/images/contact/radio-checked.png" : "/images/contact/radio-unchecked.png"} 
+                        src={formData.role === "homeowner" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
                         alt="" 
                         className={styles.radioIcon} 
                       />
@@ -298,7 +303,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             /* Success confirmation card screen */
             <div className={styles.stateContainer}>
               <div className={styles.stateIcon}>
-                <img src="/images/contact/success-icon.png" alt="" className={styles.stateIconImg} />
+                <img src={SUCCESS_ICON_URL} alt="" className={styles.stateIconImg} />
               </div>
               <h2 className={styles.stateTitle}>
                 Thank you for sharing <span className={styles.stateTitleEmphasis}>your story!</span>
@@ -314,7 +319,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             /* Error confirmation card screen */
             <div className={styles.stateContainer}>
               <div className={styles.stateIcon}>
-                <img src="/images/contact/error-icon.png" alt="" className={styles.stateIconImg} />
+                <img src={ERROR_ICON_URL} alt="" className={styles.stateIconImg} />
               </div>
               <h2 className={styles.stateTitle}>Hmm, your story didn&apos;t reach us :(</h2>
               <p className={styles.stateDescription}>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { getAssetPath } from "@/utils/paths";
 import styles from "./SplashIntro.module.css";
 
 interface SplashIntroProps {
@@ -9,15 +10,15 @@ interface SplashIntroProps {
 }
 
 const SPLASH_IMAGES = [
-  "/images/splash/image1.png", // Sea Link Bridge (Image 1)
-  "/images/splash/image2.png", // Vibrant flowers (Image 2)
-  "/images/splash/image3.png", // Forest with birds (Image 3)
-  "/images/splash/image4.png", // Branches and flowers (Image 4)
+  getAssetPath("/images/splash/image1.png"), // Sea Link Bridge (Image 1)
+  getAssetPath("/images/splash/image2.png"), // Vibrant flowers (Image 2)
+  getAssetPath("/images/splash/image3.png"), // Forest with birds (Image 3)
+  getAssetPath("/images/splash/image4.png"), // Branches and flowers (Image 4)
 ];
 
-const LOGO_ICON_URL = "/images/splash/logo-icon.svg"; // Component 25 (peach icon)
-const LOGO_WORDMARK_URL = "/images/splash/logo-wordmark.svg"; // Wordmark (the peach studio.)
-const PAINTBRUSH_ICON_URL = "/images/splash/paintbrush-icon.png"; // Paintbrush icon
+const LOGO_ICON_URL = getAssetPath("/images/splash/logo-icon.svg"); // Component 25 (peach icon)
+const LOGO_WORDMARK_URL = getAssetPath("/images/splash/logo-wordmark.svg"); // Wordmark (the peach studio.)
+const PAINTBRUSH_ICON_URL = getAssetPath("/images/splash/paintbrush-icon.png"); // Paintbrush icon
 
 export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProps) {
   // Initialize with the first image to allow synchronous rendering (crucial for SSR match and unit tests)
@@ -165,7 +166,7 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     if (typeof window === "undefined") return;
 
     let animationFrameId: number;
-    let timeoutId = setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (hasInteracted.current) return;
 
       const cx = window.innerWidth / 2;

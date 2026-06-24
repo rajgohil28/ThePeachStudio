@@ -1,15 +1,20 @@
 "use client";
 
 import React from "react";
+import { getAssetPath } from "@/utils/paths";
 import styles from "./MainLanding.module.css";
 
 interface MainLandingProps {
   onStartConversation: () => void;
 }
 
-const PINK_FLOWER_URL = "/images/landing/pink-flower.png";
-const FOOTER_LOGO_URL = "/images/landing/footer-logo.svg";
-const CENTER_ICON_URL = "/images/landing/center-icon.svg";
+const PINK_FLOWER_URL = getAssetPath("/images/landing/pink-flower.png");
+const FOOTER_LOGO_URL = getAssetPath("/images/landing/footer-logo.svg");
+const CENTER_ICON_URL = getAssetPath("/images/landing/center-icon.svg");
+const LINKEDIN_BG_URL = getAssetPath("/images/landing/linkedin-bg.svg");
+const LINKEDIN_VEC_URL = getAssetPath("/images/landing/linkedin-vec.svg");
+const INSTAGRAM_BG_URL = getAssetPath("/images/landing/instagram-bg.svg");
+const INSTAGRAM_VEC_URL = getAssetPath("/images/landing/instagram-vec.svg");
 
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
   return (
@@ -74,8 +79,8 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
               className={styles.socialLink}
               aria-label="LinkedIn Profile"
             >
-              <img src="/images/landing/linkedin-bg.svg" alt="" className={styles.socialBg} />
-              <img src="/images/landing/linkedin-vec.svg" alt="LinkedIn Logo" className={styles.socialIcon} />
+              <img src={LINKEDIN_BG_URL} alt="" className={styles.socialBg} />
+              <img src={LINKEDIN_VEC_URL} alt="LinkedIn Logo" className={styles.socialIcon} />
             </a>
 
             <a 
@@ -85,8 +90,8 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
               className={styles.socialLink}
               aria-label="Instagram Profile"
             >
-              <img src="/images/landing/instagram-bg.svg" alt="" className={styles.socialBg} />
-              <img src="/images/landing/instagram-vec.svg" alt="Instagram Logo" className={styles.socialIcon} />
+              <img src={INSTAGRAM_BG_URL} alt="" className={styles.socialBg} />
+              <img src={INSTAGRAM_VEC_URL} alt="Instagram Logo" className={styles.socialIcon} />
             </a>
           </div>
 
