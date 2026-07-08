@@ -34,7 +34,7 @@ describe("Home Page Integration Flow", () => {
 
     // 5. Verify that Splash screen has been unmounted and MainLanding tagline is now displayed
     expect(screen.queryByTestId("splash-mock")).not.toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/We’re building our story\.\.\./i);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/meaningful art\.\.\.\s*memorable spaces!/i);
     expect(screen.getByRole("button", { name: /Start a Conversation/i })).toBeInTheDocument();
   });
 });
