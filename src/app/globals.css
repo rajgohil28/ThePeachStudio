@@ -50,9 +50,9 @@
 
 html, body {
   max-width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: hidden; /* Lock viewport scroll for perfect single-page dashboard fit */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
