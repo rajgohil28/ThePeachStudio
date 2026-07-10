@@ -1040,59 +1040,663 @@
 
 
 /* RESPONSIVE MEDIA QUERY ADAPTATIONS */
-@media (max-width: 1024px) {
-  .floatingGrid {
-    display: none; /* hide floating absolute cards on medium screens to keep it elegant */
+
+/* Tablet viewports (iPad Pro 11' alignment) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Hero Section Sizing and Aspect Ratio */
+  .heroSection {
+    min-height: auto !important;
+    height: 1194px !important;
+    padding: 0 !important;
   }
 
-  .curatedHeading, .processTitle, .offeringsTitle, .testimonialsTitle, .teamTitle {
-    font-size: 45px;
+  .heroWrapper {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 834px !important;
+    aspect-ratio: 834 / 1194 !important;
+    overflow: hidden !important;
+  }
+
+  /* Keep floating polaroids layout visible on tablet */
+  .floatingGrid {
+    display: block !important;
+  }
+
+  /* High-fidelity positioning based on the Figma tablet design values */
+  .card1 {
+    left: -7.55% !important;
+    top: 23.87% !important;
+    width: 26.21% !important;
+    height: 15.60% !important;
+    transform: rotate(4.96deg) !important;
+  }
+
+  .card2 {
+    left: -7.55% !important;
+    top: 46.73% !important;
+    width: 21.62% !important;
+    height: 21.41% !important;
+    transform: rotate(-8.37deg) !important;
+  }
+
+  .card3 {
+    left: 84.17% !important;
+    top: 56.45% !important;
+    width: 31.63% !important;
+    height: 16.57% !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .card4 {
+    left: 81.41% !important;
+    top: 23.87% !important;
+    width: 27.93% !important;
+    height: 22.81% !important;
+    transform: rotate(4.69deg) !important;
+  }
+
+  .card5 {
+    left: -11.63% !important;
+    top: -7.04% !important;
+    width: 49.53% !important;
+    height: 21.04% !important;
+    transform: rotate(-4.61deg) !important;
+  }
+
+  .card6 {
+    left: 59.35% !important;
+    top: 81.41% !important;
+    width: 33.54% !important;
+    height: 29.54% !important;
+    transform: rotate(6.06deg) !important;
+  }
+
+  .card7 {
+    left: 51.56% !important;
+    top: -7.04% !important;
+    width: 45.22% !important;
+    height: 23.78% !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .card8 {
+    left: 5.52% !important;
+    top: 74.87% !important;
+    width: 40.46% !important;
+    height: 36.61% !important;
+    transform: rotate(-2.98deg) !important;
+  }
+
+  /* Slogan Logo / Typography Sizing */
+  .peachIcon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .peachWordmark {
+    height: 48px !important;
+  }
+
+  .logoAndMark {
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .heroHeading {
+    font-size: 48px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -1.2px !important;
+  }
+
+  /* Vision Section Sizing */
+  .visionSection {
+    padding: 80px 0 !important;
+  }
+
+  .visionText {
+    font-size: 23px !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.805px !important;
+  }
+
+  /* Curated Works Typography & Row Heights */
+  .curatedHeading {
+    font-size: 48px !important;
+    letter-spacing: -0.96px !important;
+  }
+
+  .curatedEmphasis {
+    font-size: 57px !important;
+    letter-spacing: -1.14px !important;
+  }
+
+  .projectRow {
+    height: 112px !important;
+  }
+
+  .projectTitle {
+    font-size: 28px !important;
+    letter-spacing: -0.56px !important;
+  }
+
+  /* Process Timeline Layout */
+  .processSection {
+    padding: 80px 0 !important;
+  }
+
+  .processSubtitle {
+    font-size: 19px !important;
+    letter-spacing: -0.665px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .processTitle {
+    font-size: 48px !important;
+    letter-spacing: -0.96px !important;
+  }
+
+  .processEmphasis {
+    font-size: 57px !important;
+    letter-spacing: -1.14px !important;
   }
 
   .processGrid {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 60px 40px !important;
+  }
+
+  .processNumber {
+    font-size: 148px !important;
+    line-height: 240px !important;
+  }
+
+  .stepTitle {
+    font-size: 33px !important;
+    letter-spacing: -0.66px !important;
+  }
+
+  .stepDescription {
+    font-size: 16px !important;
+  }
+
+  /* Offerings Centered Header & Grid List columns */
+  .offeringsSection {
+    padding: 80px 0 !important;
   }
 
   .offeringsContainer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .verticalDivider {
-    display: none;
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    gap: 40px !important;
+    justify-items: center !important;
   }
 
   .offeringsTitleCol {
-    width: 100%;
-    margin-bottom: 24px;
+    grid-column: 1 / -1 !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
   }
 
-  .testimonialsGrid, .teamGrid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  /* Hide the first divider, keep the second one */
+  .offeringsTitleCol + .verticalDivider {
+    display: none !important;
   }
 
+  .verticalDivider {
+    display: block !important;
+    height: 220px !important;
+  }
+
+  .offeringsSubtitle {
+    font-size: 19px !important;
+    letter-spacing: -0.665px !important;
+  }
+
+  .offeringsTitle {
+    font-size: 48px !important;
+    letter-spacing: -0.96px !important;
+  }
+
+  .offeringsEmphasis {
+    font-size: 57px !important;
+    letter-spacing: -1.14px !important;
+  }
+
+  .offeringsHeader {
+    font-size: 28px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .offeringsList {
+    gap: 20px !important;
+  }
+
+  .offeringsList li {
+    font-size: 23px !important;
+    letter-spacing: -0.69px !important;
+    gap: 12px !important;
+  }
+
+  .offeringsList li::before {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  /* Testimonials Stacked Cards Sizing */
+  .testimonialsSection {
+    padding: 80px 0 !important;
+  }
+
+  .testimonialsSubtitle {
+    font-size: 19px !important;
+  }
+
+  .testimonialsTitle {
+    font-size: 48px !important;
+  }
+
+  .testimonialsEmphasis {
+    font-size: 57px !important;
+  }
+
+  .testimonialsGrid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .testimonialCard {
+    padding: 30px !important;
+    min-height: auto !important;
+  }
+
+  .quoteText {
+    font-size: 19px !important;
+    letter-spacing: -0.38px !important;
+  }
+
+  .authorName {
+    font-size: 19px !important;
+  }
+
+  .authorRole {
+    font-size: 13px !important;
+  }
+
+  /* Peachy Team Section Side-by-Side Grid */
+  .teamSection {
+    padding: 80px 0 !important;
+    background-color: #ffffff !important;
+  }
+
+  .teamHeaderRow {
+    max-width: 834px !important;
+    padding: 0 32px !important;
+    margin: 0 auto 80px auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 20px !important;
+  }
+
+  .teamTitleBox {
+    text-align: left !important;
+  }
+
+  .teamSubtitle {
+    font-size: 23px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .teamTitle {
+    font-size: 48px !important;
+  }
+
+  .teamEmphasis {
+    font-size: 57px !important;
+  }
+
+  .teamSubDesc {
+    font-size: 13px !important;
+    width: 276px !important;
+    text-align: right !important;
+    color: rgba(17, 74, 107, 0.4) !important;
+  }
+
+  .teamGrid {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 64px !important;
+    max-width: 770px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Maitreyee Card Sizing & Image Crops */
+  .teamGrid > div:first-child {
+    width: 276px !important;
+    flex: none !important;
+  }
+
+  .teamGrid > div:first-child .headshotContainer {
+    position: relative !important;
+    width: 217px !important;
+    height: 217px !important;
+    border-radius: 10.716px !important;
+    overflow: hidden !important;
+    background-color: #fcf5f3 !important;
+    margin: 0 auto 24px auto !important;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .teamGrid > div:first-child .headshotImg {
+    position: absolute !important;
+    width: 210.679px !important;
+    height: 251.018px !important;
+    left: 3.57px !important;
+    top: -33.93px !important;
+    max-width: none !important;
+    object-fit: cover !important;
+  }
+
+  /* Poorva Card Sizing & Image Crops */
+  .teamGrid > div:last-child {
+    width: 308px !important;
+    flex: none !important;
+  }
+
+  .teamGrid > div:last-child .headshotContainer {
+    position: relative !important;
+    width: 217px !important;
+    height: 217px !important;
+    border-radius: 10.716px !important;
+    overflow: hidden !important;
+    background-color: #fcf5f3 !important;
+    margin: 0 auto 24px auto !important;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .teamGrid > div:last-child .headshotImg {
+    position: absolute !important;
+    width: 315.007px !important;
+    height: 420.01px !important;
+    left: -49.12px !important;
+    top: -108.05px !important;
+    max-width: none !important;
+    object-fit: cover !important;
+  }
+
+  .profileName {
+    font-size: 33px !important;
+    line-height: 1.1 !important;
+  }
+
+  .profileRole {
+    font-size: 19px !important;
+  }
+
+  .profileDescription {
+    font-size: 16px !important;
+    letter-spacing: -0.32px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* CTA Conversation section */
+  .ctaSection {
+    padding: 80px 0 !important;
+  }
+
+  .ctaTitle {
+    font-size: 40px !important;
+  }
+
+  .ctaEmphasis {
+    font-size: 48px !important;
+  }
+
+  .ctaDescription {
+    font-size: 16px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .ctaButton {
+    font-size: 19px !important;
+    padding: 16px 36px !important;
+  }
+
+  /* High-fidelity tablet footer styling */
   .footerSection {
-    height: auto;
-    padding-bottom: 40px;
+    height: 115px !important;
   }
 
   .footerContainer {
-    height: auto;
-    padding-top: 40px;
-    gap: 40px;
+    padding: 20px var(--space-xl) !important;
+    justify-content: center !important;
+    gap: 16px !important;
   }
 
   .footerMainGrid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-    justify-items: center;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .footerWordmarkIcon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .footerWordmark {
+    height: 32px !important;
+  }
+
+  .socialCol {
+    justify-content: flex-start !important;
+  }
+
+  .socialLink {
+    width: 44px !important;
+    height: 40px !important;
+  }
+
+  .socialIconVec {
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .contactCol {
-    align-items: center;
-    text-align: center;
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+
+  .contactHeader {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .contactLink {
+    font-size: 16px !important;
+  }
+
+  .footerDivider {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+
+  .metadataRow {
+    font-size: 11px !important;
+    gap: 12px !important;
+  }
+}
+
+/* Mobile viewports (iPhone alignment) */
+@media (max-width: 767px) {
+  .floatingGrid {
+    display: none; /* hide floating absolute cards on mobile screens to keep it elegant */
+  }
+
+  .heroHeading {
+    font-size: 40px !important;
+    line-height: 1.2 !important;
+  }
+
+  .peachIcon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .peachWordmark {
+    height: 44px !important;
+  }
+
+  .logoAndMark {
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .visionSection {
+    padding: 60px 0 !important;
+  }
+
+  .visionText {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+  }
+
+  .curatedHeading, .processTitle, .offeringsTitle, .testimonialsTitle, .teamTitle {
+    font-size: 36px !important;
+  }
+
+  .curatedEmphasis, .processEmphasis, .offeringsEmphasis, .testimonialsEmphasis, .teamEmphasis {
+    font-size: 42px !important;
+  }
+
+  .projectRow {
+    height: 100px !important;
+  }
+
+  .projectTitle {
+    font-size: 22px !important;
+  }
+
+  .processGrid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  .processNumber {
+    font-size: 120px !important;
+    line-height: 1 !important;
+  }
+
+  .stepTitle {
+    font-size: 26px !important;
+  }
+
+  .stepDescription {
+    font-size: 15px !important;
+  }
+
+  .offeringsContainer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+  }
+
+  .verticalDivider {
+    display: none !important;
+  }
+
+  .offeringsTitleCol {
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .offeringsHeader {
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .offeringsList {
+    gap: 16px !important;
+  }
+
+  .offeringsList li {
+    font-size: 20px !important;
+  }
+
+  .testimonialsGrid, .teamGrid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .testimonialCard {
+    padding: 24px !important;
+    min-height: auto !important;
+  }
+
+  .quoteText {
+    font-size: 18px !important;
+  }
+
+  .headshotContainer {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .profileName {
+    font-size: 28px !important;
+  }
+
+  .profileRole {
+    font-size: 18px !important;
+  }
+
+  .profileDescription {
+    font-size: 15px !important;
+  }
+
+  .ctaTitle {
+    font-size: 32px !important;
+  }
+
+  .ctaEmphasis {
+    font-size: 38px !important;
+  }
+
+  .ctaDescription {
+    font-size: 15px !important;
+  }
+
+  .ctaButton {
+    font-size: 18px !important;
+    padding: 12px 28px !important;
+  }
+
+  .footerSection {
+    height: auto !important;
+    padding-bottom: 40px !important;
+  }
+
+  .footerContainer {
+    height: auto !important;
+    padding-top: 40px !important;
+    gap: 40px !important;
+  }
+
+  .footerMainGrid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .contactCol {
+    align-items: center !important;
+    text-align: center !important;
   }
 }

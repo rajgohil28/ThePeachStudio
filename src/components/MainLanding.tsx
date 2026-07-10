@@ -75,17 +75,59 @@ const TESTIMONIALS = [
   }
 ];
 
-export default function MainLanding({ onStartConversation }: MainLandingProps) {
-  const [hoveredProject, setHoveredProject] = useState<any | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+interface Project {
+  id: string;
+  title: string;
+  image: string;
+}
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+export default function MainLanding({ onStartConversation }: MainLandingProps) {
+  const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const hoveredProjectRef = React.useRef<Project | null>(null);
+
+  React.useEffect(() => {
+    hoveredProjectRef.current = hoveredProject;
+  }, [hoveredProject]);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window === "undefined" || window.innerWidth > 1024) return;
+
+      const rows = document.querySelectorAll(`[data-project-id]`);
+      let closestProject: string | null = null;
+      let minDistance = Infinity;
+      const viewportCenter = window.innerHeight / 2;
+
+      rows.forEach((row) => {
+        const rect = row.getBoundingClientRect();
+        const rectCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - rectCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestProject = row.getAttribute("data-project-id");
+        }
+      });
+
+      if (closestProject) {
+        const projectObj = PORTFOLIO_PROJECTS.find((p) => p.id === closestProject);
+        if (projectObj && (!hoveredProjectRef.current || hoveredProjectRef.current.id !== projectObj.id)) {
+          setHoveredProject(projectObj);
+        }
+      }
+    };
+
+    // Initialize on load and resize
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   return (
     <div className={styles.landingContainer}>
@@ -172,9 +214,18 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             return (
               <div 
                 key={project.id} 
+                data-project-id={project.id}
                 className={`${styles.projectRow} ${isHovered ? styles.activeRow : ""}`}
-                onMouseEnter={() => setHoveredProject(project)}
-                onMouseLeave={() => setHoveredProject(null)}
+                onMouseEnter={() => {
+                  if (typeof window !== "undefined" && window.innerWidth > 1024) {
+                    setHoveredProject(project);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (typeof window !== "undefined" && window.innerWidth > 1024) {
+                    setHoveredProject(null);
+                  }
+                }}
               >
                 {/* Hardware-accelerated background image layer */}
                 <div 
