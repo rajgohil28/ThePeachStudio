@@ -10,8 +10,13 @@ interface MainLandingProps {
 
 // Existing Assets
 const PINK_FLOWER_URL = getAssetPath("/images/landing/pink-flower.png");
-const FOOTER_LOGO_URL = getAssetPath("/images/landing/footer-logo.svg");
-const CENTER_ICON_URL = getAssetPath("/images/landing/center-icon.svg");
+
+// Brand logo — true vectors recoloured to the primary peach (#D47059). The
+// icon is the peach fruit; the light variants are for the dark footer.
+const PEACH_ICON_URL = getAssetPath("/images/landing/peach-icon.svg");
+const PEACH_WORDMARK_URL = getAssetPath("/images/landing/peach-wordmark.svg");
+const PEACH_ICON_LIGHT_URL = getAssetPath("/images/landing/peach-icon-light.svg");
+const PEACH_WORDMARK_LIGHT_URL = getAssetPath("/images/landing/peach-wordmark-light.svg");
 const LINKEDIN_BG_URL = getAssetPath("/images/landing/linkedin-bg.svg");
 const LINKEDIN_VEC_URL = getAssetPath("/images/landing/linkedin-vec.svg");
 const INSTAGRAM_BG_URL = getAssetPath("/images/landing/instagram-bg.svg");
@@ -21,15 +26,17 @@ const INSTAGRAM_VEC_URL = getAssetPath("/images/landing/instagram-vec.svg");
 const MAITREYEE_HEADSHOT = getAssetPath("/images/landing/maitreyee-headshot.png");
 const POORVA_HEADSHOT = getAssetPath("/images/landing/poorva-headshot.png");
 const FOOTER_BG = getAssetPath("/images/landing/footer-bg.png");
-const HERO_FLOATING_1 = getAssetPath("/images/landing/hero-floating-1.png");
-const HERO_FLOATING_2 = getAssetPath("/images/landing/hero-floating-2.png");
-const HERO_FLOATING_3 = getAssetPath("/images/landing/hero-floating-3.png");
-const HERO_FLOATING_4 = getAssetPath("/images/landing/hero-floating-4.png");
-const HERO_FLOATING_5 = getAssetPath("/images/landing/hero-floating-5.png");
-const HERO_FLOATING_6 = getAssetPath("/images/landing/hero-floating-6.png");
-const HERO_FLOATING_7 = getAssetPath("/images/landing/hero-floating-7.png");
-const HERO_FLOATING_8 = getAssetPath("/images/landing/hero-floating-8.png");
+const HERO_FLOATING_1 = getAssetPath("/images/landing/hero-floating-1.jpg");
+const HERO_FLOATING_2 = getAssetPath("/images/landing/hero-floating-2.jpg");
+const HERO_FLOATING_3 = getAssetPath("/images/landing/hero-floating-3.jpg");
+const HERO_FLOATING_4 = getAssetPath("/images/landing/hero-floating-4.jpg");
+const HERO_FLOATING_5 = getAssetPath("/images/landing/hero-floating-5.jpg");
+const HERO_FLOATING_6 = getAssetPath("/images/landing/hero-floating-6.jpg");
+const HERO_FLOATING_7 = getAssetPath("/images/landing/hero-floating-7.jpg");
+const HERO_FLOATING_8 = getAssetPath("/images/landing/hero-floating-8.jpg");
 const HERO_ORNAMENT = getAssetPath("/images/landing/hero-ornament.svg");
+const INTRO_SEP_1 = getAssetPath("/images/landing/intro-sep-1.svg");
+const INTRO_SEP_2 = getAssetPath("/images/landing/intro-sep-2.svg");
 const QUOTE_ICON = getAssetPath("/images/landing/quote-icon.svg");
 const PROCESS_DECOR_1 = getAssetPath("/images/landing/process-decor-1.svg");
 const PROCESS_DECOR_2 = getAssetPath("/images/landing/process-decor-2.svg");
@@ -173,8 +180,8 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           {/* Central Core Logo & Headers */}
           <div className={styles.heroCore}>
             <div className={styles.logoAndMark}>
-              <img src={CENTER_ICON_URL} alt="Peach Studio Icon" className={styles.peachIcon} />
-              <img src={FOOTER_LOGO_URL} alt="The Peach Studio" className={styles.peachWordmark} />
+              <img src={PEACH_ICON_URL} alt="" className={styles.peachIcon} />
+              <img src={PEACH_WORDMARK_URL} alt="The Peach Studio" className={styles.peachWordmark} />
             </div>
 
             <h1 className={styles.heroHeading}>
@@ -194,7 +201,15 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
       <section className={styles.visionSection}>
         <div className={styles.visionBanner}>
           <p className={styles.visionText}>
-            <span className={styles.boldPeach}>The Peach Studio</span> brings together illustration, murals, installations, and spatial design to create environments that <span className={styles.italicPlay}>inspire</span> &bull; <span className={styles.italicPlay}>connect</span> &bull; <span className={styles.italic_and_delight}>delight</span>
+            <span className={styles.boldPeach}>The Peach Studio</span> brings together illustration, murals, installations, and spatial design to create environments that{" "}
+            {/* Breaks onto its own line at tablet and phone widths */}
+            <span className={styles.visionWords}>
+              <span className={styles.italicPlay}>inspire</span>
+              <img src={INTRO_SEP_1} alt="" className={styles.visionSeparator} />
+              <span className={styles.italicPlay}>connect</span>
+              <img src={INTRO_SEP_2} alt="" className={styles.visionSeparator} />
+              <span className={styles.italicPlay}>delight</span>
+            </span>
           </p>
         </div>
       </section>
@@ -238,11 +253,17 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                 />
 
                 <div className={styles.projectRowInner}>
+                  {/* The "View Project" link is always in the flow and only
+                      fades in, so the title keeps the exact same X,Y between
+                      the resting and hover states. */}
                   <div className={styles.projectTitleContainer}>
                     <span className={styles.projectTitle}>{project.title}</span>
-                    {isHovered && (
-                      <span className={styles.viewProjectLink}>View Project</span>
-                    )}
+                    <span
+                      className={`${styles.viewProjectLink} ${isHovered ? styles.viewProjectLinkVisible : ""}`}
+                      aria-hidden={!isHovered}
+                    >
+                      View Project
+                    </span>
                   </div>
                 </div>
               </div>
@@ -405,7 +426,11 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           {/* Maitreyee Profile */}
           <div className={styles.teamProfile}>
             <div className={styles.headshotContainer}>
-              <img src={MAITREYEE_HEADSHOT} alt="Maitreyee Nilawar" className={styles.headshotImg} />
+              <img
+                src={MAITREYEE_HEADSHOT}
+                alt="Maitreyee Nilawar"
+                className={`${styles.headshotImg} ${styles.headshotMaitreyee}`}
+              />
             </div>
             <div className={styles.profileBio}>
               <h3 className={styles.profileName}>Maitreyee Nilawar</h3>
@@ -419,7 +444,11 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           {/* Poorva Profile */}
           <div className={styles.teamProfile}>
             <div className={styles.headshotContainer}>
-              <img src={POORVA_HEADSHOT} alt="Poorva Kelkar" className={styles.headshotImg} />
+              <img
+                src={POORVA_HEADSHOT}
+                alt="Poorva Kelkar"
+                className={`${styles.headshotImg} ${styles.headshotPoorva}`}
+              />
             </div>
             <div className={styles.profileBio}>
               <h3 className={styles.profileName}>Poorva Kelkar</h3>
@@ -474,8 +503,8 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
 
             {/* Wordmark Column */}
             <div className={styles.wordmarkCol}>
-              <img src={CENTER_ICON_URL} alt="Peach Studio" className={styles.footerWordmarkIcon} />
-              <img src={FOOTER_LOGO_URL} alt="The Peach Studio Wordmark" className={styles.footerWordmark} />
+              <img src={PEACH_ICON_LIGHT_URL} alt="" className={styles.footerWordmarkIcon} />
+              <img src={PEACH_WORDMARK_LIGHT_URL} alt="The Peach Studio" className={styles.footerWordmark} />
             </div>
 
             {/* Contact Column */}
@@ -492,10 +521,11 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             </div>
           </div>
 
-          <div className={styles.footerDivider} />
-
-          {/* Metadata/Copyright Row */}
+          {/* Copyright sits directly below the main row — no separator rule */}
           <div className={styles.metadataRow}>
+            <span className={styles.copyrightMark} aria-hidden="true">
+              ©
+            </span>
             <span>2026</span>
             <div className={styles.metadataLabelSep} />
             <span>The Peach Studio</span>

@@ -109,11 +109,11 @@
   z-index: 10;
   box-sizing: border-box;
   flex-direction: column;
-  width: 380px;
+  width: 326px;
   display: flex;
   position: absolute;
   top: 33px;
-  left: 304px;
+  right: 36px;
 }
 
 .ContactModal-module__F-JUqG__form {
@@ -131,7 +131,7 @@
 }
 
 .ContactModal-module__F-JUqG__rowInputs {
-  grid-template-columns: 175px 175px;
+  grid-template-columns: 1fr 1fr;
   gap: 10px 14px;
   width: 100%;
   display: grid;

@@ -453,6 +453,7 @@ __turbopack_context__.v({
   "contactDetails": "MainLanding-module__-4B6pq__contactDetails",
   "contactHeader": "MainLanding-module__-4B6pq__contactHeader",
   "contactLink": "MainLanding-module__-4B6pq__contactLink",
+  "copyrightMark": "MainLanding-module__-4B6pq__copyrightMark",
   "ctaButton": "MainLanding-module__-4B6pq__ctaButton",
   "ctaContainer": "MainLanding-module__-4B6pq__ctaContainer",
   "ctaDescription": "MainLanding-module__-4B6pq__ctaDescription",
@@ -462,19 +463,20 @@ __turbopack_context__.v({
   "curatedEmphasis": "MainLanding-module__-4B6pq__curatedEmphasis",
   "curatedHeading": "MainLanding-module__-4B6pq__curatedHeading",
   "curatedSection": "MainLanding-module__-4B6pq__curatedSection",
-  "fadeInLink": "MainLanding-module__-4B6pq__fadeInLink",
   "floatingGrid": "MainLanding-module__-4B6pq__floatingGrid",
   "footerBgBox": "MainLanding-module__-4B6pq__footerBgBox",
   "footerBgImg": "MainLanding-module__-4B6pq__footerBgImg",
   "footerContainer": "MainLanding-module__-4B6pq__footerContainer",
-  "footerDivider": "MainLanding-module__-4B6pq__footerDivider",
   "footerMainGrid": "MainLanding-module__-4B6pq__footerMainGrid",
   "footerSection": "MainLanding-module__-4B6pq__footerSection",
   "footerWordmark": "MainLanding-module__-4B6pq__footerWordmark",
   "footerWordmarkIcon": "MainLanding-module__-4B6pq__footerWordmarkIcon",
   "headshotContainer": "MainLanding-module__-4B6pq__headshotContainer",
   "headshotImg": "MainLanding-module__-4B6pq__headshotImg",
+  "headshotMaitreyee": "MainLanding-module__-4B6pq__headshotMaitreyee",
+  "headshotPoorva": "MainLanding-module__-4B6pq__headshotPoorva",
   "heroCore": "MainLanding-module__-4B6pq__heroCore",
+  "heroCoreReveal": "MainLanding-module__-4B6pq__heroCoreReveal",
   "heroHeading": "MainLanding-module__-4B6pq__heroHeading",
   "heroOrnament": "MainLanding-module__-4B6pq__heroOrnament",
   "heroOrnamentRow": "MainLanding-module__-4B6pq__heroOrnamentRow",
@@ -482,7 +484,6 @@ __turbopack_context__.v({
   "heroWrapper": "MainLanding-module__-4B6pq__heroWrapper",
   "italicPlay": "MainLanding-module__-4B6pq__italicPlay",
   "italicSerif": "MainLanding-module__-4B6pq__italicSerif",
-  "italic_and_delight": "MainLanding-module__-4B6pq__italic_and_delight",
   "landingContainer": "MainLanding-module__-4B6pq__landingContainer",
   "logoAndMark": "MainLanding-module__-4B6pq__logoAndMark",
   "metadataLabelSep": "MainLanding-module__-4B6pq__metadataLabelSep",
@@ -524,12 +525,14 @@ __turbopack_context__.v({
   "quoteIcon": "MainLanding-module__-4B6pq__quoteIcon",
   "quoteIconBox": "MainLanding-module__-4B6pq__quoteIconBox",
   "quoteText": "MainLanding-module__-4B6pq__quoteText",
+  "scrollHint": "MainLanding-module__-4B6pq__scrollHint",
   "sectionHeader": "MainLanding-module__-4B6pq__sectionHeader",
   "socialCol": "MainLanding-module__-4B6pq__socialCol",
   "socialIconBg": "MainLanding-module__-4B6pq__socialIconBg",
   "socialIconVec": "MainLanding-module__-4B6pq__socialIconVec",
   "socialIconsRow": "MainLanding-module__-4B6pq__socialIconsRow",
   "socialLink": "MainLanding-module__-4B6pq__socialLink",
+  "stackAndScatter": "MainLanding-module__-4B6pq__stackAndScatter",
   "stepDecorIcon": "MainLanding-module__-4B6pq__stepDecorIcon",
   "stepDescription": "MainLanding-module__-4B6pq__stepDescription",
   "stepTitle": "MainLanding-module__-4B6pq__stepTitle",
@@ -552,9 +555,12 @@ __turbopack_context__.v({
   "testimonialsTitle": "MainLanding-module__-4B6pq__testimonialsTitle",
   "verticalDivider": "MainLanding-module__-4B6pq__verticalDivider",
   "viewProjectLink": "MainLanding-module__-4B6pq__viewProjectLink",
+  "viewProjectLinkVisible": "MainLanding-module__-4B6pq__viewProjectLinkVisible",
   "visionBanner": "MainLanding-module__-4B6pq__visionBanner",
   "visionSection": "MainLanding-module__-4B6pq__visionSection",
+  "visionSeparator": "MainLanding-module__-4B6pq__visionSeparator",
   "visionText": "MainLanding-module__-4B6pq__visionText",
+  "visionWords": "MainLanding-module__-4B6pq__visionWords",
   "wordmarkCol": "MainLanding-module__-4B6pq__wordmarkCol",
   "worksList": "MainLanding-module__-4B6pq__worksList",
 });
@@ -577,8 +583,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePe
 ;
 // Existing Assets
 const PINK_FLOWER_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/pink-flower.png");
-const FOOTER_LOGO_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/footer-logo.svg");
-const CENTER_ICON_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/center-icon.svg");
+// Brand logo — true vectors recoloured to the primary peach (#D47059). The
+// icon is the peach fruit; the light variants are for the dark footer.
+const PEACH_ICON_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/peach-icon.svg");
+const PEACH_WORDMARK_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/peach-wordmark.svg");
+const PEACH_ICON_LIGHT_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/peach-icon-light.svg");
+const PEACH_WORDMARK_LIGHT_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/peach-wordmark-light.svg");
 const LINKEDIN_BG_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/linkedin-bg.svg");
 const LINKEDIN_VEC_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/linkedin-vec.svg");
 const INSTAGRAM_BG_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/instagram-bg.svg");
@@ -587,15 +597,17 @@ const INSTAGRAM_VEC_URL = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Do
 const MAITREYEE_HEADSHOT = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/maitreyee-headshot.png");
 const POORVA_HEADSHOT = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/poorva-headshot.png");
 const FOOTER_BG = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/footer-bg.png");
-const HERO_FLOATING_1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-1.png");
-const HERO_FLOATING_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-2.png");
-const HERO_FLOATING_3 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-3.png");
-const HERO_FLOATING_4 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-4.png");
-const HERO_FLOATING_5 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-5.png");
-const HERO_FLOATING_6 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-6.png");
-const HERO_FLOATING_7 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-7.png");
-const HERO_FLOATING_8 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-8.png");
+const HERO_FLOATING_1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-1.jpg");
+const HERO_FLOATING_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-2.jpg");
+const HERO_FLOATING_3 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-3.jpg");
+const HERO_FLOATING_4 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-4.jpg");
+const HERO_FLOATING_5 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-5.jpg");
+const HERO_FLOATING_6 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-6.jpg");
+const HERO_FLOATING_7 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-7.jpg");
+const HERO_FLOATING_8 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-floating-8.jpg");
 const HERO_ORNAMENT = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/hero-ornament.svg");
+const INTRO_SEP_1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/intro-sep-1.svg");
+const INTRO_SEP_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/intro-sep-2.svg");
 const QUOTE_ICON = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/quote-icon.svg");
 const PROCESS_DECOR_1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/process-decor-1.svg");
 const PROCESS_DECOR_2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$utils$2f$paths$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssetPath"])("/images/landing/process-decor-2.svg");
@@ -746,12 +758,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 148,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 147,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -762,12 +774,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 152,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 144,
+                                    lineNumber: 151,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -778,12 +790,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 149,
+                                        lineNumber: 156,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 155,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -794,12 +806,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 160,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 152,
+                                    lineNumber: 159,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -810,12 +822,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 157,
+                                        lineNumber: 164,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 156,
+                                    lineNumber: 163,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -826,12 +838,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 161,
+                                        lineNumber: 168,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 160,
+                                    lineNumber: 167,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -842,12 +854,12 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 165,
+                                        lineNumber: 172,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 164,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -858,18 +870,18 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].polaroidImg
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 169,
+                                        lineNumber: 176,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 168,
+                                    lineNumber: 175,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 138,
+                            lineNumber: 145,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -879,27 +891,27 @@ function MainLanding({ onStartConversation }) {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].logoAndMark,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                            src: CENTER_ICON_URL,
-                                            alt: "Peach Studio Icon",
+                                            src: PEACH_ICON_URL,
+                                            alt: "",
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].peachIcon
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 176,
+                                            lineNumber: 183,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                            src: FOOTER_LOGO_URL,
+                                            src: PEACH_WORDMARK_URL,
                                             alt: "The Peach Studio",
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].peachWordmark
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 177,
+                                            lineNumber: 184,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 175,
+                                    lineNumber: 182,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -911,12 +923,12 @@ function MainLanding({ onStartConversation }) {
                                             children: "art..."
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 188,
                                             columnNumber: 26
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 182,
+                                            lineNumber: 189,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -924,14 +936,14 @@ function MainLanding({ onStartConversation }) {
                                             children: "memorable"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 183,
+                                            lineNumber: 190,
                                             columnNumber: 15
                                         }, this),
                                         " spaces!"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 180,
+                                    lineNumber: 187,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -942,29 +954,29 @@ function MainLanding({ onStartConversation }) {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].heroOrnament
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 194,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 186,
+                                    lineNumber: 193,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 174,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                    lineNumber: 136,
+                    lineNumber: 143,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 135,
+                lineNumber: 142,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -979,50 +991,76 @@ function MainLanding({ onStartConversation }) {
                                 children: "The Peach Studio"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 197,
+                                lineNumber: 204,
                                 columnNumber: 13
                             }, this),
-                            " brings together illustration, murals, installations, and spatial design to create environments that ",
+                            " brings together illustration, murals, installations, and spatial design to create environments that",
+                            " ",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italicPlay,
-                                children: "inspire"
-                            }, void 0, false, {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].visionWords,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italicPlay,
+                                        children: "inspire"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 207,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: INTRO_SEP_1,
+                                        alt: "",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].visionSeparator
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 208,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italicPlay,
+                                        children: "connect"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 209,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: INTRO_SEP_2,
+                                        alt: "",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].visionSeparator
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 210,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italicPlay,
+                                        children: "delight"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 211,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 197,
-                                columnNumber: 172
-                            }, this),
-                            " • ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italicPlay,
-                                children: "connect"
-                            }, void 0, false, {
-                                fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 197,
-                                columnNumber: 230
-                            }, this),
-                            " • ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].italic_and_delight,
-                                children: "delight"
-                            }, void 0, false, {
-                                fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 197,
-                                columnNumber: 288
+                                lineNumber: 206,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 196,
+                        lineNumber: 203,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                    lineNumber: 195,
+                    lineNumber: 202,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 194,
+                lineNumber: 201,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1039,18 +1077,18 @@ function MainLanding({ onStartConversation }) {
                                     children: "works"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 206,
+                                    lineNumber: 221,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 205,
+                            lineNumber: 220,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 204,
+                        lineNumber: 219,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1078,7 +1116,7 @@ function MainLanding({ onStartConversation }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 231,
+                                        lineNumber: 246,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1091,44 +1129,45 @@ function MainLanding({ onStartConversation }) {
                                                     children: project.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 260,
                                                     columnNumber: 21
                                                 }, this),
-                                                isHovered && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].viewProjectLink,
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].viewProjectLink} ${isHovered ? __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].viewProjectLinkVisible : ""}`,
+                                                    "aria-hidden": !isHovered,
                                                     children: "View Project"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 244,
-                                                    columnNumber: 23
+                                                    lineNumber: 261,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 259,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 240,
+                                        lineNumber: 255,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, project.id, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 215,
+                                lineNumber: 230,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 210,
+                        lineNumber: 225,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 203,
+                lineNumber: 218,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1144,7 +1183,7 @@ function MainLanding({ onStartConversation }) {
                                     children: "our process"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 258,
+                                    lineNumber: 279,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1156,19 +1195,19 @@ function MainLanding({ onStartConversation }) {
                                             children: "to space"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 260,
+                                            lineNumber: 281,
                                             columnNumber: 27
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 280,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 257,
+                            lineNumber: 278,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1182,7 +1221,7 @@ function MainLanding({ onStartConversation }) {
                                             children: "01"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 268,
+                                            lineNumber: 289,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1197,7 +1236,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].stepDecorIcon
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 271,
+                                                            lineNumber: 292,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1205,13 +1244,13 @@ function MainLanding({ onStartConversation }) {
                                                             children: "Start with the Space"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 272,
+                                                            lineNumber: 293,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 270,
+                                                    lineNumber: 291,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1219,19 +1258,19 @@ function MainLanding({ onStartConversation }) {
                                                     children: "We visit, listen, and gather everything needed before ideas begin."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 274,
+                                                    lineNumber: 295,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 269,
+                                            lineNumber: 290,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 288,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1242,7 +1281,7 @@ function MainLanding({ onStartConversation }) {
                                             children: "02"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 282,
+                                            lineNumber: 303,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1257,7 +1296,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].stepDecorIcon
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 285,
+                                                            lineNumber: 306,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1265,13 +1304,13 @@ function MainLanding({ onStartConversation }) {
                                                             children: "Shape the Idea"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 286,
+                                                            lineNumber: 307,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 284,
+                                                    lineNumber: 305,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1279,19 +1318,19 @@ function MainLanding({ onStartConversation }) {
                                                     children: "Through references and design exploration, the direction starts to emerge."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 288,
+                                                    lineNumber: 309,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 283,
+                                            lineNumber: 304,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 302,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1302,7 +1341,7 @@ function MainLanding({ onStartConversation }) {
                                             children: "03"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 317,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1317,7 +1356,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].stepDecorIcon
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 299,
+                                                            lineNumber: 320,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1325,13 +1364,13 @@ function MainLanding({ onStartConversation }) {
                                                             children: "See it in Place"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 300,
+                                                            lineNumber: 321,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 298,
+                                                    lineNumber: 319,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1339,19 +1378,19 @@ function MainLanding({ onStartConversation }) {
                                                     children: "The design is mapped into the space so every detail feels right."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 302,
+                                                    lineNumber: 323,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 297,
+                                            lineNumber: 318,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 295,
+                                    lineNumber: 316,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1362,7 +1401,7 @@ function MainLanding({ onStartConversation }) {
                                             children: "04"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 310,
+                                            lineNumber: 331,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1377,7 +1416,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].stepDecorIcon
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 313,
+                                                            lineNumber: 334,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1385,13 +1424,13 @@ function MainLanding({ onStartConversation }) {
                                                             children: "Bring it to Life"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 314,
+                                                            lineNumber: 335,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 312,
+                                                    lineNumber: 333,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1399,36 +1438,36 @@ function MainLanding({ onStartConversation }) {
                                                     children: "With everything approved, we create, install, and deliver the final work."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 316,
+                                                    lineNumber: 337,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 311,
+                                            lineNumber: 332,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 309,
+                                    lineNumber: 330,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 265,
+                            lineNumber: 286,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                    lineNumber: 256,
+                    lineNumber: 277,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 255,
+                lineNumber: 276,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1445,7 +1484,7 @@ function MainLanding({ onStartConversation }) {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].offeringsIcon
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 330,
+                                    lineNumber: 351,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1453,7 +1492,7 @@ function MainLanding({ onStartConversation }) {
                                     children: "what we do"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 331,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1465,26 +1504,26 @@ function MainLanding({ onStartConversation }) {
                                             children: "offerings"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 333,
+                                            lineNumber: 354,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 332,
+                                    lineNumber: 353,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 329,
+                            lineNumber: 350,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].verticalDivider
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 337,
+                            lineNumber: 358,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1495,7 +1534,7 @@ function MainLanding({ onStartConversation }) {
                                     children: "custom services"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 341,
+                                    lineNumber: 362,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1505,54 +1544,54 @@ function MainLanding({ onStartConversation }) {
                                             children: "wall painting"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 364,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: "installations"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 344,
+                                            lineNumber: 365,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: "canvas painting"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 345,
+                                            lineNumber: 366,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: "space design"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 346,
+                                            lineNumber: 367,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: "storytelling"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 347,
+                                            lineNumber: 368,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 342,
+                                    lineNumber: 363,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 340,
+                            lineNumber: 361,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].verticalDivider
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 351,
+                            lineNumber: 372,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1563,7 +1602,7 @@ function MainLanding({ onStartConversation }) {
                                     children: "products"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 355,
+                                    lineNumber: 376,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1573,37 +1612,37 @@ function MainLanding({ onStartConversation }) {
                                             children: "wallpapers"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 357,
+                                            lineNumber: 378,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: "paintings"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 358,
+                                            lineNumber: 379,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 356,
+                                    lineNumber: 377,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 354,
+                            lineNumber: 375,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                    lineNumber: 327,
+                    lineNumber: 348,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 326,
+                lineNumber: 347,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1617,7 +1656,7 @@ function MainLanding({ onStartConversation }) {
                                 children: "dont just take our word for it"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 367,
+                                lineNumber: 388,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1629,19 +1668,19 @@ function MainLanding({ onStartConversation }) {
                                         children: "testimonials"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 369,
+                                        lineNumber: 390,
                                         columnNumber: 20
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 368,
+                                lineNumber: 389,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 366,
+                        lineNumber: 387,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1657,12 +1696,12 @@ function MainLanding({ onStartConversation }) {
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].quoteIcon
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 377,
+                                            lineNumber: 398,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 376,
+                                        lineNumber: 397,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1674,14 +1713,14 @@ function MainLanding({ onStartConversation }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 379,
+                                        lineNumber: 400,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].authorDivider
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 380,
+                                        lineNumber: 401,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1692,7 +1731,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: t.author
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 382,
+                                                lineNumber: 403,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1700,30 +1739,30 @@ function MainLanding({ onStartConversation }) {
                                                 children: t.role
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 383,
+                                                lineNumber: 404,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 381,
+                                        lineNumber: 402,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, t.id, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 375,
+                                lineNumber: 396,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 373,
+                        lineNumber: 394,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 365,
+                lineNumber: 386,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1740,7 +1779,7 @@ function MainLanding({ onStartConversation }) {
                                         children: "small team, big stories"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 394,
+                                        lineNumber: 415,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1752,19 +1791,19 @@ function MainLanding({ onStartConversation }) {
                                                 children: "team"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 396,
+                                                lineNumber: 417,
                                                 columnNumber: 26
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 395,
+                                        lineNumber: 416,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 393,
+                                lineNumber: 414,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1772,13 +1811,13 @@ function MainLanding({ onStartConversation }) {
                                 children: "Together, they blend art, design, strategy, and storytelling to create immersive, joyful and meaningful environments that inspire connection and leave a lasting impression."
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 399,
+                                lineNumber: 420,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 392,
+                        lineNumber: 413,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1792,15 +1831,15 @@ function MainLanding({ onStartConversation }) {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: MAITREYEE_HEADSHOT,
                                             alt: "Maitreyee Nilawar",
-                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotImg
+                                            className: `${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotImg} ${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotMaitreyee}`
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 408,
+                                            lineNumber: 429,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 407,
+                                        lineNumber: 428,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1811,7 +1850,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Maitreyee Nilawar"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 411,
+                                                lineNumber: 436,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1819,7 +1858,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Director of visual delight"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 412,
+                                                lineNumber: 437,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1827,19 +1866,19 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Maitreyee, an alumna of Sir J.J. School of Art and IIT Bombay, is a visual artist with a keen eye for detail and aesthetics. She specializes in transforming spaces through art and design, bringing beauty, character, and emotional depth to every project."
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 413,
+                                                lineNumber: 438,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 410,
+                                        lineNumber: 435,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 406,
+                                lineNumber: 427,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1850,15 +1889,15 @@ function MainLanding({ onStartConversation }) {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: POORVA_HEADSHOT,
                                             alt: "Poorva Kelkar",
-                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotImg
+                                            className: `${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotImg} ${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].headshotPoorva}`
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 422,
+                                            lineNumber: 447,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 421,
+                                        lineNumber: 446,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1869,7 +1908,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Poorva Kelkar"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 425,
+                                                lineNumber: 454,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1877,7 +1916,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Director of thoughtful mischief"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 455,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1885,31 +1924,31 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Poorva, an architect, product designer, and marketing specialist, is an alumna of NID and IIM Ahmedabad. She combines strategic thinking with creative exploration, helping shape the studio's vision while creating experiences that bring people, stories, and spaces together."
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 427,
+                                                lineNumber: 456,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 424,
+                                        lineNumber: 453,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 420,
+                                lineNumber: 445,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 404,
+                        lineNumber: 425,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 391,
+                lineNumber: 412,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1926,13 +1965,13 @@ function MainLanding({ onStartConversation }) {
                                     children: "speaks"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 439,
+                                    lineNumber: 468,
                                     columnNumber: 39
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 438,
+                            lineNumber: 467,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1941,14 +1980,14 @@ function MainLanding({ onStartConversation }) {
                                 "Every meaningful project begins with a simple conversation.",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                    lineNumber: 442,
+                                    lineNumber: 471,
                                     columnNumber: 72
                                 }, this),
                                 "We’d love if you share your vision with us."
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 441,
+                            lineNumber: 470,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1957,18 +1996,18 @@ function MainLanding({ onStartConversation }) {
                             children: "Start a Conversation"
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 445,
+                            lineNumber: 474,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                    lineNumber: 437,
+                    lineNumber: 466,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 436,
+                lineNumber: 465,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -1982,12 +2021,12 @@ function MainLanding({ onStartConversation }) {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].footerBgImg
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                            lineNumber: 455,
+                            lineNumber: 484,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 454,
+                        lineNumber: 483,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2013,7 +2052,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].socialIconBg
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 465,
+                                                            lineNumber: 494,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -2022,13 +2061,13 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].socialIconVec
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 466,
+                                                            lineNumber: 495,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 464,
+                                                    lineNumber: 493,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2043,7 +2082,7 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].socialIconBg
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 469,
+                                                            lineNumber: 498,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -2052,51 +2091,51 @@ function MainLanding({ onStartConversation }) {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].socialIconVec
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                            lineNumber: 470,
+                                                            lineNumber: 499,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                    lineNumber: 468,
+                                                    lineNumber: 497,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                            lineNumber: 463,
+                                            lineNumber: 492,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 462,
+                                        lineNumber: 491,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].wordmarkCol,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: CENTER_ICON_URL,
-                                                alt: "Peach Studio",
+                                                src: PEACH_ICON_LIGHT_URL,
+                                                alt: "",
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].footerWordmarkIcon
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 477,
+                                                lineNumber: 506,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: FOOTER_LOGO_URL,
-                                                alt: "The Peach Studio Wordmark",
+                                                src: PEACH_WORDMARK_LIGHT_URL,
+                                                alt: "The Peach Studio",
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].footerWordmark
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 478,
+                                                lineNumber: 507,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 476,
+                                        lineNumber: 505,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2107,7 +2146,7 @@ function MainLanding({ onStartConversation }) {
                                                 children: "Let’s get in touch"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 483,
+                                                lineNumber: 512,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2119,7 +2158,7 @@ function MainLanding({ onStartConversation }) {
                                                         children: "poorva.kelkar@gmail.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                        lineNumber: 485,
+                                                        lineNumber: 514,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2128,94 +2167,96 @@ function MainLanding({ onStartConversation }) {
                                                         children: "+91 92176 89001"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                        lineNumber: 488,
+                                                        lineNumber: 517,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                                lineNumber: 484,
+                                                lineNumber: 513,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 482,
+                                        lineNumber: 511,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 460,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].footerDivider
-                            }, void 0, false, {
-                                fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 495,
+                                lineNumber: 489,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].metadataRow,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].copyrightMark,
+                                        "aria-hidden": "true",
+                                        children: "©"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
+                                        lineNumber: 526,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "2026"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 499,
+                                        lineNumber: 529,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].metadataLabelSep
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 500,
+                                        lineNumber: 530,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "The Peach Studio"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 501,
+                                        lineNumber: 531,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$src$2f$components$2f$MainLanding$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].metadataLabelSep
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 502,
+                                        lineNumber: 532,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$ThePeachStudio$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "All rights reserved"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                        lineNumber: 503,
+                                        lineNumber: 533,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                                lineNumber: 498,
+                                lineNumber: 525,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                        lineNumber: 458,
+                        lineNumber: 487,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-                lineNumber: 452,
+                lineNumber: 481,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Documents/GitHub/ThePeachStudio/src/components/MainLanding.tsx",
-        lineNumber: 133,
+        lineNumber: 140,
         columnNumber: 5
     }, this);
 }

@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Rethink_Sans } from "next/font/google";
+import { EB_Garamond, Rethink_Sans } from "next/font/google";
 import "./globals.css";
 
 const rethink = Rethink_Sans({
   subsets: ["latin"],
   variable: "--font-rethink",
+  display: "swap",
+});
+
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-garamond",
   display: "swap",
 });
 
@@ -20,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={rethink.variable}>
+    <html lang="en" className={`${rethink.variable} ${ebGaramond.variable}`}>
       <body>{children}</body>
     </html>
   );

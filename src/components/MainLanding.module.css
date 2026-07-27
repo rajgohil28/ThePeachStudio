@@ -45,11 +45,15 @@
   z-index: 1;
 }
 
-/* Base styles for floating Polaroids */
+/* Base styles for the floating image cards.
+   Each card sets --rot (its resting angle) plus --tx/--ty, the offset that
+   carries it back to the centre of the hero for the stack-and-scatter intro.
+   --tx/--ty are percentages of the card's own box, so the whole thing stays
+   fluid as the hero resizes. */
 .polaroidCard {
   position: absolute;
   background-color: #ffffff;
-  padding: 8px 8px 32px 8px; /* Classic polaroid white border */
+  padding: 8px; /* equal border on all four sides */
   box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -57,12 +61,91 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotate(var(--rot));
+  /* step-end holds each keyframe until the next one, so the card jumps between
+     hand-placed positions instead of gliding — ~8fps, like stop motion. */
+  animation: stackAndScatter 1.6s step-end backwards;
+  animation-delay: var(--scatter-delay, 0s);
 }
 
 .polaroidCard:hover {
   transform: scale(1.05) rotate(0deg) !important;
   box-shadow: 16px 20px 24px rgba(0, 0, 0, 0.2);
   z-index: 10;
+}
+
+/* Cards begin piled at the centre of the hero, hold for a beat, then walk out
+   to their resting positions one frame at a time. Each frame carries a little
+   off-axis rotation jitter so the registration looks hand-placed rather than
+   machine-interpolated, and frame 11 overshoots before settling. */
+@keyframes stackAndScatter {
+  0% {
+    transform: translate(var(--tx), var(--ty)) rotate(var(--stack-rot)) scale(0.42);
+    opacity: 0;
+  }
+  8% {
+    transform: translate(var(--tx), var(--ty)) rotate(var(--stack-rot)) scale(0.42);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(var(--tx), var(--ty)) rotate(calc(var(--stack-rot) + 1.5deg)) scale(0.45);
+    opacity: 1;
+  }
+  32% {
+    transform: translate(calc(var(--tx) * 0.86), calc(var(--ty) * 0.86))
+      rotate(calc(var(--rot) * 0.2 + 4deg)) scale(0.52);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(calc(var(--tx) * 0.7), calc(var(--ty) * 0.7))
+      rotate(calc(var(--rot) * 0.4 - 3deg)) scale(0.6);
+    opacity: 1;
+  }
+  48% {
+    transform: translate(calc(var(--tx) * 0.55), calc(var(--ty) * 0.55))
+      rotate(calc(var(--rot) * 0.55 + 3deg)) scale(0.68);
+    opacity: 1;
+  }
+  56% {
+    transform: translate(calc(var(--tx) * 0.41), calc(var(--ty) * 0.41))
+      rotate(calc(var(--rot) * 0.7 - 2deg)) scale(0.76);
+    opacity: 1;
+  }
+  64% {
+    transform: translate(calc(var(--tx) * 0.29), calc(var(--ty) * 0.29))
+      rotate(calc(var(--rot) * 0.8 + 2deg)) scale(0.83);
+    opacity: 1;
+  }
+  72% {
+    transform: translate(calc(var(--tx) * 0.18), calc(var(--ty) * 0.18))
+      rotate(calc(var(--rot) * 0.88 - 1.5deg)) scale(0.89);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(calc(var(--tx) * 0.1), calc(var(--ty) * 0.1))
+      rotate(calc(var(--rot) * 0.94 + 1deg)) scale(0.94);
+    opacity: 1;
+  }
+  88% {
+    transform: translate(calc(var(--tx) * 0.04), calc(var(--ty) * 0.04))
+      rotate(calc(var(--rot) * 0.98 - 0.8deg)) scale(0.98);
+    opacity: 1;
+  }
+  94% {
+    transform: translate(calc(var(--tx) * -0.03), calc(var(--ty) * -0.03))
+      rotate(calc(var(--rot) * 1.02 + 0.5deg)) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(var(--rot)) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroidCard {
+    animation: none;
+  }
 }
 
 .polaroidImg {
@@ -77,7 +160,11 @@
   top: 28.1%;
   width: 17.47%;
   height: 22.91%;
-  transform: rotate(4.96deg);
+  --rot: 4.96deg;
+  --tx: 266.26%;
+  --ty: 45.59%;
+  --stack-rot: -6deg;
+  --scatter-delay: 0.06s;
 }
 
 .card2 {
@@ -85,7 +172,11 @@
   top: -10.6%;
   width: 14.4%;
   height: 31.45%;
-  transform: rotate(-8.37deg);
+  --rot: -8.37deg;
+  --tx: 3.26%;
+  --ty: 142.69%;
+  --stack-rot: 4deg;
+  --scatter-delay: 0.18s;
 }
 
 .card3 {
@@ -93,7 +184,11 @@
   top: 83.0%;
   width: 21.1%;
   height: 24.34%;
-  transform: rotate(2deg);
+  --rot: 2deg;
+  --tx: 2.04%;
+  --ty: -185.58%;
+  --stack-rot: -3deg;
+  --scatter-delay: 0.3s;
 }
 
 .card4 {
@@ -101,7 +196,11 @@
   top: 30.14%;
   width: 18.61%;
   height: 33.5%;
-  transform: rotate(4.69deg);
+  --rot: 4.69deg;
+  --tx: -267.95%;
+  --ty: 9.28%;
+  --stack-rot: 7deg;
+  --scatter-delay: 0.12s;
 }
 
 .card5 {
@@ -109,7 +208,11 @@
   top: -6.46%;
   width: 33.0%;
   height: 30.9%;
-  transform: rotate(-4.61deg);
+  --rot: -4.61deg;
+  --tx: 112.73%;
+  --ty: 132.72%;
+  --stack-rot: -5deg;
+  --scatter-delay: 0.24s;
 }
 
 .card6 {
@@ -117,7 +220,11 @@
   top: 71.18%;
   width: 22.31%;
   height: 43.4%;
-  transform: rotate(6.07deg);
+  --rot: 6.07deg;
+  --tx: -189.62%;
+  --ty: -98.8%;
+  --stack-rot: 2deg;
+  --scatter-delay: 0.36s;
 }
 
 .card7 {
@@ -125,7 +232,11 @@
   top: -12.42%;
   width: 30.16%;
   height: 34.93%;
-  transform: rotate(-3deg);
+  --rot: -3deg;
+  --tx: -107%;
+  --ty: 128.7%;
+  --stack-rot: 5deg;
+  --scatter-delay: 0s;
 }
 
 .card8 {
@@ -133,13 +244,20 @@
   top: 60.78%;
   width: 26.98%;
   height: 53.78%;
-  transform: rotate(-2.98deg);
+  --rot: -2.98deg;
+  --tx: 141.7%;
+  --ty: -70.04%;
+  --stack-rot: -8deg;
+  --scatter-delay: 0.42s;
 }
 
-/* Hero Central Core Content */
+/* Hero Central Core Content.
+   Sits *behind* the photographs (z-index 0 vs the grid's 1) so the cards sweep
+   over the centre as they scatter, and only reveals once every card has
+   landed — the last one finishes at 0.42s delay + 1.6s duration. */
 .heroCore {
   position: relative;
-  z-index: 2;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,11 +266,37 @@
   pointer-events: none;
 }
 
+.logoAndMark,
+.heroHeading,
+.heroOrnamentRow {
+  animation: heroCoreReveal 0.7s ease-out backwards;
+}
+
+@keyframes heroCoreReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoAndMark,
+  .heroHeading,
+  .heroOrnamentRow {
+    animation: none;
+  }
+}
+
 .logoAndMark {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
+  animation-delay: 2.05s;
 }
 
 .peachIcon {
@@ -166,7 +310,7 @@
 }
 
 .heroHeading {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-size: 80px;
   font-weight: 400;
   line-height: 1.15;
@@ -174,10 +318,11 @@
   letter-spacing: -2px;
   text-transform: lowercase;
   margin: 0;
+  animation-delay: 2.25s;
 }
 
 .italicSerif {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   color: #114a6b;
@@ -185,12 +330,59 @@
 
 .heroOrnamentRow {
   margin-top: 32px;
+  overflow: hidden;
+  animation-delay: 2.5s;
 }
 
+/* Scroll indicator — the chevrons rise in, travel down the page and fade out,
+   then the cycle restarts from above. Reads as a continuous downward pull
+   rather than a bob. The pause between cycles keeps it from feeling frantic. */
 .heroOrnament {
   width: 42px;
   height: 40px;
   object-fit: contain;
+  animation: scrollHint 2.4s cubic-bezier(0.4, 0, 0.2, 1) 3s infinite;
+}
+
+@keyframes scrollHint {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  55% {
+    transform: translateY(12px);
+    opacity: 0.55;
+  }
+  75% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroOrnament {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* Every major section is closed off with a hairline rule. Declared once here
+   rather than per-section so the treatment stays consistent. */
+.visionSection,
+.curatedSection,
+.processSection,
+.offeringsSection,
+.testimonialsSection,
+.teamSection,
+.ctaSection {
+  border-bottom: 1px solid rgba(17, 74, 107, 0.1);
 }
 
 /* Bottom Vision Statement Section sitting between Hero and Curated Works */
@@ -211,7 +403,7 @@
 }
 
 .visionText {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 33px;
   line-height: 1.35;
   color: #114a6b;
@@ -224,17 +416,31 @@
 }
 
 .italicPlay {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   color: #114a6b;
 }
 
-.italic_and_delight {
-  font-family: "EB Garamond", Garamond, serif;
-  font-style: italic;
-  font-weight: 500;
-  color: #114a6b;
+/* "inspire ❦ connect ❦ delight" — set a step larger than the surrounding
+   paragraph (39px) with the two botanical marks from Figma standing in for
+   what used to be bullet dots. */
+.visionWords {
+  display: block;
+  margin-top: 20px;
+  white-space: nowrap;
+  font-size: 39px;
+  line-height: 1.2;
+  letter-spacing: -0.78px;
+}
+
+.visionSeparator {
+  display: inline-block;
+  width: auto;
+  height: 24px;
+  margin: 0 18px;
+  vertical-align: baseline;
+  transform: translateY(2px);
 }
 
 
@@ -242,19 +448,18 @@
 .curatedSection {
   position: relative;
   width: 100%;
-  background-color: #fcf5f3;
+  background-color: #ffffff;
   padding: var(--space-xxl) 0 0 0;
   box-sizing: border-box;
 }
 
+/* Aligned to the same 48px inset as the project rows below it */
 .sectionHeader {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 var(--space-xl) var(--space-xl) var(--space-xl);
+  padding: 0 48px var(--space-xl) 48px;
 }
 
 .curatedHeading {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 57px;
   font-weight: 500;
   letter-spacing: -1.14px;
@@ -263,7 +468,8 @@
 }
 
 .curatedEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: var(--type-10);
   font-style: italic;
   font-weight: 500;
   color: #9e3f29;
@@ -273,19 +479,18 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 6px; /* cards are separated by a 6px gap, not a rule */
 }
 
 .projectRow {
   position: relative;
   width: 100%;
   height: 240px;
-  border-top: 1px solid rgba(17, 74, 107, 0.1);
-  display: flex;
-  align-items: center;
+  display: block;
   cursor: pointer;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: transparent;
+  background-color: #fcf5f3;
   transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -300,10 +505,6 @@
   pointer-events: none;
 }
 
-.worksList > .projectRow:last-child {
-  border-bottom: 1px solid rgba(17, 74, 107, 0.1);
-}
-
 .projectRowBg {
   position: absolute;
   inset: 0;
@@ -313,17 +514,19 @@
   z-index: 1;
 }
 
+/* Figma: the title sits 48px from the row's left edge and 60px from its top —
+   not centred — so the resting title and the peach hover title occupy the
+   exact same X,Y and the transition has nothing to move. */
 .projectRowInner {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 60px 48px 0 48px;
+  box-sizing: border-box;
 }
 
 .projectTitleContainer {
-  max-width: 480px;
+  max-width: 256px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -331,40 +534,40 @@
 }
 
 .projectTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 40px;
   font-weight: 500;
   color: #114a6b;
   letter-spacing: -0.8px;
   transition: color 0.3s ease;
   display: inline-block;
-  line-height: 1.15;
+  line-height: 1;
 }
 
-/* Hover row styles */
-.projectRow:hover .projectTitle {
-  color: #ff8b66; /* Turns into gorgeous highlighted coral on dark background */
+/* Keyed off .activeRow, not :hover — on touch devices there is no hover, so a
+   hover-only rule left the navy title sitting on the navy active background
+   and the scroll-driven preview looked broken. */
+.activeRow .projectTitle {
+  color: #ff8b66; /* Highlighted coral on the dark background */
 }
 
 .viewProjectLink {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 21px;
   color: #ffffff; /* Clean white for the link */
   text-decoration: underline;
   opacity: 0;
-  animation: fadeInLink 0.35s ease forwards;
+  transition: opacity 0.35s ease;
   cursor: pointer;
+}
+
+.viewProjectLinkVisible {
+  opacity: 1;
 }
 
 .activeRow {
   background-color: #001b2e;
-}
-
-@keyframes fadeInLink {
-  to {
-    opacity: 1;
-  }
 }
 
 
@@ -376,102 +579,179 @@
   box-sizing: border-box;
 }
 
+/* The Figma frame is 1512x1068 with the header and all four steps placed at
+   absolute coordinates. Reproduced here as a container-query box: positions are
+   percentages and every size is in cqw (1cqw = 1% of this container), so the
+   whole composition scales as one and matches the design exactly at 1512px. */
 .processContainer {
-  max-width: 1240px;
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  max-width: 1512px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  aspect-ratio: 1512 / 1068;
 }
 
 .processHeader {
+  position: absolute;
+  left: 11.31%; /* 171/1512 */
+  top: 0;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-huge);
 }
 
 .processSubtitle {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 23px;
+  font-size: 1.5212cqw; /* 23px */
+  line-height: 1;
   color: #114a6b;
-  letter-spacing: -0.8px;
-  margin-bottom: var(--space-sm);
+  letter-spacing: -0.805px;
+  margin-bottom: 0;
 }
 
 .processTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 57px;
+  font-family: var(--font-body);
+  font-size: 3.7698cqw; /* 57px */
   font-weight: 500;
+  line-height: 1;
   color: #114a6b;
   letter-spacing: -1.14px;
   margin: 0;
+  white-space: nowrap;
 }
 
 .processEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: 4.5635cqw; /* 69px — one step above the 57px sans word */
   font-style: italic;
   font-weight: 500;
   color: #9e3f29;
 }
 
+/* Each step is placed at its Figma coordinate rather than sitting in a grid —
+   the four blocks drift down the page on alternating sides. */
 .processGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px 48px;
+  display: contents;
 }
 
 .processStep {
-  display: flex;
-  position: relative;
-  padding-left: var(--space-md);
+  position: absolute;
+  display: block;
 }
 
+/* left/top/width are % of the 1512x1068 frame */
+.processStep:nth-child(1) {
+  left: 50%;
+  top: 29.682%;
+  width: 24.735%;
+}
+
+.processStep:nth-child(2) {
+  left: 13.558%;
+  top: 48.502%;
+  width: 25.595%;
+}
+
+.processStep:nth-child(3) {
+  left: 67.989%;
+  top: 67.322%;
+  width: 21.958%;
+}
+
+.processStep:nth-child(4) {
+  left: 28.439%;
+  top: 90.449%;
+  width: 29.63%;
+}
+
+/* The oversized numeral is right-aligned and sits above and behind its step,
+   overlapping the title block. */
 .processNumber {
-  font-family: "EB Garamond", Garamond, serif;
-  font-size: 180px;
+  font-family: var(--font-serif);
+  font-size: 11.9048cqw; /* 180px */
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 15.873cqw; /* 240px */
   color: #fcf5f3;
   position: absolute;
-  left: -20px;
-  top: -40px;
+  top: -9.9206cqw; /* -150px */
+  transform: translateX(-100%);
   z-index: 1;
   user-select: none;
+  white-space: nowrap;
+}
+
+.processStep:nth-child(1) .processNumber {
+  left: 8.0688cqw; /* right edge 122px from step origin */
+}
+
+.processStep:nth-child(2) .processNumber {
+  left: 8.7302cqw; /* 132px */
+}
+
+.processStep:nth-child(3) .processNumber {
+  left: 8.0688cqw; /* 122px */
+}
+
+.processStep:nth-child(4) .processNumber {
+  left: 7.8704cqw; /* 119px */
 }
 
 .processContentBox {
   position: relative;
   z-index: 2;
-  margin-top: 80px; /* offset to align nicely with big numbers */
 }
 
 .stepTitleRow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  position: relative;
+  margin-bottom: 1.0582cqw; /* 16px */
 }
 
+/* The icon hangs outside the text column, sitting a consistent 12px to the left
+   of the title and vertically centred on it. Height-locked with auto width so
+   each keeps its natural aspect ratio (the eye is 34x22 and was being squeezed
+   into a square). */
 .stepDecorIcon {
-  width: 24px;
-  height: 24px;
+  position: absolute;
+  right: calc(100% + 0.7937cqw); /* 12px */
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
   object-fit: contain;
 }
 
+.processStep:nth-child(1) .stepDecorIcon {
+  height: 1.6534cqw; /* 25px */
+}
+
+.processStep:nth-child(2) .stepDecorIcon {
+  height: 1.5873cqw; /* 24px */
+}
+
+.processStep:nth-child(3) .stepDecorIcon {
+  height: 1.455cqw; /* 22px — the eye */
+}
+
+.processStep:nth-child(4) .stepDecorIcon {
+  height: 1.8519cqw; /* 28px */
+}
+
 .stepTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 40px;
+  font-family: var(--font-body);
+  font-size: 2.6455cqw; /* 40px */
   font-weight: 500;
+  line-height: 1;
   color: #114a6b;
   letter-spacing: -0.8px;
   margin: 0;
+  white-space: nowrap;
 }
 
 .stepDescription {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 19px;
-  line-height: 1.35;
+  font-family: var(--font-body);
+  font-size: 1.2566cqw; /* 19px */
+  line-height: 1.2;
   color: #001b2e;
-  max-width: 380px;
 }
 
 
@@ -479,8 +759,6 @@
 .offeringsSection {
   width: 100%;
   background-color: #ffffff;
-  border-top: 1px solid rgba(17, 74, 107, 0.1);
-  border-bottom: 1px solid rgba(17, 74, 107, 0.1);
   padding: 100px 0;
   box-sizing: border-box;
 }
@@ -495,10 +773,13 @@
   gap: 40px;
 }
 
+/* Wide enough to keep "our offerings" on one line now the serif word is a
+   step larger. */
 .offeringsTitleCol {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
+  flex: none;
 }
 
 .offeringsIcon {
@@ -508,7 +789,7 @@
 }
 
 .offeringsSubtitle {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 23px;
   color: #114a6b;
@@ -516,7 +797,7 @@
 }
 
 .offeringsTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 57px;
   font-weight: 600;
   color: #9e3f29;
@@ -526,7 +807,8 @@
 }
 
 .offeringsEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: var(--type-10);
   font-style: italic;
   font-weight: 500;
 }
@@ -543,7 +825,7 @@
 }
 
 .offeringsHeader {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   font-size: 33px;
@@ -561,7 +843,7 @@
 }
 
 .offeringsList li {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 33px;
   color: #001b2e;
   letter-spacing: -0.99px;
@@ -596,7 +878,7 @@
 }
 
 .testimonialsSubtitle {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 23px;
   color: #114a6b;
@@ -605,7 +887,7 @@
 }
 
 .testimonialsTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 57px;
   font-weight: 600;
   color: #9e3f29;
@@ -614,57 +896,60 @@
 }
 
 .testimonialsEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: var(--type-10);
   font-style: italic;
   font-weight: 500;
 }
 
 .testimonialsGrid {
-  max-width: 1240px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--space-xl);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 24px;
+  align-items: start;
 }
 
+/* Wider, shorter cards: the grid spans the full container and the quote block
+   no longer stretches to a tall fixed minimum. */
 .testimonialCard {
   background-color: rgba(212, 112, 89, 0.04);
   border: 1px solid rgba(212, 112, 89, 0.12);
   border-radius: 8px;
-  padding: 40px;
+  padding: 32px 36px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 406px;
+  justify-content: flex-start;
+  min-height: 0;
 }
 
 .quoteIconBox {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .quoteIcon {
-  width: 32px;
+  width: auto;
   height: 32px;
   object-fit: contain;
 }
 
 .quoteText {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 23px;
-  line-height: 1.35;
+  font-family: var(--font-body);
+  font-size: var(--type-3);
+  line-height: 1.45;
   color: #001b2e;
-  letter-spacing: -0.46px;
-  flex: 1;
-  margin-bottom: var(--space-md);
+  letter-spacing: -0.38px;
+  margin-bottom: 24px;
 }
 
 .authorDivider {
   width: 100%;
   height: 1px;
   background-color: rgba(90, 18, 4, 0.1);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .authorBox {
@@ -673,7 +958,7 @@
 }
 
 .authorName {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
   font-size: 23px;
@@ -683,7 +968,7 @@
 }
 
 .authorRole {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
   color: #114a6b;
@@ -695,7 +980,6 @@
 .teamSection {
   width: 100%;
   background-color: #ffffff;
-  border-top: 1px solid rgba(17, 74, 107, 0.1);
   padding: var(--space-huge) 0;
   box-sizing: border-box;
 }
@@ -715,7 +999,7 @@
 }
 
 .teamSubtitle {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 23px;
   color: #114a6b;
@@ -724,7 +1008,7 @@
 }
 
 .teamTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 57px;
   font-weight: 600;
   color: #9e3f29;
@@ -733,17 +1017,18 @@
 }
 
 .teamEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: var(--type-10);
   font-style: italic;
   font-weight: 500;
 }
 
 .teamSubDesc {
   width: 508px;
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 19px;
+  font-family: var(--font-body);
+  font-size: var(--type-3);
   line-height: 1.25;
-  color: rgba(17, 74, 107, 0.5);
+  color: rgba(17, 74, 107, 0.4);
   margin: 0;
 }
 
@@ -763,20 +1048,45 @@
   text-align: center;
 }
 
+/* Figma components 120/121: a 243px panel holding a cut-out portrait. Because
+   the portraits are transparent PNGs, the panel behind the subject is what
+   changes to dark peach on hover. */
 .headshotContainer {
+  position: relative;
   width: 243px;
   height: 243px;
   border-radius: 12px;
   overflow: hidden;
   background-color: #fcf5f3;
-  margin-bottom: 32px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+  margin-bottom: 50px;
+  box-shadow: none;
+  transition: background-color 0.35s ease;
+}
+
+.teamProfile:hover .headshotContainer {
+  background-color: #d47059;
 }
 
 .headshotImg {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  max-width: none;
   object-fit: cover;
+  filter: grayscale(1);
+}
+
+/* Crop offsets taken directly from the Figma components */
+.headshotMaitreyee {
+  left: 4px;
+  top: -38px;
+  width: 236px;
+  height: 281px;
+}
+
+.headshotPoorva {
+  left: -55px;
+  top: -121px;
+  width: 353px;
+  height: 470px;
 }
 
 .profileBio {
@@ -787,27 +1097,30 @@
 }
 
 .profileName {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 39px;
   font-weight: 500;
   color: #114a6b;
   margin-bottom: 4px;
+  transition: color 0.35s ease;
 }
 
 .profileRole {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 23px;
+  font-size: var(--type-4);
   color: #d47059;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
+  transition: color 0.35s ease;
 }
 
 .profileDescription {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 19px;
+  font-family: var(--font-body);
+  font-size: var(--type-3);
   line-height: 1.25;
   color: #114a6b;
   letter-spacing: -0.665px;
+  transition: color 0.35s ease;
 }
 
 
@@ -829,9 +1142,11 @@
   text-align: center;
 }
 
+/* 51px was off the type scale; normalised to the 48/57 step pair so the serif
+   word sits exactly one level above the sans one. */
 .ctaTitle {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 51px;
+  font-family: var(--font-body);
+  font-size: var(--type-8);
   font-weight: 500;
   color: #114a6b;
   letter-spacing: -1.02px;
@@ -839,14 +1154,15 @@
 }
 
 .ctaEmphasis {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: var(--font-serif);
+  font-size: var(--type-9);
   font-style: italic;
   font-weight: 500;
   color: #d47059;
 }
 
 .ctaDescription {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 19px;
   line-height: 1.25;
   color: rgba(17, 74, 107, 0.45);
@@ -858,24 +1174,21 @@
   border: 1px solid #114a6b;
   border-radius: 8px;
   padding: 20px 48px;
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 23px;
   color: #114a6b;
   letter-spacing: -0.69px;
   cursor: pointer;
   box-shadow: 0px 1px 20.9px rgba(0, 0, 0, 0.03);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
+/* Fills with peach on hover and holds its Y position — no lift. */
 .ctaButton:hover {
-  background-color: #114a6b;
+  background-color: #d47059;
+  border-color: #d47059;
   color: #ffffff;
-  transform: translateY(-4px);
-}
-
-.ctaButton:active {
-  transform: translateY(-1px);
 }
 
 
@@ -883,7 +1196,6 @@
 .footerSection {
   position: relative;
   width: 100%;
-  height: 795px; /* Exact height from design */
   background-color: #001b2e;
   overflow: hidden;
   box-sizing: border-box;
@@ -905,16 +1217,16 @@
   object-fit: cover;
 }
 
+/* Height is driven by content rather than a fixed 795px block. */
 .footerContainer {
   position: relative;
   z-index: 2;
   max-width: 1240px;
-  height: 100%;
   margin: 0 auto;
-  padding: 80px var(--space-xl) var(--space-xl) var(--space-xl);
+  padding: 48px var(--space-xl) 28px var(--space-xl);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 36px;
   box-sizing: border-box;
 }
 
@@ -988,7 +1300,7 @@
 }
 
 .contactHeader {
-  font-family: "Figtree", sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 16px;
   color: #d47059;
@@ -1003,7 +1315,7 @@
 }
 
 .contactLink {
-  font-family: "Rethink Sans", -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 19px;
   color: #ffffff;
   letter-spacing: -0.665px;
@@ -1014,22 +1326,19 @@
   color: #d47059;
 }
 
-.footerDivider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin-top: auto;
-  margin-bottom: 24px;
-}
-
 .metadataRow {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  font-family: "Rethink Sans", -apple-system, sans-serif;
-  font-size: 13px;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--type-1);
   color: rgba(255, 255, 255, 0.32);
+}
+
+.copyrightMark {
+  font-size: 14px;
+  line-height: 1;
 }
 
 .metadataLabelSep {
@@ -1063,13 +1372,17 @@
     display: block !important;
   }
 
-  /* High-fidelity positioning based on the Figma tablet design values */
+  /* High-fidelity positioning based on the Figma tablet design values.
+     --tx/--ty are recomputed for the tablet geometry so the scatter still
+     originates from the centre of the hero. */
   .card1 {
     left: -7.55% !important;
     top: 23.87% !important;
     width: 26.21% !important;
     height: 15.60% !important;
-    transform: rotate(4.96deg) !important;
+    --rot: 4.96deg;
+    --tx: 169.57%;
+    --ty: 117.5%;
   }
 
   .card2 {
@@ -1077,7 +1390,9 @@
     top: 46.73% !important;
     width: 21.62% !important;
     height: 21.41% !important;
-    transform: rotate(-8.37deg) !important;
+    --rot: -8.37deg;
+    --tx: 216.19%;
+    --ty: -34.73%;
   }
 
   .card3 {
@@ -1085,7 +1400,9 @@
     top: 56.45% !important;
     width: 31.63% !important;
     height: 16.57% !important;
-    transform: rotate(0deg) !important;
+    --rot: 0deg;
+    --tx: -158.03%;
+    --ty: -88.93%;
   }
 
   .card4 {
@@ -1093,7 +1410,9 @@
     top: 23.87% !important;
     width: 27.93% !important;
     height: 22.81% !important;
-    transform: rotate(4.69deg) !important;
+    --rot: 4.69deg;
+    --tx: -162.46%;
+    --ty: 64.55%;
   }
 
   .card5 {
@@ -1101,7 +1420,9 @@
     top: -7.04% !important;
     width: 49.53% !important;
     height: 21.04% !important;
-    transform: rotate(-4.61deg) !important;
+    --rot: -4.61deg;
+    --tx: 74.43%;
+    --ty: 221.1%;
   }
 
   .card6 {
@@ -1109,7 +1430,9 @@
     top: 81.41% !important;
     width: 33.54% !important;
     height: 29.54% !important;
-    transform: rotate(6.06deg) !important;
+    --rot: 6.06deg;
+    --tx: -77.88%;
+    --ty: -156.33%;
   }
 
   .card7 {
@@ -1117,7 +1440,9 @@
     top: -7.04% !important;
     width: 45.22% !important;
     height: 23.78% !important;
-    transform: rotate(0deg) !important;
+    --rot: 0deg;
+    --tx: -53.45%;
+    --ty: 189.86%;
   }
 
   .card8 {
@@ -1125,7 +1450,9 @@
     top: 74.87% !important;
     width: 40.46% !important;
     height: 36.61% !important;
-    transform: rotate(-2.98deg) !important;
+    --rot: -2.98deg;
+    --tx: 59.94%;
+    --ty: -117.93%;
   }
 
   /* Slogan Logo / Typography Sizing */
@@ -1155,9 +1482,21 @@
   }
 
   .visionText {
-    font-size: 23px !important;
+    font-size: var(--type-4) !important;
     line-height: 1.35 !important;
     letter-spacing: -0.805px !important;
+  }
+
+  /* "inspire ❦ connect ❦ delight" sits on its own line */
+  .visionWords {
+    display: block !important;
+    margin-top: 14px !important;
+    font-size: 28px !important;
+  }
+
+  .visionSeparator {
+    height: 19px !important;
+    margin: 0 13px !important;
   }
 
   /* Curated Works Typography & Row Heights */
@@ -1175,14 +1514,37 @@
     height: 112px !important;
   }
 
+  /* Same 25% top offset as desktop, scaled to the shorter row */
+  .projectRowInner {
+    padding: 28px 32px 0 32px !important;
+  }
+
+  .sectionHeader {
+    padding: 0 32px var(--space-xl) 32px !important;
+  }
+
   .projectTitle {
     font-size: 28px !important;
     letter-spacing: -0.56px !important;
   }
 
-  /* Process Timeline Layout */
+  /* Process Timeline Layout — the absolute 1512-wide composition is desktop
+     only; tablet falls back to a staggered two-column flow. */
   .processSection {
     padding: 80px 0 !important;
+  }
+
+  .processContainer {
+    container-type: normal !important;
+    position: static !important;
+    aspect-ratio: auto !important;
+    max-width: 834px !important;
+    padding: 0 32px !important;
+  }
+
+  .processHeader {
+    position: static !important;
+    margin-bottom: 80px !important;
   }
 
   .processSubtitle {
@@ -1194,6 +1556,7 @@
   .processTitle {
     font-size: 48px !important;
     letter-spacing: -0.96px !important;
+    white-space: normal !important;
   }
 
   .processEmphasis {
@@ -1202,18 +1565,74 @@
   }
 
   .processGrid {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 60px 40px !important;
+    column-gap: 40px !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+  }
+
+  .processStep {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    padding-left: 40px !important;
+  }
+
+  /* Gentler stagger at tablet width */
+  .processStep:nth-child(2) {
+    margin-left: 8% !important;
+    padding-top: 110px !important;
+  }
+
+  .processStep:nth-child(3) {
+    margin-left: 4% !important;
+    padding-top: 30px !important;
+  }
+
+  .processStep:nth-child(4) {
+    margin-left: 12% !important;
+    padding-top: 140px !important;
+  }
+
+  .processStep .processNumber {
+    left: 0 !important;
+    top: -40px !important;
+    transform: none !important;
+  }
+
+  .processContentBox {
+    margin-top: 80px !important;
+  }
+
+  .stepDecorIcon {
+    right: calc(100% + 12px) !important;
+  }
+
+  .processStep:nth-child(1) .stepDecorIcon,
+  .processStep:nth-child(2) .stepDecorIcon,
+  .processStep:nth-child(4) .stepDecorIcon {
+    height: 22px !important;
+  }
+
+  .processStep:nth-child(3) .stepDecorIcon {
+    height: 19px !important;
+  }
+
+  .stepTitleRow {
+    margin-bottom: 12px !important;
   }
 
   .processNumber {
     font-size: 148px !important;
-    line-height: 240px !important;
+    line-height: 200px !important;
   }
 
   .stepTitle {
     font-size: 33px !important;
     letter-spacing: -0.66px !important;
+    white-space: normal !important;
   }
 
   .stepDescription {
@@ -1375,58 +1794,37 @@
     margin: 0 auto !important;
   }
 
-  /* Maitreyee Card Sizing & Image Crops */
+  /* Tablet card sizing. The panel scales 243 -> 217 (0.893), so the Figma crop
+     offsets are scaled by the same factor. */
   .teamGrid > div:first-child {
     width: 276px !important;
     flex: none !important;
   }
 
-  .teamGrid > div:first-child .headshotContainer {
-    position: relative !important;
-    width: 217px !important;
-    height: 217px !important;
-    border-radius: 10.716px !important;
-    overflow: hidden !important;
-    background-color: #fcf5f3 !important;
-    margin: 0 auto 24px auto !important;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05) !important;
-  }
-
-  .teamGrid > div:first-child .headshotImg {
-    position: absolute !important;
-    width: 210.679px !important;
-    height: 251.018px !important;
-    left: 3.57px !important;
-    top: -33.93px !important;
-    max-width: none !important;
-    object-fit: cover !important;
-  }
-
-  /* Poorva Card Sizing & Image Crops */
   .teamGrid > div:last-child {
     width: 308px !important;
     flex: none !important;
   }
 
-  .teamGrid > div:last-child .headshotContainer {
-    position: relative !important;
+  .headshotContainer {
     width: 217px !important;
     height: 217px !important;
     border-radius: 10.716px !important;
-    overflow: hidden !important;
-    background-color: #fcf5f3 !important;
-    margin: 0 auto 24px auto !important;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05) !important;
+    margin: 0 auto 44px auto !important;
   }
 
-  .teamGrid > div:last-child .headshotImg {
-    position: absolute !important;
+  .headshotMaitreyee {
+    width: 210.679px !important;
+    height: 251.018px !important;
+    left: 3.57px !important;
+    top: -33.93px !important;
+  }
+
+  .headshotPoorva {
     width: 315.007px !important;
     height: 420.01px !important;
     left: -49.12px !important;
     top: -108.05px !important;
-    max-width: none !important;
-    object-fit: cover !important;
   }
 
   .profileName {
@@ -1468,14 +1866,9 @@
   }
 
   /* High-fidelity tablet footer styling */
-  .footerSection {
-    height: 115px !important;
-  }
-
   .footerContainer {
-    padding: 20px var(--space-xl) !important;
-    justify-content: center !important;
-    gap: 16px !important;
+    padding: 28px var(--space-xl) 20px var(--space-xl) !important;
+    gap: 20px !important;
   }
 
   .footerMainGrid {
@@ -1521,22 +1914,95 @@
     font-size: 16px !important;
   }
 
-  .footerDivider {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-    display: block !important;
-  }
-
   .metadataRow {
     font-size: 11px !important;
-    gap: 12px !important;
+    gap: 8px !important;
   }
 }
 
 /* Mobile viewports (iPhone alignment) */
 @media (max-width: 767px) {
+  .heroSection {
+    min-height: 100vh !important;
+    padding: 0 !important;
+  }
+
+  .heroWrapper {
+    aspect-ratio: 390 / 844 !important;
+    max-width: 390px !important;
+    overflow: hidden !important;
+  }
+
+  /* Phone keeps the scattered images — six of the eight, ringed around the
+     wordmark so the centre stays legible. */
   .floatingGrid {
-    display: none; /* hide floating absolute cards on mobile screens to keep it elegant */
+    display: block !important;
+  }
+
+  .card1 {
+    left: -12% !important;
+    top: 16% !important;
+    width: 42% !important;
+    height: 12% !important;
+    --rot: 4.96deg;
+    --tx: 216.67%;
+    --ty: 233.33%;
+  }
+
+  .card2 {
+    left: 68% !important;
+    top: 10% !important;
+    width: 44% !important;
+    height: 13% !important;
+    --rot: -8.37deg;
+    --tx: -181.82%;
+    --ty: 257.69%;
+  }
+
+  .card3 {
+    left: 58% !important;
+    top: 74% !important;
+    width: 46% !important;
+    height: 13% !important;
+    --rot: 2deg;
+    --tx: -110.87%;
+    --ty: -157.69%;
+  }
+
+  .card4 {
+    left: -10% !important;
+    top: 63% !important;
+    width: 40% !important;
+    height: 12% !important;
+    --rot: 4.69deg;
+    --tx: 225% !important;
+    --ty: -158.33%;
+  }
+
+  .card5 {
+    left: 22% !important;
+    top: -4% !important;
+    width: 48% !important;
+    height: 12% !important;
+    --rot: -4.61deg;
+    --tx: 8.33%;
+    --ty: 400%;
+  }
+
+  .card6 {
+    left: 20% !important;
+    top: 86% !important;
+    width: 46% !important;
+    height: 13% !important;
+    --rot: 6.07deg;
+    --tx: 15.22%;
+    --ty: -246.15%;
+  }
+
+  /* Two cards would crowd the phone layout — drop them */
+  .card7,
+  .card8 {
+    display: none !important;
   }
 
   .heroHeading {
@@ -1579,13 +2045,99 @@
     height: 100px !important;
   }
 
+  .projectRowInner {
+    padding: 25px 24px 0 24px !important;
+  }
+
+  .sectionHeader {
+    padding: 0 24px var(--space-lg) 24px !important;
+  }
+
   .projectTitle {
     font-size: 22px !important;
   }
 
+  .projectTitleContainer {
+    max-width: 240px !important;
+    gap: 6px !important;
+  }
+
+  /* "inspire ❦ connect ❦ delight" sits on its own line */
+  .visionWords {
+    display: block !important;
+    margin-top: 12px !important;
+    font-size: 24px !important;
+  }
+
+  .visionSeparator {
+    height: 16px !important;
+    margin: 0 10px !important;
+  }
+
+  .processContainer {
+    container-type: normal !important;
+    position: static !important;
+    aspect-ratio: auto !important;
+    padding: 0 24px !important;
+  }
+
+  .processHeader {
+    position: static !important;
+    margin-bottom: 56px !important;
+  }
+
+  /* cqw has no container at this breakpoint, so sizes go back to px */
+  .processSubtitle {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .processTitle,
+  .stepTitle {
+    white-space: normal !important;
+  }
+
   .processGrid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 48px !important;
+  }
+
+  /* Single column on phone — drop the stagger entirely */
+  .processStep {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    padding-left: 34px !important;
+  }
+
+  .processStep:nth-child(1),
+  .processStep:nth-child(2),
+  .processStep:nth-child(3),
+  .processStep:nth-child(4) {
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .processStep .processNumber {
+    left: 0 !important;
+    top: -30px !important;
+    transform: none !important;
+    line-height: 160px !important;
+  }
+
+  .processContentBox {
+    margin-top: 60px !important;
+  }
+
+  .stepDecorIcon {
+    right: calc(100% + 10px) !important;
+    height: 18px !important;
+  }
+
+  .stepTitleRow {
+    margin-bottom: 10px !important;
   }
 
   .processNumber {
@@ -1643,9 +2195,26 @@
     font-size: 18px !important;
   }
 
+  /* Panel scales 243 -> 180 (0.741); crop offsets scaled to match. */
   .headshotContainer {
     width: 180px !important;
     height: 180px !important;
+    border-radius: 8.89px !important;
+    margin-bottom: 37px !important;
+  }
+
+  .headshotMaitreyee {
+    width: 174.81px !important;
+    height: 208.15px !important;
+    left: 2.96px !important;
+    top: -28.15px !important;
+  }
+
+  .headshotPoorva {
+    width: 261.48px !important;
+    height: 348.15px !important;
+    left: -40.74px !important;
+    top: -89.63px !important;
   }
 
   .profileName {
@@ -1677,15 +2246,9 @@
     padding: 12px 28px !important;
   }
 
-  .footerSection {
-    height: auto !important;
-    padding-bottom: 40px !important;
-  }
-
   .footerContainer {
-    height: auto !important;
-    padding-top: 40px !important;
-    gap: 40px !important;
+    padding: 40px var(--space-lg) 24px var(--space-lg) !important;
+    gap: 32px !important;
   }
 
   .footerMainGrid {
