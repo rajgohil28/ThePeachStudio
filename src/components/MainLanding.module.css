@@ -784,8 +784,9 @@
 
 .offeringsIcon {
   width: 39px;
-  height: 35px;
-  margin-bottom: 16px;
+  height: 34.45px;
+  margin-bottom: 8px;
+  object-fit: contain;
 }
 
 .offeringsSubtitle {
@@ -793,7 +794,9 @@
   font-style: italic;
   font-size: 23px;
   color: #114a6b;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  line-height: 1;
+  letter-spacing: -0.805px;
 }
 
 .offeringsTitle {
@@ -803,14 +806,18 @@
   color: #9e3f29;
   letter-spacing: -1.38px;
   margin: 0;
-  line-height: 1.1;
+  line-height: 0.92;
+  display: flex;
+  flex-direction: column;
 }
 
 .offeringsEmphasis {
   font-family: var(--font-serif);
-  font-size: var(--type-10);
+  font-size: 69px;
   font-style: italic;
   font-weight: 500;
+  line-height: 0.92;
+  display: block;
 }
 
 .verticalDivider {

@@ -9,7 +9,7 @@ interface MainLandingProps {
 }
 
 // Existing Assets
-const PINK_FLOWER_URL = getAssetPath("/images/landing/pink-flower.png");
+const THREE_CLOVER_ICON_URL = getAssetPath("/images/landing/three-clover.svg");
 
 // Brand logo — true vectors recoloured to the primary peach (#D47059). The
 // icon is the peach fruit; the light variants are for the dark footer.
@@ -348,10 +348,11 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
         <div className={styles.offeringsContainer}>
           {/* Offerings Header Column */}
           <div className={styles.offeringsTitleCol}>
-            <img src={PINK_FLOWER_URL} alt="" className={styles.offeringsIcon} />
+            <img src={THREE_CLOVER_ICON_URL} alt="" className={styles.offeringsIcon} />
             <span className={styles.offeringsSubtitle}>what we do</span>
             <h2 className={styles.offeringsTitle}>
-              our <span className={styles.offeringsEmphasis}>offerings</span>
+              our
+              <span className={styles.offeringsEmphasis}>offerings</span>
             </h2>
           </div>
 
