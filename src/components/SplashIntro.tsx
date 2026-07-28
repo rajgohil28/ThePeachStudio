@@ -59,16 +59,6 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
     return () => clearTimeout(timer);
   }, []);
 
-  // Automatically trigger transition to landing page when background is fully revealed
-  useEffect(() => {
-    if (isFullyRevealed) {
-      const timer = setTimeout(() => {
-        onGetStarted();
-      }, 1000); // 1-second delay for cinematic finish
-      return () => clearTimeout(timer);
-    }
-  }, [isFullyRevealed, onGetStarted]);
-
   // Initialize and resize canvas
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -337,6 +327,13 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
         <div className={styles.topLeftWordmark}>
           <img src={LOGO_WORDMARK_URL} alt="the peach studio" className={styles.logoWordmarkImg} />
         </div>
+      </div>
+
+      {/* Get Started Button (Renders with transition when fully revealed) */}
+      <div className={`${styles.getStartedContainer} ${isFullyRevealed ? styles.getStartedVisible : ""}`}>
+        <button className={styles.getStartedBtn} onClick={onGetStarted}>
+          Get Started
+        </button>
       </div>
     </div>
   );

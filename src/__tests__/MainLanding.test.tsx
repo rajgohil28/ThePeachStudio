@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import MainLanding from "@/components/MainLanding";
 import { vi, describe, it, expect } from "vitest";
 
@@ -50,5 +50,22 @@ describe("MainLanding Component", () => {
     const button = screen.getByRole("button", { name: /Start a Conversation/i });
     fireEvent.click(button);
     expect(mockOnStartConversation).toHaveBeenCalled();
+  });
+
+  it("handles scroll event to set hasScrolled state", () => {
+    vi.useFakeTimers();
+    render(<MainLanding onStartConversation={vi.fn()} />);
+
+    act(() => {
+      vi.advanceTimersByTime(7000);
+    });
+
+    fireEvent.scroll(window, { target: { scrollY: 100 } });
+
+    act(() => {
+      vi.runAllTimers();
+    });
+
+    vi.useRealTimers();
   });
 });

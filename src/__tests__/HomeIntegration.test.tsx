@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import Home from "@/app/page";
 import { vi, describe, it, expect } from "vitest";
 
@@ -18,6 +18,7 @@ vi.mock("@/components/SplashIntro", () => {
 
 describe("Home Page Integration Flow", () => {
   it("successfully mounts on Splash and transitions to Landing Page on reveal", () => {
+    vi.useFakeTimers();
     // 1. Render the main page component
     render(<Home />);
 
@@ -32,9 +33,16 @@ describe("Home Page Integration Flow", () => {
     const revealTrigger = screen.getByTestId("reveal-trigger");
     fireEvent.click(revealTrigger);
 
+    // Fast-forward time to bypass the transition delay
+    act(() => {
+      vi.runAllTimers();
+    });
+
     // 5. Verify that Splash screen has been unmounted and MainLanding tagline is now displayed
     expect(screen.queryByTestId("splash-mock")).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/meaningful art\.\.\.\s*memorable spaces!/i);
     expect(screen.getByRole("button", { name: /Start a Conversation/i })).toBeInTheDocument();
+
+    vi.useRealTimers();
   });
 });

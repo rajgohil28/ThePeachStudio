@@ -11,7 +11,10 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const handleGetStarted = () => {
-    setCurrentStep("landing");
+    setIsExitingSplash(true);
+    setTimeout(() => {
+      setCurrentStep("landing");
+    }, 800); // 800ms matches the slow transition in CSS
   };
 
   const handleStartConversation = () => {

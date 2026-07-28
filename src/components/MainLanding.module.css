@@ -56,22 +56,37 @@
   padding: 8px; /* equal border on all four sides */
   box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  pointer-events: auto; /* Allow hovering */
+  pointer-events: none; /* Disable hover during stacking */
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(var(--rot));
-  /* step-end holds each keyframe until the next one, so the card jumps between
-     hand-placed positions instead of gliding — ~8fps, like stop motion. */
-  animation: stackAndScatter 1.6s step-end backwards;
-  animation-delay: var(--scatter-delay, 0s);
+  
+  /* Initial state: already in the stack position in the center, but invisible */
+  transform: translate(var(--tx), var(--ty)) rotate(var(--stack-rot)) scale(var(--stack-scale, 0.95));
+  opacity: 0;
+  
+  /* Fast fade-in for stop-motion style popping */
+  transition: opacity 0.08s ease, box-shadow 0.4s ease;
+}
+
+/* Fades in cards one by one stacked in center */
+.cardVisible {
+  opacity: 1 !important;
+}
+
+/* Disperses all cards together synchronously with smooth motion */
+.disperseGrid .polaroidCard {
+  transform: translate(0, 0) rotate(var(--rot)) scale(1) !important;
+  pointer-events: auto; /* Allow hover interactions once dispersed */
+  /* Smooth transition for disperse */
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, box-shadow 0.4s ease;
 }
 
 .polaroidCard:hover {
   transform: scale(1.05) rotate(0deg) !important;
   box-shadow: 16px 20px 24px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease !important;
 }
 
 /* Cards begin piled at the centre of the hero, hold for a beat, then walk out
@@ -164,7 +179,7 @@
   --tx: 266.26%;
   --ty: 45.59%;
   --stack-rot: -6deg;
-  --scatter-delay: 0.06s;
+  --scatter-delay: 0s;
 }
 
 .card2 {
@@ -176,7 +191,7 @@
   --tx: 3.26%;
   --ty: 142.69%;
   --stack-rot: 4deg;
-  --scatter-delay: 0.18s;
+  --scatter-delay: 0s;
 }
 
 .card3 {
@@ -188,7 +203,7 @@
   --tx: 2.04%;
   --ty: -185.58%;
   --stack-rot: -3deg;
-  --scatter-delay: 0.3s;
+  --scatter-delay: 0s;
 }
 
 .card4 {
@@ -200,7 +215,7 @@
   --tx: -267.95%;
   --ty: 9.28%;
   --stack-rot: 7deg;
-  --scatter-delay: 0.12s;
+  --scatter-delay: 0s;
 }
 
 .card5 {
@@ -212,7 +227,7 @@
   --tx: 112.73%;
   --ty: 132.72%;
   --stack-rot: -5deg;
-  --scatter-delay: 0.24s;
+  --scatter-delay: 0s;
 }
 
 .card6 {
@@ -224,7 +239,7 @@
   --tx: -189.62%;
   --ty: -98.8%;
   --stack-rot: 2deg;
-  --scatter-delay: 0.36s;
+  --scatter-delay: 0s;
 }
 
 .card7 {
@@ -248,13 +263,13 @@
   --tx: 141.7%;
   --ty: -70.04%;
   --stack-rot: -8deg;
-  --scatter-delay: 0.42s;
+  --scatter-delay: 0s;
 }
 
 /* Hero Central Core Content.
    Sits *behind* the photographs (z-index 0 vs the grid's 1) so the cards sweep
    over the centre as they scatter, and only reveals once every card has
-   landed — the last one finishes at 0.42s delay + 1.6s duration. */
+   landed. */
 .heroCore {
   position: relative;
   z-index: 0;
@@ -266,17 +281,28 @@
   pointer-events: none;
 }
 
+/* Base hidden state before dispersion */
 .logoAndMark,
-.heroHeading,
-.heroOrnamentRow {
-  animation: heroCoreReveal 0.7s ease-out backwards;
+.heroHeading {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* Elegant delayed reveal animation trigger once dispersed */
+.heroCoreVisible .logoAndMark,
+.heroCoreVisible .heroHeading {
+  animation: heroCoreReveal 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.heroCoreVisible .logoAndMark {
+  animation-delay: 0.1s;
+}
+
+.heroCoreVisible .heroHeading {
+  animation-delay: 0.4s;
 }
 
 @keyframes heroCoreReveal {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -284,10 +310,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logoAndMark,
-  .heroHeading,
-  .heroOrnamentRow {
+  .heroCoreVisible .logoAndMark,
+  .heroCoreVisible .heroHeading {
     animation: none;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -296,7 +323,6 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
-  animation-delay: 2.05s;
 }
 
 .peachIcon {
@@ -318,7 +344,7 @@
   letter-spacing: -2px;
   text-transform: lowercase;
   margin: 0;
-  animation-delay: 2.25s;
+  animation-delay: 1.4s;
 }
 
 .italicSerif {
@@ -331,44 +357,28 @@
 .heroOrnamentRow {
   margin-top: 32px;
   overflow: hidden;
-  animation-delay: 2.5s;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-/* Scroll indicator — the chevrons rise in, travel down the page and fade out,
-   then the cycle restarts from above. Reads as a continuous downward pull
-   rather than a bob. The pause between cycles keeps it from feeling frantic. */
+.arrowVisible {
+  opacity: 1 !important;
+}
+
+.arrowHidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Scroll indicator — animated natively within SVG styles */
 .heroOrnament {
-  width: 42px;
-  height: 40px;
+  width: 64px;
+  height: 60px;
   object-fit: contain;
-  animation: scrollHint 2.4s cubic-bezier(0.4, 0, 0.2, 1) 3s infinite;
-}
-
-@keyframes scrollHint {
-  0% {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.9;
-  }
-  55% {
-    transform: translateY(12px);
-    opacity: 0.55;
-  }
-  75% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .heroOrnament {
-    animation: none;
     opacity: 0.7;
   }
 }
@@ -382,7 +392,7 @@
 .testimonialsSection,
 .teamSection,
 .ctaSection {
-  border-bottom: 1px solid rgba(17, 74, 107, 0.1);
+  border-bottom: none;
 }
 
 /* Bottom Vision Statement Section sitting between Hero and Curated Works */
@@ -859,15 +869,12 @@
   gap: 16px;
 }
 
-/* Custom peach bullet marker */
-.offeringsList li::before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background-color: #d47059;
-  border-radius: 50% 0 50% 0; /* Peach petal style bullet */
-  transform: rotate(-45deg);
+/* Custom peach bullet marker — hand-drawn Vector.svg from Figma */
+.bulletIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 
@@ -1230,11 +1237,11 @@
   z-index: 2;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 48px var(--space-xl) 28px var(--space-xl);
+  padding: 0 var(--space-xl);
   display: flex;
-  flex-direction: column;
-  gap: 36px;
+  align-items: center;
   box-sizing: border-box;
+  height: 115px; /* Exact height to match Figma 115px footer */
 }
 
 .footerMainGrid {
@@ -1242,6 +1249,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .socialCol {
@@ -1285,7 +1293,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+}
+
+.footerLogoRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .footerWordmarkIcon {
@@ -1377,6 +1391,10 @@
   /* Keep floating polaroids layout visible on tablet */
   .floatingGrid {
     display: block !important;
+  }
+
+  .polaroidCard {
+    --stack-scale: 0.65;
   }
 
   /* High-fidelity positioning based on the Figma tablet design values.
@@ -1706,9 +1724,9 @@
     gap: 12px !important;
   }
 
-  .offeringsList li::before {
-    width: 8px !important;
-    height: 8px !important;
+  .bulletIcon {
+    width: 10px !important;
+    height: 10px !important;
   }
 
   /* Testimonials Stacked Cards Sizing */
@@ -1874,8 +1892,9 @@
 
   /* High-fidelity tablet footer styling */
   .footerContainer {
-    padding: 28px var(--space-xl) 20px var(--space-xl) !important;
-    gap: 20px !important;
+    padding: 0 var(--space-xl) !important;
+    gap: 0 !important;
+    height: 115px !important;
   }
 
   .footerMainGrid {
@@ -1946,13 +1965,17 @@
     display: block !important;
   }
 
+  .polaroidCard {
+    --stack-scale: 0.45;
+  }
+
   .card1 {
     left: -12% !important;
     top: 16% !important;
     width: 42% !important;
     height: 12% !important;
     --rot: 4.96deg;
-    --tx: 216.67%;
+    --tx: 97.62%;
     --ty: 233.33%;
   }
 
@@ -1962,7 +1985,7 @@
     width: 44% !important;
     height: 13% !important;
     --rot: -8.37deg;
-    --tx: -181.82%;
+    --tx: -90.91%;
     --ty: 257.69%;
   }
 
@@ -1972,8 +1995,8 @@
     width: 46% !important;
     height: 13% !important;
     --rot: 2deg;
-    --tx: -110.87%;
-    --ty: -157.69%;
+    --tx: -67.39%;
+    --ty: -234.62%;
   }
 
   .card4 {
@@ -1982,7 +2005,7 @@
     width: 40% !important;
     height: 12% !important;
     --rot: 4.69deg;
-    --tx: 225% !important;
+    --tx: 100% !important;
     --ty: -158.33%;
   }
 
@@ -2003,7 +2026,7 @@
     height: 13% !important;
     --rot: 6.07deg;
     --tx: 15.22%;
-    --ty: -246.15%;
+    --ty: -326.92%;
   }
 
   /* Two cards would crowd the phone layout — drop them */
@@ -2049,7 +2072,12 @@
   }
 
   .projectRow {
-    height: 100px !important;
+    height: 90px !important;
+    transition: height 0.35s ease, background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+
+  .projectRow.activeRow {
+    height: 170px !important;
   }
 
   .projectRowInner {
@@ -2256,6 +2284,7 @@
   .footerContainer {
     padding: 40px var(--space-lg) 24px var(--space-lg) !important;
     gap: 32px !important;
+    height: auto !important;
   }
 
   .footerMainGrid {
@@ -2263,6 +2292,10 @@
     gap: 40px !important;
     text-align: center !important;
     justify-items: center !important;
+  }
+
+  .socialCol {
+    justify-content: center !important;
   }
 
   .contactCol {

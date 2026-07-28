@@ -10,12 +10,12 @@ interface MainLandingProps {
 
 // Existing Assets
 const THREE_CLOVER_ICON_URL = getAssetPath("/images/landing/three-clover.svg");
+const OFFERINGS_BULLET_URL = getAssetPath("/images/landing/offering-bullet.svg");
 
 // Brand logo — true vectors recoloured to the primary peach (#D47059). The
 // icon is the peach fruit; the light variants are for the dark footer.
 const PEACH_ICON_URL = getAssetPath("/images/landing/peach-icon.svg");
 const PEACH_WORDMARK_URL = getAssetPath("/images/landing/peach-wordmark.svg");
-const PEACH_ICON_LIGHT_URL = getAssetPath("/images/landing/peach-icon-light.svg");
 const PEACH_WORDMARK_LIGHT_URL = getAssetPath("/images/landing/peach-wordmark-light.svg");
 const LINKEDIN_BG_URL = getAssetPath("/images/landing/linkedin-bg.svg");
 const LINKEDIN_VEC_URL = getAssetPath("/images/landing/linkedin-vec.svg");
@@ -44,21 +44,21 @@ const PROCESS_DECOR_3 = getAssetPath("/images/landing/process-decor-3.svg");
 const PROCESS_DECOR_4 = getAssetPath("/images/landing/process-decor-4.svg");
 
 const PORTFOLIO_PROJECTS = [
-  { id: "sealink", title: "sealink", image: HERO_FLOATING_1 },
-  { id: "soul-of-konkan", title: "the soul of konkan", image: HERO_FLOATING_5 },
-  { id: "strategy-meets-space", title: "where strategy meets space", image: HERO_FLOATING_8 },
-  { id: "mumbai-in-pixels", title: "mumbai in pixels", image: HERO_FLOATING_2 },
-  { id: "elephant-mandala", title: "the elephant mandala", image: HERO_FLOATING_6 },
-  { id: "palm-arc", title: "under the palm arc", image: HERO_FLOATING_3 },
-  { id: "bloomspace", title: "bloomspace", image: HERO_FLOATING_2 },
-  { id: "city-threshold", title: "a city of every threshold", image: HERO_FLOATING_7 },
-  { id: "strings-of-sound", title: "strings of sound made visible", image: HERO_FLOATING_1 },
-  { id: "portrait-landscape", title: "a portrait of landscape", image: HERO_FLOATING_3 },
-  { id: "maa-saraswati", title: "maa saraswati", image: HERO_FLOATING_4 },
-  { id: "birdsong-october", title: "birdsong in october", image: HERO_FLOATING_3 },
-  { id: "many-stories", title: "many stories, one city!", image: HERO_FLOATING_6 },
-  { id: "tree-of-life", title: "tree of life", image: HERO_FLOATING_7 },
-  { id: "rituals-adornment", title: "rituals of adornment", image: HERO_FLOATING_4 },
+  { id: "sealink", title: "sealink", image: getAssetPath("/images/landing/portfolio-sealink.jpg") },
+  { id: "soul-of-konkan", title: "the soul of konkan", image: getAssetPath("/images/landing/portfolio-soul-of-konkan.jpg") },
+  { id: "strategy-meets-space", title: "where strategy meets space", image: getAssetPath("/images/landing/portfolio-strategy-meets-space.jpg") },
+  { id: "mumbai-in-pixels", title: "mumbai in pixels", image: getAssetPath("/images/landing/portfolio-mumbai-in-pixels.jpg") },
+  { id: "elephant-mandala", title: "the elephant mandala", image: getAssetPath("/images/landing/portfolio-elephant-mandala.jpg") },
+  { id: "palm-arc", title: "under the palm arc", image: getAssetPath("/images/landing/portfolio-palm-arc.jpg") },
+  { id: "bloomspace", title: "bloomspace", image: getAssetPath("/images/landing/portfolio-bloomspace.jpg") },
+  { id: "city-threshold", title: "a city of every threshold", image: getAssetPath("/images/landing/portfolio-city-threshold.jpg") },
+  { id: "strings-of-sound", title: "strings of sound made visible", image: getAssetPath("/images/landing/portfolio-strings-of-sound.jpg") },
+  { id: "portrait-landscape", title: "a portrait of landscape", image: getAssetPath("/images/landing/portfolio-portrait-landscape.jpg") },
+  { id: "maa-saraswati", title: "maa saraswati", image: getAssetPath("/images/landing/portfolio-maa-saraswati.jpg") },
+  { id: "birdsong-october", title: "birdsong in october", image: getAssetPath("/images/landing/portfolio-birdsong-october.jpg") },
+  { id: "many-stories", title: "many stories, one city!", image: getAssetPath("/images/landing/portfolio-many-stories.png") },
+  { id: "tree-of-life", title: "tree of life", image: getAssetPath("/images/landing/portfolio-tree-of-life.jpg") },
+  { id: "rituals-adornment", title: "rituals of adornment", image: getAssetPath("/images/landing/portfolio-rituals-adornment.jpg") },
 ];
 
 const TESTIMONIALS = [
@@ -91,14 +91,48 @@ interface Project {
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
   const hoveredProjectRef = React.useRef<Project | null>(null);
+  const [showScrollArrow, setShowScrollArrow] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [visibleCardIds, setVisibleCardIds] = useState<string[]>([]);
+  const [isDispersed, setIsDispersed] = useState(false);
 
   React.useEffect(() => {
     hoveredProjectRef.current = hoveredProject;
   }, [hoveredProject]);
 
   React.useEffect(() => {
+    // 1. Staggered fade-in of cards stacking in center
+    const cardSequence = ["card7", "card1", "card4", "card2", "card5", "card3", "card6", "card8"];
+    const timers: NodeJS.Timeout[] = [];
+
+    cardSequence.forEach((cardId, index) => {
+      const timer = setTimeout(() => {
+        setVisibleCardIds((prev) => [...prev, cardId]);
+      }, index * 200);
+      timers.push(timer);
+    });
+
+    // 2. Disperse together after a hold beat (at 2.0s)
+    const disperseTimer = setTimeout(() => {
+      setIsDispersed(true);
+    }, 2000);
+    timers.push(disperseTimer);
+
+    // Scroll arrow appears at a 3-4 second delay after the text has appeared.
+    // All animations complete and text finishes appearing by ~2.1s, so 5.5s total delay.
+    const arrowTimer = setTimeout(() => {
+      setShowScrollArrow(true);
+    }, 5500);
+    timers.push(arrowTimer);
+
     const handleScroll = () => {
-      if (typeof window === "undefined" || window.innerWidth > 1024) return;
+      if (typeof window !== "undefined") {
+        if (window.scrollY > 50) {
+          setHasScrolled(true);
+        }
+
+        if (window.innerWidth > 1024) return;
+      }
 
       const rows = document.querySelectorAll(`[data-project-id]`);
       let closestProject: string | null = null;
@@ -131,6 +165,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
     window.addEventListener("resize", handleScroll);
 
     return () => {
+      timers.forEach(clearTimeout);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
@@ -142,43 +177,43 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
       <section className={styles.heroSection}>
         <div className={styles.heroWrapper}>
           {/* Floating Polaroids Layout */}
-          <div className={styles.floatingGrid}>
+          <div className={`${styles.floatingGrid} ${isDispersed ? styles.disperseGrid : ""}`}>
             {/* Card 1 */}
-            <div className={`${styles.polaroidCard} ${styles.card1}`}>
+            <div className={`${styles.polaroidCard} ${styles.card1} ${visibleCardIds.includes("card1") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_1} alt="Peach Studio Creation" className={styles.polaroidImg} />
             </div>
             {/* Card 2 */}
-            <div className={`${styles.polaroidCard} ${styles.card2}`}>
+            <div className={`${styles.polaroidCard} ${styles.card2} ${visibleCardIds.includes("card2") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_2} alt="Studio Sketchwork" className={styles.polaroidImg} />
             </div>
             {/* Card 3 */}
-            <div className={`${styles.polaroidCard} ${styles.card3}`}>
+            <div className={`${styles.polaroidCard} ${styles.card3} ${visibleCardIds.includes("card3") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_3} alt="Completed Mural Detail" className={styles.polaroidImg} />
             </div>
             {/* Card 4 */}
-            <div className={`${styles.polaroidCard} ${styles.card4}`}>
+            <div className={`${styles.polaroidCard} ${styles.card4} ${visibleCardIds.includes("card4") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_4} alt="Exhibition Artpiece" className={styles.polaroidImg} />
             </div>
             {/* Card 5 */}
-            <div className={`${styles.polaroidCard} ${styles.card5}`}>
+            <div className={`${styles.polaroidCard} ${styles.card5} ${visibleCardIds.includes("card5") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_5} alt="Traditional Motif Sketch" className={styles.polaroidImg} />
             </div>
             {/* Card 6 */}
-            <div className={`${styles.polaroidCard} ${styles.card6}`}>
+            <div className={`${styles.polaroidCard} ${styles.card6} ${visibleCardIds.includes("card6") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_6} alt="Vibrant Wall Art" className={styles.polaroidImg} />
             </div>
             {/* Card 7 */}
-            <div className={`${styles.polaroidCard} ${styles.card7}`}>
+            <div className={`${styles.polaroidCard} ${styles.card7} ${visibleCardIds.includes("card7") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_7} alt="Studio Showcase Detail" className={styles.polaroidImg} />
             </div>
             {/* Card 8 */}
-            <div className={`${styles.polaroidCard} ${styles.card8}`}>
+            <div className={`${styles.polaroidCard} ${styles.card8} ${visibleCardIds.includes("card8") ? styles.cardVisible : ""}`}>
               <img src={HERO_FLOATING_8} alt="Aesthetic Space Installation" className={styles.polaroidImg} />
             </div>
           </div>
 
           {/* Central Core Logo & Headers */}
-          <div className={styles.heroCore}>
+          <div className={`${styles.heroCore} ${isDispersed ? styles.heroCoreVisible : ""}`}>
             <div className={styles.logoAndMark}>
               <img src={PEACH_ICON_URL} alt="" className={styles.peachIcon} />
               <img src={PEACH_WORDMARK_URL} alt="The Peach Studio" className={styles.peachWordmark} />
@@ -190,7 +225,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
               <span className={styles.italicSerif}>memorable</span> spaces!
             </h1>
 
-            <div className={styles.heroOrnamentRow}>
+            <div className={`${styles.heroOrnamentRow} ${showScrollArrow && !hasScrolled ? styles.arrowVisible : styles.arrowHidden}`}>
               <img src={HERO_ORNAMENT} alt="" className={styles.heroOrnament} />
             </div>
           </div>
@@ -362,11 +397,26 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           <div className={styles.offeringsCol}>
             <h3 className={styles.offeringsHeader}>custom services</h3>
             <ul className={styles.offeringsList}>
-              <li>wall painting</li>
-              <li>installations</li>
-              <li>canvas painting</li>
-              <li>space design</li>
-              <li>storytelling</li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                wall painting
+              </li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                installations
+              </li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                canvas painting
+              </li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                space design
+              </li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                storytelling
+              </li>
             </ul>
           </div>
 
@@ -376,8 +426,14 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           <div className={styles.offeringsCol}>
             <h3 className={styles.offeringsHeader}>products</h3>
             <ul className={styles.offeringsList}>
-              <li>wallpapers</li>
-              <li>paintings</li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                wallpapers
+              </li>
+              <li>
+                <img src={OFFERINGS_BULLET_URL} alt="" className={styles.bulletIcon} />
+                paintings
+              </li>
             </ul>
           </div>
         </div>
@@ -504,8 +560,21 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
 
             {/* Wordmark Column */}
             <div className={styles.wordmarkCol}>
-              <img src={PEACH_ICON_LIGHT_URL} alt="" className={styles.footerWordmarkIcon} />
-              <img src={PEACH_WORDMARK_LIGHT_URL} alt="The Peach Studio" className={styles.footerWordmark} />
+              <div className={styles.footerLogoRow}>
+                <img src={PEACH_ICON_URL} alt="" className={styles.footerWordmarkIcon} />
+                <img src={PEACH_WORDMARK_URL} alt="The Peach Studio" className={styles.footerWordmark} />
+              </div>
+              
+              <div className={styles.metadataRow}>
+                <span className={styles.copyrightMark} aria-hidden="true">
+                  ©
+                </span>
+                <span>2026</span>
+                <div className={styles.metadataLabelSep} />
+                <span>The Peach Studio</span>
+                <div className={styles.metadataLabelSep} />
+                <span>All rights reserved</span>
+              </div>
             </div>
 
             {/* Contact Column */}
@@ -520,18 +589,6 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Copyright sits directly below the main row — no separator rule */}
-          <div className={styles.metadataRow}>
-            <span className={styles.copyrightMark} aria-hidden="true">
-              ©
-            </span>
-            <span>2026</span>
-            <div className={styles.metadataLabelSep} />
-            <span>The Peach Studio</span>
-            <div className={styles.metadataLabelSep} />
-            <span>All rights reserved</span>
           </div>
         </div>
       </footer>
