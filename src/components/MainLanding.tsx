@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { getAssetPath } from "@/utils/paths";
 import styles from "./MainLanding.module.css";
+import ProjectDetail from "./ProjectDetail";
 
 interface MainLandingProps {
   onStartConversation: () => void;
@@ -56,7 +58,7 @@ const PORTFOLIO_PROJECTS = [
   { id: "portrait-landscape", title: "a portrait of landscape", image: getAssetPath("/images/landing/portfolio-portrait-landscape.jpg") },
   { id: "maa-saraswati", title: "maa saraswati", image: getAssetPath("/images/landing/portfolio-maa-saraswati.jpg") },
   { id: "birdsong-october", title: "birdsong in october", image: getAssetPath("/images/landing/portfolio-birdsong-october.jpg") },
-  { id: "many-stories", title: "many stories, one city!", image: getAssetPath("/images/landing/portfolio-many-stories.png") },
+  { id: "many-stories", title: "many stories, one city!", image: getAssetPath("/images/landing/portfolio-many-stories.jpg") },
   { id: "tree-of-life", title: "tree of life", image: getAssetPath("/images/landing/portfolio-tree-of-life.jpg") },
   { id: "rituals-adornment", title: "rituals of adornment", image: getAssetPath("/images/landing/portfolio-rituals-adornment.jpg") },
 ];
@@ -82,6 +84,8 @@ const TESTIMONIALS = [
   }
 ];
 
+const CARD_SEQUENCE = ["card7", "card1", "card4", "card2", "card5", "card3", "card6", "card8"];
+
 interface Project {
   id: string;
   title: string;
@@ -95,17 +99,23 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [visibleCardIds, setVisibleCardIds] = useState<string[]>([]);
   const [isDispersed, setIsDispersed] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const [revealedSteps, setRevealedSteps] = useState(0);
+  const processRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     hoveredProjectRef.current = hoveredProject;
   }, [hoveredProject]);
 
   React.useEffect(() => {
+    setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
     // 1. Staggered fade-in of cards stacking in center
-    const cardSequence = ["card7", "card1", "card4", "card2", "card5", "card3", "card6", "card8"];
     const timers: NodeJS.Timeout[] = [];
 
-    cardSequence.forEach((cardId, index) => {
+    CARD_SEQUENCE.forEach((cardId, index) => {
       const timer = setTimeout(() => {
         setVisibleCardIds((prev) => [...prev, cardId]);
       }, index * 200);
@@ -171,6 +181,42 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (!isMounted) return;
+    
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            let count = 0;
+            const interval = setInterval(() => {
+              count += 1;
+              setRevealedSteps(count);
+              if (count >= 4) {
+                clearInterval(interval);
+              }
+            }, 300);
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.15 }
+      );
+
+      if (processRef.current) {
+        observer.observe(processRef.current);
+      }
+
+      return () => {
+        observer.disconnect();
+      };
+    } else {
+      // Fallback for environments without IntersectionObserver (e.g. Vitest JSDOM)
+      setTimeout(() => {
+        setRevealedSteps(4);
+      }, 0);
+    }
+  }, [isMounted]);
+
   return (
     <div className={styles.landingContainer}>
       {/* 1. HERO SECTION */}
@@ -179,35 +225,59 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           {/* Floating Polaroids Layout */}
           <div className={`${styles.floatingGrid} ${isDispersed ? styles.disperseGrid : ""}`}>
             {/* Card 1 */}
-            <div className={`${styles.polaroidCard} ${styles.card1} ${visibleCardIds.includes("card1") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card1} ${visibleCardIds.includes("card1") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card1") + 1 }}
+            >
               <img src={HERO_FLOATING_1} alt="Peach Studio Creation" className={styles.polaroidImg} />
             </div>
             {/* Card 2 */}
-            <div className={`${styles.polaroidCard} ${styles.card2} ${visibleCardIds.includes("card2") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card2} ${visibleCardIds.includes("card2") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card2") + 1 }}
+            >
               <img src={HERO_FLOATING_2} alt="Studio Sketchwork" className={styles.polaroidImg} />
             </div>
             {/* Card 3 */}
-            <div className={`${styles.polaroidCard} ${styles.card3} ${visibleCardIds.includes("card3") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card3} ${visibleCardIds.includes("card3") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card3") + 1 }}
+            >
               <img src={HERO_FLOATING_3} alt="Completed Mural Detail" className={styles.polaroidImg} />
             </div>
             {/* Card 4 */}
-            <div className={`${styles.polaroidCard} ${styles.card4} ${visibleCardIds.includes("card4") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card4} ${visibleCardIds.includes("card4") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card4") + 1 }}
+            >
               <img src={HERO_FLOATING_4} alt="Exhibition Artpiece" className={styles.polaroidImg} />
             </div>
             {/* Card 5 */}
-            <div className={`${styles.polaroidCard} ${styles.card5} ${visibleCardIds.includes("card5") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card5} ${visibleCardIds.includes("card5") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card5") + 1 }}
+            >
               <img src={HERO_FLOATING_5} alt="Traditional Motif Sketch" className={styles.polaroidImg} />
             </div>
             {/* Card 6 */}
-            <div className={`${styles.polaroidCard} ${styles.card6} ${visibleCardIds.includes("card6") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card6} ${visibleCardIds.includes("card6") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card6") + 1 }}
+            >
               <img src={HERO_FLOATING_6} alt="Vibrant Wall Art" className={styles.polaroidImg} />
             </div>
             {/* Card 7 */}
-            <div className={`${styles.polaroidCard} ${styles.card7} ${visibleCardIds.includes("card7") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card7} ${visibleCardIds.includes("card7") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card7") + 1 }}
+            >
               <img src={HERO_FLOATING_7} alt="Studio Showcase Detail" className={styles.polaroidImg} />
             </div>
             {/* Card 8 */}
-            <div className={`${styles.polaroidCard} ${styles.card8} ${visibleCardIds.includes("card8") ? styles.cardVisible : ""}`}>
+            <div 
+              className={`${styles.polaroidCard} ${styles.card8} ${visibleCardIds.includes("card8") ? styles.cardVisible : ""}`}
+              style={{ zIndex: CARD_SEQUENCE.indexOf("card8") + 1 }}
+            >
               <img src={HERO_FLOATING_8} alt="Aesthetic Space Installation" className={styles.polaroidImg} />
             </div>
           </div>
@@ -266,6 +336,15 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                 key={project.id} 
                 data-project-id={project.id}
                 className={`${styles.projectRow} ${isHovered ? styles.activeRow : ""}`}
+                onClick={() => setActiveProjectId(project.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveProjectId(project.id);
+                  }
+                }}
                 onMouseEnter={() => {
                   if (typeof window !== "undefined" && window.innerWidth > 1024) {
                     setHoveredProject(project);
@@ -281,9 +360,9 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                 <div 
                   className={styles.projectRowBgImg}
                   style={{
-                    backgroundImage: `linear-gradient(to right, rgba(0, 27, 46, 0.85) 15%, rgba(0, 27, 46, 0.25) 85%), url(${project.image})`,
+                    backgroundImage: `linear-gradient(to right, #001b2e 0%, rgba(0, 27, 46, 0) 46%), url(${project.image})`,
                     opacity: isHovered ? 1 : 0,
-                    transform: isHovered ? "scale(1.03)" : "scale(1)"
+                    transform: "scale(1)"
                   }}
                 />
 
@@ -309,7 +388,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
 
       {/* 3. PROCESS SECTION */}
       <section className={styles.processSection}>
-        <div className={styles.processContainer}>
+        <div className={styles.processContainer} ref={processRef}>
           <div className={styles.processHeader}>
             <span className={styles.processSubtitle}>our process</span>
             <h2 className={styles.processTitle}>
@@ -320,7 +399,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           {/* Staggered process steps layout */}
           <div className={styles.processGrid}>
             {/* Step 1 */}
-            <div className={styles.processStep}>
+            <div className={`${styles.processStep} ${(!isMounted || revealedSteps >= 1) ? styles.processStepVisible : ""}`}>
               <span className={styles.processNumber}>01</span>
               <div className={styles.processContentBox}>
                 <div className={styles.stepTitleRow}>
@@ -334,7 +413,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             </div>
 
             {/* Step 2 */}
-            <div className={styles.processStep}>
+            <div className={`${styles.processStep} ${(!isMounted || revealedSteps >= 2) ? styles.processStepVisible : ""}`}>
               <span className={styles.processNumber}>02</span>
               <div className={styles.processContentBox}>
                 <div className={styles.stepTitleRow}>
@@ -348,7 +427,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             </div>
 
             {/* Step 3 */}
-            <div className={styles.processStep}>
+            <div className={`${styles.processStep} ${(!isMounted || revealedSteps >= 3) ? styles.processStepVisible : ""}`}>
               <span className={styles.processNumber}>03</span>
               <div className={styles.processContentBox}>
                 <div className={styles.stepTitleRow}>
@@ -362,7 +441,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             </div>
 
             {/* Step 4 */}
-            <div className={styles.processStep}>
+            <div className={`${styles.processStep} ${(!isMounted || revealedSteps >= 4) ? styles.processStepVisible : ""}`}>
               <span className={styles.processNumber}>04</span>
               <div className={styles.processContentBox}>
                 <div className={styles.stepTitleRow}>
@@ -592,6 +671,13 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
           </div>
         </div>
       </footer>
+
+      {activeProjectId && (
+        <ProjectDetail 
+          projectId={activeProjectId} 
+          onClose={() => setActiveProjectId(null)} 
+        />
+      )}
     </div>
   );
 }

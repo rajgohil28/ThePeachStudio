@@ -501,7 +501,7 @@
   overflow: hidden;
   box-sizing: border-box;
   background-color: #fcf5f3;
-  transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .projectRowBgImg {
@@ -511,7 +511,7 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
-  transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -520,7 +520,7 @@
   inset: 0;
   background-color: #e9b6aa;
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   z-index: 1;
 }
 
@@ -549,7 +549,7 @@
   font-weight: 500;
   color: #114a6b;
   letter-spacing: -0.8px;
-  transition: color 0.3s ease;
+  transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   display: inline-block;
   line-height: 1;
 }
@@ -568,7 +568,7 @@
   color: #ffffff; /* Clean white for the link */
   text-decoration: underline;
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
 }
 
@@ -648,6 +648,14 @@
 .processStep {
   position: absolute;
   display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.processStepVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* left/top/width are % of the 1512x1068 frame */
@@ -880,10 +888,7 @@
 
 /* 5. TESTIMONIALS SECTION */
 .testimonialsSection {
-  width: 100%;
-  background-color: #ffffff;
-  padding: var(--space-huge) 0;
-  box-sizing: border-box;
+  display: none !important;
 }
 
 .testimonialsHeader {
@@ -1018,7 +1023,9 @@
   font-size: 23px;
   color: #114a6b;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: -4px; /* Figma: mb-[-4px] */
+  letter-spacing: -0.805px;
+  line-height: 1;
 }
 
 .teamTitle {
@@ -1027,14 +1034,16 @@
   font-weight: 600;
   color: #9e3f29;
   letter-spacing: -1.64px;
+  line-height: 0.92; /* Figma: leading-[0.92] */
   margin: 0;
 }
 
 .teamEmphasis {
   font-family: var(--font-serif);
-  font-size: var(--type-10);
+  font-size: 69px; /* Figma: text-[69px] */
   font-style: italic;
   font-weight: 500;
+  line-height: 0.92; /* Figma: leading-[0.92] */
 }
 
 .teamSubDesc {
@@ -1793,6 +1802,8 @@
   .teamSubtitle {
     font-size: 23px !important;
     margin-bottom: 4px !important;
+    letter-spacing: -0.665px !important;
+    line-height: 1 !important;
   }
 
   .teamTitle {

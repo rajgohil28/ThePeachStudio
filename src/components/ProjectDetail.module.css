@@ -1,0 +1,405 @@
+.projectMain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  overflow-y: auto;
+  z-index: 1100; /* High index to sit on top of the landing page */
+  color: #001b2e;
+  animation: slideInProject 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInProject {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.backButton {
+  position: fixed;
+  top: 48px;
+  right: max(48px, calc(10% + 24px));
+  z-index: 1200; /* Higher than projectMain */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.backButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+.backButton:active {
+  transform: translateY(0);
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 1008px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.01);
+}
+
+.heroOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(to top, rgba(0, 27, 46, 0.95) 0%, rgba(0, 27, 46, 0.6) 40%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding: 0 48px 64px 48px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.projectTitle {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-weight: 600;
+  font-size: clamp(48px, 6vw, 69px);
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1.38px;
+  text-transform: lowercase;
+}
+
+.projectSubtitle {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-weight: 600;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: #de9381;
+  margin: 4px 0 0 0;
+  line-height: normal;
+  letter-spacing: -0.98px;
+}
+
+/* Two column detail layout */
+.contentSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+  padding: 96px 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.leftContent {
+  flex: 1;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightContent {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quote {
+  font-family: var(--font-eb-garamond, "EB Garamond", serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 33px;
+  line-height: 1.25;
+  color: #001b2e;
+  margin: 0 0 32px 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+.description {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 1.45;
+  color: #001b2e;
+  margin: 0 0 48px 0;
+  text-align: justify;
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-size: 23px;
+  color: #de9381;
+  border-top: 1px solid rgba(222, 147, 129, 0.3);
+  padding-top: 32px;
+}
+
+.specs p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.specs strong {
+  font-weight: 600;
+}
+
+.focusImageContainer {
+  width: 100%;
+  max-width: 984px;
+  height: 720px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.focusImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Panoramic Context Banner */
+.immersiveSection {
+  width: 100%;
+  background-color: #fafafc;
+  padding: 64px 0;
+}
+
+.immersiveContainer {
+  width: 100%;
+  max-width: 1512px;
+  height: 829px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.immersiveImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gridSection {
+  padding: 64px 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.gridImageContainer {
+  height: 450px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Behind the scenes section with scrolling preview cards */
+.btsSection {
+  padding: 96px 48px 128px 48px;
+  background-color: #ffffff;
+}
+
+.btsHeading {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  font-weight: 500;
+  font-size: 24px;
+  color: #001b2e;
+  max-width: 1440px;
+  margin: 0 auto 40px auto;
+}
+
+.btsTickerContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Beautiful fading gradient overlays on left/right edges for a premium design effect */
+.btsTickerContainer::before,
+.btsTickerContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.btsTickerContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.btsTickerContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.btsTickerTrack {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: tickerScroll 40s linear infinite;
+  padding: 10px 0;
+}
+
+/* Interactivity: pause on hover so visitors can inspect photos in detail */
+.btsTickerTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* Translate exactly half of the total track width since it consists of two identical sets */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.btsCard {
+  flex: 0 0 336px;
+  height: 224px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.btsCard:hover {
+  transform: scale(1.02);
+}
+
+.btsImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .heroSection {
+    height: 700px;
+  }
+
+  .contentSection {
+    flex-direction: column;
+    gap: 48px;
+    padding: 64px 24px;
+  }
+
+  .leftContent {
+    max-width: 100%;
+  }
+
+  .rightContent {
+    justify-content: center;
+  }
+
+  .focusImageContainer {
+    height: 500px;
+  }
+
+  .immersiveContainer {
+    height: 500px;
+  }
+
+  .gridSection {
+    padding: 32px 24px;
+  }
+
+  .btsSection {
+    padding: 64px 24px 96px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 0 24px 48px 24px;
+  }
+
+  .backButton {
+    top: 24px;
+    right: 24px;
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .quote {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .specs {
+    font-size: 18px;
+  }
+
+  .focusImageContainer {
+    height: 350px;
+  }
+
+  .immersiveContainer {
+    height: 350px;
+  }
+
+  .gridImageContainer {
+    height: 300px;
+  }
+
+  .btsCard {
+    flex: 0 0 280px;
+    height: 187px;
+  }
+}

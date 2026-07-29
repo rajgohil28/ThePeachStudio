@@ -128,10 +128,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <div className={`${styles.modalOverlay} ${isOpen ? styles.overlayActive : ""}`} onClick={triggerClose}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         
-        {/* Tree sketch floating absolute on left */}
+        {/* Floating majestic tree sketch - fits perfectly on left side */}
         <img src={TREE_ILLUSTRATION_URL} alt="Majestic tree sketch" className={styles.treeImg} />
 
-        {/* Close Button top right */}
+        {/* Close button top right */}
         <button className={styles.closeButton} onClick={triggerClose} aria-label="Close form modal">
           <img src={CLOSE_ICON_URL} alt="Close button mark" className={styles.closeIconImg} />
         </button>
@@ -148,12 +148,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
         )}
 
-        {/* Form Block absolute on right */}
+        {/* Form Container - aligned exactly to the right as in Figma */}
         <div className={styles.formContainer}>
           {formState === "idle" || formState === "submitting" ? (
-            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+            <form id="contactForm" className={styles.form} onSubmit={handleSubmit} noValidate>
               
-              {/* Row 1: Your Name (exact Figma 393px width aligned right) */}
+              {/* Row 1: Your Name (asymmetric, 393px width, right-aligned) */}
               <div className={styles.nameRow}>
                 <div className={styles.nameFormGroup}>
                   <label htmlFor="name" className={styles.label}>Your Name</label>
@@ -170,77 +170,105 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
               </div>
 
-              {/* Row 2: Email & Phone */}
-              <div className={styles.rowInputs}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.label}>Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={styles.input}
-                    disabled={formState === "submitting"}
-                  />
-                  {errors.email && <span className={styles.errorText}>{errors.email}</span>}
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label htmlFor="phone" className={styles.label}>Phone Number (optional)</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className={styles.input}
-                    disabled={formState === "submitting"}
-                  />
-                </div>
-              </div>
-
-              {/* Row 3: You are a... */}
-              <div className={styles.formGroup}>
-                <span className={styles.label}>You are a...</span>
-                <div className={styles.radioContainer}>
-                  <div 
-                    className={`${styles.radioCard} ${formData.role === "professional" ? styles.radioCardActive : ""}`}
-                    onClick={() => formState !== "submitting" && handleRoleSelect("professional")}
-                  >
-                    <div className={styles.radioIconContainer}>
-                      <img 
-                        src={formData.role === "professional" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
-                        alt="" 
-                        className={styles.radioIcon} 
-                      />
-                    </div>
-                    <div className={styles.radioContent}>
-                      <span className={styles.radioTitle}>Professional</span>
-                      <span className={styles.radioDesc}>Architect, interior designer, or business owner</span>
-                    </div>
+              {/* Row 2: Email & Phone (520px total, right-aligned) */}
+              <div className={styles.rowInputsContainer}>
+                <div className={styles.rowInputs}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email" className={styles.label}>Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={styles.input}
+                      disabled={formState === "submitting"}
+                    />
+                    {errors.email && <span className={styles.errorText}>{errors.email}</span>}
                   </div>
 
-                  <div 
-                    className={`${styles.radioCard} ${formData.role === "homeowner" ? styles.radioCardActive : ""}`}
-                    onClick={() => formState !== "submitting" && handleRoleSelect("homeowner")}
-                  >
-                    <div className={styles.radioIconContainer}>
-                      <img 
-                        src={formData.role === "homeowner" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
-                        alt="" 
-                        className={styles.radioIcon} 
-                      />
-                    </div>
-                    <div className={styles.radioContent}>
-                      <span className={styles.radioTitle}>Homeowner</span>
-                      <span className={styles.radioDesc}>Looking to bring a story into your home.</span>
-                    </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="phone" className={styles.label}>Phone Number (optional)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className={styles.input}
+                      disabled={formState === "submitting"}
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Row 4: Imagining Textarea */}
+              {/* Row 3: You are a... (520px total, right-aligned) */}
+              <div className={styles.roleInputsContainer}>
+                <div className={styles.formGroup}>
+                  <span className={styles.label}>You are a...</span>
+                  <div className={styles.radioContainer}>
+                    
+                    {/* Professional card choice */}
+                    <div 
+                      className={`${styles.radioCard} ${formData.role === "professional" ? styles.radioCardActive : ""}`}
+                      onClick={() => formState !== "submitting" && handleRoleSelect("professional")}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          if (formState !== "submitting") {
+                            handleRoleSelect("professional");
+                          }
+                        }
+                      }}
+                    >
+                      <div className={styles.radioIconContainer}>
+                        <img 
+                          src={formData.role === "professional" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
+                          alt="" 
+                          className={styles.radioIcon} 
+                        />
+                      </div>
+                      <div className={styles.radioContent}>
+                        <span className={styles.radioTitle}>Professional</span>
+                        <span className={styles.radioDesc}>Architect, interior designer, or business owner</span>
+                      </div>
+                    </div>
+
+                    {/* Homeowner card choice */}
+                    <div 
+                      className={`${styles.radioCard} ${formData.role === "homeowner" ? styles.radioCardActive : ""}`}
+                      onClick={() => formState !== "submitting" && handleRoleSelect("homeowner")}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          if (formState !== "submitting") {
+                            handleRoleSelect("homeowner");
+                          }
+                        }
+                      }}
+                    >
+                      <div className={styles.radioIconContainer}>
+                        <img 
+                          src={formData.role === "homeowner" ? RADIO_CHECKED_URL : RADIO_UNCHECKED_URL} 
+                          alt="" 
+                          className={styles.radioIcon} 
+                        />
+                      </div>
+                      <div className={styles.radioContent}>
+                        <span className={styles.radioTitle}>Homeowner</span>
+                        <span className={styles.radioDesc}>Looking to bring a story into your home.</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 4: Imagining Textarea (full 544px width) */}
               <div className={styles.formGroup}>
                 <label htmlFor="message" className={styles.label}>Share what you’re imagining</label>
                 <textarea
@@ -254,16 +282,27 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 />
               </div>
 
-              {/* Row 5: File references */}
+              {/* Row 5: File references (full 544px width) */}
               <div className={styles.formGroup}>
                 <span className={styles.label}>Share a few visual references (optional)</span>
-                <div className={styles.uploadArea}>
+                <div 
+                  className={styles.uploadArea}
+                  onClick={() => fileInputRef.current?.click()}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      fileInputRef.current?.click();
+                    }
+                  }}
+                >
                   <div className={styles.uploadIcon}>
                     <img src={UPLOAD_ICON_URL} alt="Upload logo mark" className={styles.uploadIconImg} />
                   </div>
                   <div className={styles.uploadTextCol}>
                     <span className={styles.uploadTitle}>Photos, sketches, moodboards, floor plans, etc</span>
-                    <span className={styles.uploadDesc}>Up to 4 images · JPG, PNG, PDF · Max 10 MB each</span>
+                    <span className={styles.uploadDesc}>Up to 4 files · JPG, PNG, PDF · Max 10 MB each</span>
                   </div>
                   <input
                     type="file"
@@ -281,21 +320,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </span>
                 )}
                 {errors.file && <span className={styles.errorText}>{errors.file}</span>}
-              </div>
-
-              {/* Row 6: Submit actions (aligned to right side) */}
-              <div className={styles.submitBlock}>
-                <button 
-                  type="submit" 
-                  className={styles.submitButton}
-                  disabled={formState === "submitting"}
-                >
-                  <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
-                  {formState !== "submitting" && (
-                    <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
-                  )}
-                </button>
-                <span className={styles.submitCaption}>We&apos;ll review your brief and get back to you.</span>
               </div>
 
             </form>
@@ -330,39 +354,56 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </button>
             </div>
           )}
+        </div>
 
-          {/* Solid line divider */}
-          <div className={styles.divider} />
-
-          {/* Footer Contacts */}
-          <div className={styles.directContacts}>
-            <span className={styles.directTitle}>or get in touch directly</span>
-            
-            <div className={styles.directRow}>
-              {/* Phone item card */}
-              <a href="tel:+919217689001" className={styles.directLinkCard}>
-                <div className={styles.directIcon}>
-                  <img src={PHONE_ICON_URL} alt="Phone link logo" className={styles.directIconImg} />
-                </div>
-                <div className={styles.directTextCol}>
-                  <span className={styles.directValue}>+91 92176 89001</span>
-                  <span className={styles.directCaption}>Fastest.</span>
-                </div>
-              </a>
-
-              {/* Email item card */}
-              <a href="mailto:poorva.kelkar@gmail.com" className={styles.directLinkCard}>
-                <div className={styles.directIcon}>
-                  <img src={EMAIL_ICON_URL} alt="Email link logo" className={styles.directIconImg} />
-                </div>
-                <div className={styles.directTextCol}>
-                  <span className={styles.directValue}>poorva.kelkar@gmail.com</span>
-                  <span className={styles.directCaption}>Most Common.</span>
-                </div>
-              </a>
-            </div>
+        {/* Row 6: Submit actions (right-aligned absolute-positioned submitBlock) */}
+        {(formState === "idle" || formState === "submitting") && (
+          <div className={styles.submitBlock}>
+            <button 
+              type="submit" 
+              form="contactForm"
+              className={styles.submitButton}
+              disabled={formState === "submitting"}
+            >
+              <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
+              {formState !== "submitting" && (
+                <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
+              )}
+            </button>
+            <span className={styles.submitCaption}>We&apos;ll review your brief and get back to you.</span>
           </div>
+        )}
 
+        {/* Solid line divider */}
+        <div className={styles.divider} />
+
+        {/* Footer Contacts */}
+        <div className={styles.directContacts}>
+          <span className={styles.directTitle}>or get in touch directly</span>
+          
+          <div className={styles.directRow}>
+            {/* Phone item card */}
+            <a href="tel:+919217689001" className={styles.directLinkCard}>
+              <div className={styles.directIcon}>
+                <img src={PHONE_ICON_URL} alt="Phone link logo" className={styles.directIconImg} />
+              </div>
+              <div className={styles.directTextCol}>
+                <span className={styles.directValue}>+91 92176 89001</span>
+                <span className={styles.directCaption}>Fastest.</span>
+              </div>
+            </a>
+
+            {/* Email item card */}
+            <a href="mailto:poorva.kelkar@gmail.com" className={styles.directLinkCard}>
+              <div className={styles.directIcon}>
+                <img src={EMAIL_ICON_URL} alt="Email link logo" className={styles.directIconImg} />
+              </div>
+              <div className={styles.directTextCol}>
+                <span className={styles.directValue}>poorva.kelkar@gmail.com</span>
+                <span className={styles.directCaption}>Most Common.</span>
+              </div>
+            </a>
+          </div>
         </div>
 
       </div>
