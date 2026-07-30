@@ -204,7 +204,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
               {/* Row 3: You are a... (520px total, right-aligned) */}
               <div className={styles.roleInputsContainer}>
-                <div className={styles.formGroup}>
+                <div className={`${styles.formGroup} ${styles.roleFormGroup}`}>
                   <span className={styles.label}>You are a...</span>
                   <div className={styles.radioContainer}>
                     

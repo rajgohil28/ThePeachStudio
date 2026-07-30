@@ -19,6 +19,7 @@ const SPLASH_IMAGES = [
 const LOGO_ICON_URL = getAssetPath("/images/splash/logo-icon.svg"); // Component 25 (peach icon)
 const LOGO_WORDMARK_URL = getAssetPath("/images/splash/logo-wordmark.svg"); // Wordmark (the peach studio.)
 const PAINTBRUSH_ICON_URL = getAssetPath("/images/splash/paintbrush-icon.png"); // Paintbrush icon
+const CURSOR_ICON_URL = getAssetPath("/images/splash/touch-to-begin.svg"); // Custom cursor (touch to begin)
 
 export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProps) {
   // Initialize with the first image to allow synchronous rendering (crucial for SSR match and unit tests)
@@ -290,11 +291,15 @@ export default function SplashIntro({ onGetStarted, isExiting }: SplashIntroProp
         onTouchMove={handleTouchMove}
       />
 
-      {/* Custom circular paintbrush cursor tip */}
+      {/* Custom "touch to begin" paintbrush cursor */}
       {isHovering && (
         <div
           className={`${styles.customCursor} ${isClicking ? styles.customCursorActive : ""}`}
-          style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
+          style={{
+            left: `${cursorPos.x}px`,
+            top: `${cursorPos.y}px`,
+            "--cursor-url": `url(${CURSOR_ICON_URL})`,
+          } as React.CSSProperties}
         />
       )}
 

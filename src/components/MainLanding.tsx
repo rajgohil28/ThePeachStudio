@@ -36,7 +36,7 @@ const HERO_FLOATING_5 = getAssetPath("/images/landing/hero-floating-5.jpg");
 const HERO_FLOATING_6 = getAssetPath("/images/landing/hero-floating-6.jpg");
 const HERO_FLOATING_7 = getAssetPath("/images/landing/hero-floating-7.jpg");
 const HERO_FLOATING_8 = getAssetPath("/images/landing/hero-floating-8.jpg");
-const HERO_ORNAMENT = getAssetPath("/images/landing/hero-ornament.svg");
+const HERO_ORNAMENT = getAssetPath("/images/landing/scroll-arrow-animation.gif");
 const INTRO_SEP_1 = getAssetPath("/images/landing/intro-sep-1.svg");
 const INTRO_SEP_2 = getAssetPath("/images/landing/intro-sep-2.svg");
 const QUOTE_ICON = getAssetPath("/images/landing/quote-icon.svg");
@@ -130,11 +130,10 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
     }, 2000);
     timers.push(disperseTimer);
 
-    // Scroll arrow appears at a 3-4 second delay after the text has appeared.
-    // All animations complete and text finishes appearing by ~2.1s, so 5.5s total delay.
+    // Scroll arrow appears shortly after the text has appeared.
     const arrowTimer = setTimeout(() => {
       setShowScrollArrow(true);
-    }, 5500);
+    }, 2500);
     timers.push(arrowTimer);
 
     const handleScroll = () => {
@@ -298,7 +297,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
             </h1>
 
             <div className={`${styles.heroOrnamentRow} ${showScrollArrow && !hasScrolled ? styles.arrowVisible : styles.arrowHidden}`}>
-              <img src={HERO_ORNAMENT} alt="" className={styles.heroOrnament} />
+              <img src={HERO_ORNAMENT} alt="Scroll Indicator" className={styles.heroOrnament} />
             </div>
           </div>
         </div>
@@ -362,7 +361,7 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                 <div 
                   className={styles.projectRowBgImg}
                   style={{
-                    backgroundImage: `linear-gradient(to right, #001b2e 0%, rgba(0, 27, 46, 0) 46%), url(${project.image})`,
+                    backgroundImage: `linear-gradient(to right, #001b2e 0%, rgba(0, 27, 46, 0.95) 30%, rgba(0, 27, 46, 0) 75%), url(${project.image})`,
                     backgroundPosition: project.bgPosition || "center",
                     backgroundSize: project.bgSize || "cover",
                     opacity: isHovered ? 1 : 0,

@@ -224,21 +224,26 @@
   justify-content: flex-end;
 }
 
+.roleFormGroup {
+  width: 416px;
+}
+
 /* Radio Selection Container - 520px total width */
 .radioContainer {
   display: flex;
   gap: 16px;
-  width: 416px;
+  width: 100%;
 }
 
 /* Radio Card Choice - width 250px, height 75px, flex-row items-center */
 .radioCard {
   width: 200px;
-  height: 72px;
+  height: auto;
+  min-height: 75px;
   background-color: #fef9f6;
   border: 0.5px solid #de9381;
   border-radius: 8px;
-  padding: 12px;
+  padding: 12px 14px;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -706,14 +711,19 @@
     gap: 1.947cqw;
   }
 
+  .roleFormGroup {
+    width: 50.633cqw;
+  }
+
   .radioContainer {
     gap: 1.947cqw;
   }
 
   .radioCard {
     width: 24.343cqw;
-    height: 7.303cqw;
-    padding: 1.558cqw;
+    height: auto;
+    min-height: 7.303cqw;
+    padding: 1.168cqw 1.363cqw;
     gap: 0.876cqw;
     border-radius: 0.779cqw;
   }
@@ -905,6 +915,10 @@
 
   .roleInputsContainer {
     justify-content: flex-start !important;
+  }
+
+  .roleFormGroup {
+    width: 100% !important;
   }
 
   .radioContainer {
