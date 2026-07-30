@@ -46,9 +46,9 @@
 .treeImg {
   position: absolute;
   left: -1px;
-  top: 137px;
-  width: 502px;
-  height: 798px;
+  top: 110px;
+  width: 402px;
+  height: 638px;
   object-fit: contain;
   pointer-events: none;
   z-index: 1;
@@ -57,8 +57,8 @@
 /* Close button - Top Right */
 .closeButton {
   position: absolute;
-  top: 23px;
-  right: 33px;
+  top: 18px;
+  right: 26px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -81,9 +81,9 @@
 /* Title Block - Top Left - Exactly 451px wide with generous spacing */
 .header {
   position: absolute;
-  left: 47px;
-  top: 47px;
-  width: 451px;
+  left: 38px;
+  top: 38px;
+  width: 361px;
   z-index: 10;
   text-align: left;
 }
@@ -116,9 +116,9 @@
 /* Form Container - Exactly 544px wide right-aligned block matching Figma */
 .formContainer {
   position: absolute;
-  left: 434px;
-  top: 47px;
-  width: 544px;
+  left: 347px;
+  top: 38px;
+  width: 435px;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -150,7 +150,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 393px;
+  width: 314px;
 }
 
 /* Double column row container for email/phone to ensure perfect right-alignment */
@@ -163,9 +163,9 @@
 /* Double column row for Email/Phone - 520px total width */
 .rowInputs {
   display: grid;
-  grid-template-columns: 250px 250px;
-  gap: 20px;
-  width: 520px;
+  grid-template-columns: 200px 200px;
+  gap: 16px;
+  width: 416px;
 }
 
 /* Label - 16px Medium, deep blue, matching Figma spec */
@@ -227,18 +227,18 @@
 /* Radio Selection Container - 520px total width */
 .radioContainer {
   display: flex;
-  gap: 20px;
-  width: 520px;
+  gap: 16px;
+  width: 416px;
 }
 
 /* Radio Card Choice - width 250px, height 75px, flex-row items-center */
 .radioCard {
-  width: 250px;
-  height: 75px;
+  width: 200px;
+  height: 72px;
   background-color: #fef9f6;
   border: 0.5px solid #de9381;
   border-radius: 8px;
-  padding: 16px;
+  padding: 12px;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -389,10 +389,8 @@
 }
 
 .submitBlock {
-  position: absolute;
-  left: 648px;
-  top: 650px;
-  width: 330px;
+  position: relative;
+  width: 264px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -402,18 +400,18 @@
 .submitButton {
   background-color: #d47059;
   color: #ffffff;
-  height: 56px; /* Large, generous CTA button */
+  height: 46px; /* SNUG, premium CTA button height matching scaled modal */
   border-radius: 8px;
   font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.98px;
+  letter-spacing: -0.78px;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
   width: 100%;
   box-shadow: 0px 1px 10.45px 0px rgba(0, 0, 0, 0.03);
   transition: all 0.2s ease;
@@ -433,8 +431,8 @@
 }
 
 .submitArrow {
-  width: 34px;
-  height: 34px;
+  width: 27px;
+  height: 27px;
   object-fit: contain;
 }
 
@@ -449,9 +447,9 @@
 
 .divider {
   position: absolute;
-  left: 501px;
-  top: 751px;
-  width: 477px;
+  left: 401px;
+  top: 601px;
+  width: 382px;
   height: 1px;
   background-color: rgba(212, 112, 89, 0.15);
 }
@@ -459,9 +457,9 @@
 /* Direct Contacts Footer - Generous padding, right-aligned */
 .directContacts {
   position: absolute;
-  left: 491px;
-  top: 771px;
-  width: 487px;
+  left: 393px;
+  top: 617px;
+  width: 390px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -785,8 +783,6 @@
   }
 
   .submitBlock {
-    left: 63.096cqw;
-    top: 63.29cqw;
     width: 32.132cqw;
     gap: 0.779cqw;
   }

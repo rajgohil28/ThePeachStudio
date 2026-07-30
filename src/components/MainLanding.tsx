@@ -46,21 +46,21 @@ const PROCESS_DECOR_3 = getAssetPath("/images/landing/process-decor-3.svg");
 const PROCESS_DECOR_4 = getAssetPath("/images/landing/process-decor-4.svg");
 
 const PORTFOLIO_PROJECTS = [
-  { id: "sealink", title: "sealink", image: getAssetPath("/images/landing/portfolio-sealink.jpg") },
-  { id: "soul-of-konkan", title: "the soul of konkan", image: getAssetPath("/images/landing/portfolio-soul-of-konkan.jpg") },
-  { id: "strategy-meets-space", title: "where strategy meets space", image: getAssetPath("/images/landing/portfolio-strategy-meets-space.jpg") },
-  { id: "mumbai-in-pixels", title: "mumbai in pixels", image: getAssetPath("/images/landing/portfolio-mumbai-in-pixels.jpg") },
-  { id: "elephant-mandala", title: "the elephant mandala", image: getAssetPath("/images/landing/portfolio-elephant-mandala.jpg") },
-  { id: "palm-arc", title: "under the palm arc", image: getAssetPath("/images/landing/portfolio-palm-arc.jpg") },
-  { id: "bloomspace", title: "bloomspace", image: getAssetPath("/images/landing/portfolio-bloomspace.jpg") },
-  { id: "city-threshold", title: "a city of every threshold", image: getAssetPath("/images/landing/portfolio-city-threshold.jpg") },
-  { id: "strings-of-sound", title: "strings of sound made visible", image: getAssetPath("/images/landing/portfolio-strings-of-sound.jpg") },
-  { id: "portrait-landscape", title: "a portrait of landscape", image: getAssetPath("/images/landing/portfolio-portrait-landscape.jpg") },
-  { id: "maa-saraswati", title: "maa saraswati", image: getAssetPath("/images/landing/portfolio-maa-saraswati.jpg") },
-  { id: "birdsong-october", title: "birdsong in october", image: getAssetPath("/images/landing/portfolio-birdsong-october.jpg") },
-  { id: "many-stories", title: "many stories, one city!", image: getAssetPath("/images/landing/portfolio-many-stories.jpg") },
-  { id: "tree-of-life", title: "tree of life", image: getAssetPath("/images/landing/portfolio-tree-of-life.jpg") },
-  { id: "rituals-adornment", title: "rituals of adornment", image: getAssetPath("/images/landing/portfolio-rituals-adornment.jpg") },
+  { id: "sealink", title: "sealink", image: getAssetPath("/images/landing/portfolio-sealink.jpg"), bgPosition: "7% 44.3%", bgSize: "188.4% auto" },
+  { id: "soul-of-konkan", title: "the soul of konkan", image: getAssetPath("/images/landing/portfolio-soul-of-konkan.jpg"), bgPosition: "72.7% 47.7%", bgSize: "113.1% auto" },
+  { id: "strategy-meets-space", title: "where strategy meets space", image: getAssetPath("/images/landing/portfolio-strategy-meets-space.jpg"), bgPosition: "100% 76%", bgSize: "139.6% auto" },
+  { id: "mumbai-in-pixels", title: "mumbai in pixels", image: getAssetPath("/images/landing/portfolio-mumbai-in-pixels.jpg"), bgPosition: "45.3% 80.2%", bgSize: "158.7% auto" },
+  { id: "elephant-mandala", title: "the elephant mandala", image: getAssetPath("/images/landing/portfolio-elephant-mandala.jpg"), bgPosition: "50% 36.4%", bgSize: "155.6% auto" },
+  { id: "palm-arc", title: "under the palm arc", image: getAssetPath("/images/landing/portfolio-palm-arc.jpg"), bgPosition: "78.7% 25.6%", bgSize: "216.2% auto" },
+  { id: "bloomspace", title: "bloomspace", image: getAssetPath("/images/landing/portfolio-bloomspace.jpg"), bgPosition: "center 12.7%", bgSize: "100% auto" },
+  { id: "city-threshold", title: "a city of every threshold", image: getAssetPath("/images/landing/portfolio-city-threshold.jpg"), bgPosition: "50% 22.1%", bgSize: "165.2% auto" },
+  { id: "strings-of-sound", title: "strings of sound made visible", image: getAssetPath("/images/landing/portfolio-strings-of-sound.jpg"), bgPosition: "35.8% 58%", bgSize: "211.2% auto" },
+  { id: "portrait-landscape", title: "a portrait of landscape", image: getAssetPath("/images/landing/portfolio-portrait-landscape.jpg"), bgPosition: "0% 40.3%", bgSize: "120.1% auto" },
+  { id: "maa-saraswati", title: "maa saraswati", image: getAssetPath("/images/landing/portfolio-maa-saraswati.jpg"), bgPosition: "center 50%", bgSize: "100% auto" },
+  { id: "birdsong-october", title: "birdsong in october", image: getAssetPath("/images/landing/portfolio-birdsong-october.jpg"), bgPosition: "center 58.7%", bgSize: "100% auto" },
+  { id: "many-stories", title: "many stories, one city!", image: getAssetPath("/images/landing/portfolio-many-stories.jpg"), bgPosition: "center 33.3%", bgSize: "100% auto" },
+  { id: "tree-of-life", title: "tree of life", image: getAssetPath("/images/landing/portfolio-tree-of-life.jpg"), bgPosition: "center 50%", bgSize: "cover" },
+  { id: "rituals-adornment", title: "rituals of adornment", image: getAssetPath("/images/landing/portfolio-rituals-adornment.jpg"), bgPosition: "71.5% 15%", bgSize: "232.3% auto" },
 ];
 
 const TESTIMONIALS = [
@@ -90,6 +90,8 @@ interface Project {
   id: string;
   title: string;
   image: string;
+  bgPosition?: string;
+  bgSize?: string;
 }
 
 export default function MainLanding({ onStartConversation }: MainLandingProps) {
@@ -361,6 +363,8 @@ export default function MainLanding({ onStartConversation }: MainLandingProps) {
                   className={styles.projectRowBgImg}
                   style={{
                     backgroundImage: `linear-gradient(to right, #001b2e 0%, rgba(0, 27, 46, 0) 46%), url(${project.image})`,
+                    backgroundPosition: project.bgPosition || "center",
+                    backgroundSize: project.bgSize || "cover",
                     opacity: isHovered ? 1 : 0,
                     transform: "scale(1)"
                   }}

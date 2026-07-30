@@ -1,0 +1,391 @@
+/* [project]/Documents/GitHub/ThePeachStudio/src/components/ProjectDetail.module.css [app-client] (css) */
+.ProjectDetail-module__krAfIq__projectMain {
+  z-index: 1100;
+  color: #001b2e;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  animation: .35s cubic-bezier(.16, 1, .3, 1) forwards ProjectDetail-module__krAfIq__slideInProject;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+}
+
+@keyframes ProjectDetail-module__krAfIq__slideInProject {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ProjectDetail-module__krAfIq__backButton {
+  z-index: 1200;
+  color: #fff;
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: #00000080;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color .3s, transform .2s;
+  position: fixed;
+  top: 48px;
+  right: max(48px, 10% + 24px);
+}
+
+.ProjectDetail-module__krAfIq__backButton:hover {
+  background-color: #000c;
+  transform: translateY(-2px);
+}
+
+.ProjectDetail-module__krAfIq__backButton:active {
+  transform: translateY(0);
+}
+
+.ProjectDetail-module__krAfIq__heroSection {
+  align-items: flex-end;
+  width: 100%;
+  height: 1008px;
+  max-height: 90vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.ProjectDetail-module__krAfIq__heroBackground {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.01);
+}
+
+.ProjectDetail-module__krAfIq__heroOverlay {
+  z-index: 2;
+  background: linear-gradient(to top, #001b2ef2 0%, #001b2e99 40%, #0000 100%);
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.ProjectDetail-module__krAfIq__heroContent {
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px 64px;
+  position: relative;
+}
+
+.ProjectDetail-module__krAfIq__projectTitle {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  color: #fff;
+  letter-spacing: -1.38px;
+  text-transform: lowercase;
+  margin: 0;
+  font-size: clamp(48px, 6vw, 69px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.ProjectDetail-module__krAfIq__projectSubtitle {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  color: #de9381;
+  letter-spacing: -.98px;
+  margin: 4px 0 0;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  line-height: normal;
+}
+
+.ProjectDetail-module__krAfIq__contentSection {
+  justify-content: space-between;
+  gap: 64px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 48px;
+  display: flex;
+}
+
+.ProjectDetail-module__krAfIq__leftContent {
+  flex-direction: column;
+  flex: 1;
+  max-width: 550px;
+  display: flex;
+}
+
+.ProjectDetail-module__krAfIq__rightContent {
+  flex: 1.2;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.ProjectDetail-module__krAfIq__quote {
+  font-family: var(--font-eb-garamond, "EB Garamond", serif);
+  color: #001b2e;
+  border-left: none;
+  margin: 0 0 32px;
+  padding-left: 0;
+  font-size: 33px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.ProjectDetail-module__krAfIq__description {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  color: #001b2e;
+  text-align: justify;
+  margin: 0 0 48px;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.ProjectDetail-module__krAfIq__specs {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  color: #de9381;
+  border-top: 1px solid #de93814d;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 32px;
+  font-size: 23px;
+  display: flex;
+}
+
+.ProjectDetail-module__krAfIq__specs p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ProjectDetail-module__krAfIq__specs strong {
+  font-weight: 600;
+}
+
+.ProjectDetail-module__krAfIq__focusImageContainer {
+  border-radius: 4px;
+  width: 100%;
+  max-width: 984px;
+  height: 720px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px #00000014;
+}
+
+.ProjectDetail-module__krAfIq__focusImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ProjectDetail-module__krAfIq__immersiveSection {
+  background-color: #fafafc;
+  width: 100%;
+  padding: 64px 0;
+}
+
+.ProjectDetail-module__krAfIq__immersiveContainer {
+  width: 100%;
+  max-width: 1512px;
+  height: 829px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 4px 20px #0000000a;
+}
+
+.ProjectDetail-module__krAfIq__immersiveImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ProjectDetail-module__krAfIq__gridSection {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+.ProjectDetail-module__krAfIq__imageGrid {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  display: grid;
+}
+
+.ProjectDetail-module__krAfIq__gridImageContainer {
+  border-radius: 4px;
+  height: 450px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px #0000000f;
+}
+
+.ProjectDetail-module__krAfIq__gridImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ProjectDetail-module__krAfIq__btsSection {
+  background-color: #fff;
+  padding: 96px 48px 128px;
+}
+
+.ProjectDetail-module__krAfIq__btsHeading {
+  font-family: var(--font-rethink-sans, "Rethink Sans", sans-serif);
+  color: #001b2e;
+  max-width: 1440px;
+  margin: 0 auto 40px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerContainer:before, .ProjectDetail-module__krAfIq__btsTickerContainer:after {
+  content: "";
+  z-index: 2;
+  pointer-events: none;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerContainer:before {
+  background: linear-gradient(to right, #fff, #0000);
+  left: 0;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerContainer:after {
+  background: linear-gradient(to left, #fff, #0000);
+  right: 0;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerTrack {
+  gap: 24px;
+  width: max-content;
+  padding: 10px 0;
+  animation: 40s linear infinite ProjectDetail-module__krAfIq__tickerScroll;
+  display: flex;
+}
+
+.ProjectDetail-module__krAfIq__btsTickerTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ProjectDetail-module__krAfIq__tickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.ProjectDetail-module__krAfIq__btsCard {
+  background-color: #d9d9d9;
+  border-radius: 4px;
+  flex: 0 0 336px;
+  height: 224px;
+  transition: transform .2s;
+  overflow: hidden;
+  box-shadow: 0 4px 12px #0000000d;
+}
+
+.ProjectDetail-module__krAfIq__btsCard:hover {
+  transform: scale(1.02);
+}
+
+.ProjectDetail-module__krAfIq__btsImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .ProjectDetail-module__krAfIq__heroSection {
+    height: 700px;
+  }
+
+  .ProjectDetail-module__krAfIq__contentSection {
+    flex-direction: column;
+    gap: 48px;
+    padding: 64px 24px;
+  }
+
+  .ProjectDetail-module__krAfIq__leftContent {
+    max-width: 100%;
+  }
+
+  .ProjectDetail-module__krAfIq__rightContent {
+    justify-content: center;
+  }
+
+  .ProjectDetail-module__krAfIq__focusImageContainer, .ProjectDetail-module__krAfIq__immersiveContainer {
+    height: 500px;
+  }
+
+  .ProjectDetail-module__krAfIq__gridSection {
+    padding: 32px 24px;
+  }
+
+  .ProjectDetail-module__krAfIq__btsSection {
+    padding: 64px 24px 96px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ProjectDetail-module__krAfIq__heroContent {
+    padding: 0 24px 48px;
+  }
+
+  .ProjectDetail-module__krAfIq__backButton {
+    padding: 6px 14px;
+    font-size: 14px;
+    top: 24px;
+    right: 24px;
+  }
+
+  .ProjectDetail-module__krAfIq__quote {
+    font-size: 26px;
+  }
+
+  .ProjectDetail-module__krAfIq__description, .ProjectDetail-module__krAfIq__specs {
+    font-size: 18px;
+  }
+
+  .ProjectDetail-module__krAfIq__focusImageContainer, .ProjectDetail-module__krAfIq__immersiveContainer {
+    height: 350px;
+  }
+
+  .ProjectDetail-module__krAfIq__gridImageContainer {
+    height: 300px;
+  }
+
+  .ProjectDetail-module__krAfIq__btsCard {
+    flex: 0 0 280px;
+    height: 187px;
+  }
+}
+
+/*# sourceMappingURL=Documents_GitHub_ThePeachStudio_src_components_ProjectDetail_module_css_1igg3k2._.single.css.map*/

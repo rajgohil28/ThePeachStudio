@@ -322,6 +322,23 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 {errors.file && <span className={styles.errorText}>{errors.file}</span>}
               </div>
 
+              {/* Row 6: Submit actions (right-aligned inside form column flow) */}
+              <div className={styles.submitRowBlock}>
+                <div className={styles.submitBlock}>
+                  <button 
+                    type="submit" 
+                    className={styles.submitButton}
+                    disabled={formState === "submitting"}
+                  >
+                    <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
+                    {formState !== "submitting" && (
+                      <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
+                    )}
+                  </button>
+                  <span className={styles.submitCaption}>We&apos;ll review your brief and get back to you.</span>
+                </div>
+              </div>
+
             </form>
           ) : formState === "success" ? (
             /* Success confirmation card screen */
@@ -355,24 +372,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
           )}
         </div>
-
-        {/* Row 6: Submit actions (right-aligned absolute-positioned submitBlock) */}
-        {(formState === "idle" || formState === "submitting") && (
-          <div className={styles.submitBlock}>
-            <button 
-              type="submit" 
-              form="contactForm"
-              className={styles.submitButton}
-              disabled={formState === "submitting"}
-            >
-              <span>{formState === "submitting" ? "Submitting..." : "Submit"}</span>
-              {formState !== "submitting" && (
-                <img src={SUBMIT_ARROW_URL} alt="Submit Arrow" className={styles.submitArrow} />
-              )}
-            </button>
-            <span className={styles.submitCaption}>We&apos;ll review your brief and get back to you.</span>
-          </div>
-        )}
 
         {/* Solid line divider */}
         <div className={styles.divider} />

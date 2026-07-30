@@ -536,7 +536,7 @@
 }
 
 .projectTitleContainer {
-  max-width: 256px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -550,8 +550,11 @@
   color: #114a6b;
   letter-spacing: -0.8px;
   transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  display: inline-block;
-  line-height: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.1;
 }
 
 /* Keyed off .activeRow, not :hover — on touch devices there is no hover, so a
@@ -2104,7 +2107,7 @@
   }
 
   .projectTitleContainer {
-    max-width: 240px !important;
+    max-width: calc(100% - 48px) !important;
     gap: 6px !important;
   }
 
